@@ -23,6 +23,7 @@ in {
       grimblast = "${
           inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
         }/bin/grimblast";
+      hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
       pactl = "${pkgs.pulseaudio}/bin/pactl";
       swaylock = "${config.programs.swaylock.package}/bin/swaylock";
       terminal = "${config.programs.alacritty.package}/bin/alacritty";
@@ -38,15 +39,15 @@ in {
       "SUPER,e,exec,${terminal} -e neomutt"
 
       # launcher rofi
-      # TODO: modi doesn't work when specifying binary location of rofi
+      # TODO: doesn't work when specifying rofi binary
       "SUPER,o,exec,rofi -show drun"
       "SUPER,p,exec,rofi -show powermenu -modi powermenu:rofi-power-menu"
       "SUPERSHIFT,p,exec,rofi-pass"
-      "SUPER,c,exec,rofi -show calc -modi calc"
+      "SUPER,c,exec,rofi -show calc"
 
-      # config reloads (waybar has to be restarted for correct workspaces) 
-      "SUPER,r,exec,hyprctl reload & systemctl --user restart waybar.service"
-      "SUPERSHIFT,k,exec,kanshi reload & systemctl --user restart waybar.service"
+      # config reloads (waybar has to be restarted to reload workspaces correctly) 
+      "SUPER,r,exec,${hyprctl} reload & systemctl --user restart waybar.service"
+      "SUPERSHIFT,r,exec,systemctl --user restart kanshi.service & systemctl --user restart waybar.service"
 
       # screen lock
       "SUPER,backspace,exec,${swaylock}"
