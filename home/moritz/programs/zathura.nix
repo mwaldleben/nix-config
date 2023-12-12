@@ -14,7 +14,7 @@ in {
       "<C-Space>" = "navigate previous";
     };
     extraConfig = ''
-      # Addapted from https://github.com/catppuccin/zathura
+      # addapted from https://github.com/catppuccin/zathura
       set default-fg                "#${colors.base05}"
       set default-bg 			          "#${colors.base00}"
       set completion-bg		          "#${colors.base01}"

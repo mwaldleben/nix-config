@@ -30,7 +30,7 @@ in {
         size = 13;
       };
       env.TERM = "xterm-256color";
-      # Addapted from https://github.com/catppuccin/alacritty
+      # addapted from https://github.com/catppuccin/alacritty
       colors = {
         primary = {
           background = "#${colors.base00}";
