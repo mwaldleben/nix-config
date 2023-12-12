@@ -31,6 +31,7 @@
     nodejs
     openjdk
     texlive.combined.scheme-full
+    urlscan
     wl-clipboard
 
     # language servers
