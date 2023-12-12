@@ -9,7 +9,7 @@
       ll = "ls -l --color=auto";
       vim = "nvim";
       zathura = "zathura --fork > /dev/null 2>&1";
-      no = "nixos-rebuild --flake . switch";
+      no = "sudo nixos-rebuild --flake . switch";
       hm = "home-manager --flake . switch";
       H = "Hyprland";
     };
