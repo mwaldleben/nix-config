@@ -44,7 +44,7 @@ in {
         enabled = true;
         margin = mkLiteral "0px";
         padding = mkLiteral "0px";
-        border = mkLiteral "1px solid";
+        border = mkLiteral "2px solid";
         border-radius = mkLiteral "8px";
         border-color = mkLiteral "@selected";
         background-color = mkLiteral "@background";
