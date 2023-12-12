@@ -27,15 +27,21 @@ in {
           expunge = "both";
         };
         msmtp.enable = true;
-        # folders = {
-        #   inbox = "inbox";
-        #   drafts = "drafts";
-        #   sent = "sent";
-        #   trash = "trash";
-        # };
         neomutt = {
           enable = true;
-          extraMailboxes = [ "Drafts" "Sent" ];
+          extraMailboxes = [
+            "Drafts"
+            "Sent"
+            "Spam"
+            "Trash"
+            "Archives"
+            "c"
+            "j"
+            "o"
+            "r"
+            "s"
+            "u"
+          ];
         };
       };
     };
