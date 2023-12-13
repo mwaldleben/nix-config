@@ -34,7 +34,7 @@
       videos = "${config.home.homeDirectory}/downloads";
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/downloads";
-        XDG_DATA_HOME = "${config.home.homeDirectory}/.locale/share";
+        XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
       };
     };
   };
