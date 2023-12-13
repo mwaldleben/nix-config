@@ -34,6 +34,9 @@
     urlscan
     wl-clipboard
 
+    # personal scripts (pkgs directory)
+    backup
+
     # language servers
     lua-language-server
     stylua
