@@ -16,7 +16,7 @@ in {
     settings = {
       mailcap_path = "${config.home.homeDirectory}/.config/neomutt/mailcap";
       editor = ''
-        "${nvim} -c 'set spell spelllang=de,en_us fo+=aw'"''; # add spell-checking and text-flowed
+        "${nvim} -c 'set spell spelllang=de_ch,en_us fo+=aw'"''; # add spell-checking and text-flowed
       fast_reply = "yes";
       fcc_attach = "yes";
       forward_quote = "yes";
@@ -117,11 +117,6 @@ in {
       }
     ];
     extraConfig = ''
-      # auto views
-      auto_view text/html
-      unalternative_order text/enriched text/plain text # remove home-manager default
-      alternative_order text/html text/plain text
-
       # binding overrides (changes for default vim bindings of home-manager)
       unbind i
       bind index h noop
