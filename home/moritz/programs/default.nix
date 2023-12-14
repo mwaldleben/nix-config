@@ -9,6 +9,7 @@
     ./neomutt.nix
     ./pass.nix
     ./rofi.nix
+    ./ssh.nix
     ./swaylock.nix
     ./tmux.nix
     ./waybar.nix
