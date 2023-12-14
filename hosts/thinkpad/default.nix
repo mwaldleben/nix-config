@@ -5,6 +5,7 @@
     ../common/audio.nix
     ../common/blueman.nix
     ../common/dconf.nix
+    ../common/impermanence.nix
     ../common/locale.nix
     ../common/networking.nix
     ../common/nix.nix
@@ -15,6 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     e2fsprogs # mkfs program
+    git
     gcc
     htop
     neovim
