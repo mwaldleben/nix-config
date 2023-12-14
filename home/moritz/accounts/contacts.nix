@@ -4,17 +4,22 @@ in {
   accounts.contact = {
     accounts = {
       personal = {
-        vdirsyncer.enable = true;
+        vdirsyncer = { enable = true; };
         khard.enable = true;
-        local.path = "~/contacts";
+        local = {
+          path = "~/contacts";
+          type = "filesystem";
+          fileExt = ".vcf";
+        };
         remote = {
           type = "carddav";
-          url = "https://sync.infomaniak.com/";
-          address = "moritz@waldleben.ch";
-          userName = "moritz@waldleben.ch";
-          passwordCommand = "${pass} show infomaniak.com/${userName}";
+          # TODO: waiting for https://github.com/nix-community/home-manager/issues/4399 to keep url secret
+          # url = "";
+          # userName = "";
+          # passwordCommand = [ ];
         };
       };
     };
   };
+  programs.vdirsyncer = { enable = true; };
 }
