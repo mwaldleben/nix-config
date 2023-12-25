@@ -20,6 +20,10 @@
     users.moritz = import ../../home/moritz/thinkpad.nix;
   };
 
+  # TODO: Use hashed passwords
+  users.users.root.password = "test";
+  users.mutableUsers = false;
+
   environment.systemPackages = with pkgs; [
     e2fsprogs # mkfs program
     git

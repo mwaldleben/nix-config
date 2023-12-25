@@ -4,6 +4,7 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     packages = [ pkgs.home-manager ];
+    password = "test";
   };
 
   # no password for sudo commands
