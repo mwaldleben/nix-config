@@ -8,6 +8,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
     settings = {
       exec-once = [ "${pkgs.hyprpaper}/bin/hyprpaper" ];
       general = {
