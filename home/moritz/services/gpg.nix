@@ -4,6 +4,6 @@
     enable = true;
     defaultCacheTtl = 21600;
     maxCacheTtl = 21600;
-    pinentryFlavor = "gtk2";
+    pinentryFlavor = "qt";
   };
 }

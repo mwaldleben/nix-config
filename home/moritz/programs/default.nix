@@ -9,6 +9,7 @@
     ./khard.nix
     ./neomutt.nix
     ./pass.nix
+    ./qt.nix
     ./rofi.nix
     ./ssh.nix
     ./swaylock.nix
