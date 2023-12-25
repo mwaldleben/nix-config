@@ -4,54 +4,55 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-  boot.initrd.availableKernelModules =
-    [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /mnt
     mount -t btrfs /dev/mapper/enc /mnt
-    btrfs subvolume delete /mnt/root
+
+    echo "Cleaning root subvolume"
+    btrfs subvolume list -o "/mnt/root" | cut -f9 -d ' ' |
+    while read -r subvolume; do
+      btrfs subvolume delete "/mnt/$subvolume"
+      done && btrfs subvolume delete /mnt/root
+
+    echo "Restoring blank subvolume"
     btrfs subvolume snapshot /mnt/root-blank /mnt/root
   '';
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/73dc5a21-bcb9-4bce-adc3-a38c46aef2f7";
-    fsType = "btrfs";
-    options = [ "subvol=root" ];
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
+      fsType = "btrfs";
+      options = [ "subvol=root,compress=zstd" ];
+    };
 
-  boot.initrd.luks.devices."enc".device =
-    "/dev/disk/by-uuid/f0580d05-b36e-4289-aacc-2ae740a2cd55";
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/f4f9be21-c334-4335-8442-29d84c53fd5b";
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/73dc5a21-bcb9-4bce-adc3-a38c46aef2f7";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
-  };
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
+      fsType = "btrfs";
+      options = [ "subvol=nix,compress=zstd,noatime" ];
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/73dc5a21-bcb9-4bce-adc3-a38c46aef2f7";
-    fsType = "btrfs";
-    options = [ "subvol=home" ];
-  };
+  fileSystems."/persist" =
+    { device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
+      fsType = "btrfs";
+      options = [ "subvol=persist,compress=zstd" ];
+      neededForBoot = true;
+    };
 
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/73dc5a21-bcb9-4bce-adc3-a38c46aef2f7";
-    fsType = "btrfs";
-    options = [ "subvol=persist" ];
-    neededForBoot = true;
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/A871-EA0F";
+      fsType = "vfat";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/9201-69C2";
-    fsType = "vfat";
-  };
-
-  swapDevices = [{ device = "/swap/swapfile"; }];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -63,6 +64,5 @@
   # networking.interfaces.wwp0s20u4.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
