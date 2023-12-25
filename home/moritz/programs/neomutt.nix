@@ -16,7 +16,9 @@ in {
     settings = {
       mailcap_path = "${config.home.homeDirectory}/.config/neomutt/mailcap";
       editor = ''
-        "${nvim} -c 'set spell spelllang=de_ch,en_us fo+=aw'"''; # add spell-checking and text-flowed
+        "${nvim} -c 'set fo+=aw'"''; # add text-flowed
+      confirm_append = "no";
+      confirm_create = "no";
       fast_reply = "yes";
       fcc_attach = "yes";
       forward_quote = "yes";
@@ -27,6 +29,7 @@ in {
       markers = "no";
       mime_forward = "yes";
       query_command = ''"khard email --parsable '%s'"'';
+      quit = "ask-yes";
       reverse_name = "yes";
       sleep_time = "0";
       text_flowed = "yes";
