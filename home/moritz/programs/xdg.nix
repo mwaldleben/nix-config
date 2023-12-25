@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -39,4 +39,5 @@
     };
   };
 
+  home.packages = [ pkgs.xdg-utils ];
 }
