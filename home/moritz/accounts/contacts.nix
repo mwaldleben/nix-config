@@ -6,6 +6,7 @@ in {
       personal = {
         vdirsyncer = { enable = true; };
         khard.enable = true;
+        khal.enable = true;
         local = {
           path = "~/contacts";
           type = "filesystem";
@@ -21,5 +22,4 @@ in {
       };
     };
   };
-  programs.vdirsyncer = { enable = true; };
 }

@@ -5,6 +5,7 @@
     ./git.nix
     ./gtk.nix
     ./imv.nix
+    ./khal.nix
     ./khard.nix
     ./neomutt.nix
     ./pass.nix
