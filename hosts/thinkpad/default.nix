@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{ inputs, outputs, pkgs, ... }: {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-
     ../common/audio.nix
     ../common/blueman.nix
     ../common/dconf.nix
@@ -14,6 +14,11 @@
     ../common/udisks2.nix
     ../common/users/moritz
   ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users.moritz = import ../../home/moritz/thinkpad.nix;
+  };
 
   environment.systemPackages = with pkgs; [
     e2fsprogs # mkfs program
