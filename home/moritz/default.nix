@@ -1,5 +1,5 @@
 { inputs, outputs, config, ... }: {
-  imports = [ 
+  imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.nix-colors.homeManagerModule
   ] ++ (builtins.attrValues outputs.homeManagerModules);

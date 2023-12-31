@@ -58,6 +58,7 @@
   };
 
   home.persistence = {
-    "/persist/home/${config.home.username}".directories = [ ".mozilla/firefox" ];
+    "/persist/home/${config.home.username}".directories =
+      [ ".mozilla/firefox" ];
   };
 }

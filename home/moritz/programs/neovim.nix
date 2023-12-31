@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{
+{ config, pkgs, ... }: {
   # neovim config is handled in a seperate repo:
   # github.com/morwald:nvim.git
   home.packages = [ pkgs.neovim ];

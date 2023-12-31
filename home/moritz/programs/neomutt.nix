@@ -15,8 +15,7 @@ in {
     };
     settings = {
       mailcap_path = "${config.home.homeDirectory}/.config/neomutt/mailcap";
-      editor = ''
-        "${nvim} -c 'set fo+=aw'"''; # add text-flowed
+      editor = ''"${nvim} -c 'set fo+=aw'"''; # add text-flowed
       confirm_append = "no";
       confirm_create = "no";
       fast_reply = "yes";

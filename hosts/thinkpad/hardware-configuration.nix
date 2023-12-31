@@ -4,11 +4,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /mnt
@@ -26,31 +25,32 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
-      fsType = "btrfs";
-      options = [ "subvol=root,compress=zstd" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
+    fsType = "btrfs";
+    options = [ "subvol=root,compress=zstd" ];
+  };
 
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/f4f9be21-c334-4335-8442-29d84c53fd5b";
+  boot.initrd.luks.devices."enc".device =
+    "/dev/disk/by-uuid/f4f9be21-c334-4335-8442-29d84c53fd5b";
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
-      fsType = "btrfs";
-      options = [ "subvol=nix,compress=zstd,noatime" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
+    fsType = "btrfs";
+    options = [ "subvol=nix,compress=zstd,noatime" ];
+  };
 
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
-      fsType = "btrfs";
-      options = [ "subvol=persist,compress=zstd" ];
-      neededForBoot = true;
-    };
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
+    fsType = "btrfs";
+    options = [ "subvol=persist,compress=zstd" ];
+    neededForBoot = true;
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A871-EA0F";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A871-EA0F";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -64,5 +64,6 @@
   # networking.interfaces.wwp0s20u4.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
