@@ -8,6 +8,7 @@
     ./khal.nix
     ./khard.nix
     ./neomutt.nix
+    ./neovim.nix
     ./pass.nix
     ./qt.nix
     ./rofi.nix

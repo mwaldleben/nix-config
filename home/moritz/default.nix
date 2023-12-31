@@ -24,14 +24,6 @@
           "pictures"
           "projs"
           ".local"
-          ".config/nvim"
-          ".mozilla"
-          ".ssh"
-          ".gnupg"
-	        ".password-store"
-        ];
-        files = [
-          ".config/zsh/history"
         ];
         allowOther = true;
       };

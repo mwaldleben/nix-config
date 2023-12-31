@@ -1,4 +1,4 @@
-{
+{ config, ... }:{
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -32,5 +32,9 @@
       bindkey "^p" history-beginning-search-backward
       bindkey "^n" history-beginning-search-forward
     '';
+  };
+
+  home.persistence = {
+    "/persist/home/${config.home.username}".files = [ ".config/zsh/history" ];
   };
 }
