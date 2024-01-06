@@ -171,6 +171,7 @@ in {
   };
   xdg.configFile."neomutt/mailcap".text = ''
     text/html; firefox --new-window %s & sleep 2; test=test -n "$DISPLAY"; nametemplate=%s.html; copiousoutput;
+    text/calendar; khal import %s;
     image/*; imv %s;
     video/*; mpv %s;
     audio/*; mpv %s;
