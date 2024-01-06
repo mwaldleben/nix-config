@@ -19,6 +19,7 @@
           "contacts"
           "downloads"
           "mail"
+          "music"
           "nixos"
           "notes"
           "pictures"
