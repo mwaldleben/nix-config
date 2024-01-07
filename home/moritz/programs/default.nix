@@ -28,6 +28,7 @@
     darktable
     inkscape
     mpv
+    picard
 
     # cli and utils
     brightnessctl
@@ -37,6 +38,7 @@
     openjdk
     texlive.combined.scheme-full
     urlscan
+    youtube-dl
     wl-clipboard
 
     # personal scripts (pkgs directory)
