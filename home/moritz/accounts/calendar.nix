@@ -8,9 +8,9 @@ in {
         vdirsyncer = { enable = true; };
         khal.enable = true;
         local = {
-          path = "~/calendar";
+          path = "~/.calendar";
           type = "filesystem";
-          fileExt = ".ics"; 
+          fileExt = ".ics";
         };
         remote = {
           type = "caldav";

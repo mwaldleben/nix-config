@@ -6,7 +6,7 @@
 
     [[calendar]]
     color = dark blue
-    path = ~/calendar
+    path = ~/.calendar
     type = calendar 
 
     [default]

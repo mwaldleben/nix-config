@@ -15,16 +15,16 @@
     persistence = {
       "/persist/home/${config.home.username}" = {
         directories = [
-          "calendar"
-          "contacts"
           "downloads"
-          "mail"
           "music"
           "nixos"
           "notes"
           "pictures"
           "projs"
+          ".calendar"
+          ".contacts"
           ".local"
+          ".mail"
         ];
         allowOther = true;
       };

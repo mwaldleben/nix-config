@@ -8,7 +8,7 @@ in {
         khard.enable = true;
         khal.enable = true;
         local = {
-          path = "~/contacts";
+          path = "~/.contacts";
           type = "filesystem";
           fileExt = ".vcf";
         };

@@ -2,7 +2,7 @@
 let pass = "${config.programs.password-store.package}/bin/pass";
 in {
   accounts.email = {
-    maildirBasePath = "mail";
+    maildirBasePath = ".mail";
     accounts = {
       personal = rec {
         primary = true;
