@@ -5,6 +5,7 @@
     ./gpg.nix
     ./kanshi.nix
     ./mako.nix
+    ./mpd.nix
     ./nm-applet.nix
     ./swayidle.nix
     ./syncthing.nix

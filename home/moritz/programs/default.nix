@@ -7,6 +7,7 @@
     ./imv.nix
     ./khal.nix
     ./khard.nix
+    ./ncmpcpp.nix
     ./neomutt.nix
     ./neovim.nix
     ./pass.nix

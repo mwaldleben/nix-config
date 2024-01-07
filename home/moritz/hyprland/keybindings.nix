@@ -37,6 +37,7 @@ in {
       "SUPERSHIFT,return,exec,${terminal}"
       "SUPER,w,exec,${firefox}"
       "SUPER,e,exec,${terminal} -e neomutt"
+      "SUPER,n,exec,${terminal} -e ncmpcpp"
 
       # launcher rofi
       # TODO: doesn't work when specifying rofi binary
