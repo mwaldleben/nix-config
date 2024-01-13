@@ -9,6 +9,7 @@
     ../common/locale.nix
     ../common/networking.nix
     ../common/nix.nix
+    ../common/pcscd.nix
     ../common/printing.nix
     ../common/zsh.nix
     ../common/udisks2.nix
