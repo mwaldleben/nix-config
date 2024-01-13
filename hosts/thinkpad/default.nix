@@ -33,6 +33,7 @@
     neovim
     python3
     ripgrep
+    srm
     trash-cli
     unzip
     wget
