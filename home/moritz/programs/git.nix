@@ -1,3 +1,4 @@
+{ config, ... } :
 {
   programs.git = {
     enable = true;
@@ -6,6 +7,9 @@
     extraConfig = {
       init = { defaultBranch = "main"; };
       pull.rebase = false;
+      user.signing.key = "B5D736799A90EAA5";
+      commit.gpgSign = true;
+      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
     };
   };
 }
