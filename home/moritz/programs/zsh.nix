@@ -37,6 +37,6 @@
   };
 
   home.persistence = {
-    "/persist/home/${config.home.username}".files = [ ".config/zsh/history" ];
+    "/persist/home/${config.home.username}".directories = [ ".config/zsh" ];
   };
 }
