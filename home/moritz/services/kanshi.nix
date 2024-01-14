@@ -2,6 +2,7 @@
 let
   primary = builtins.elemAt config.monitors 0;
   secondary = builtins.elemAt config.monitors 1;
+  waybar_reload = "systemctl --user restart waybar.service"; 
 in {
   home.packages = [ pkgs.kanshi ];
   services.kanshi = {
@@ -15,6 +16,7 @@ in {
           scale = 1.0;
           status = "enable";
         }];
+        exec = "$waybar_reload"; 
       };
       # secondary monitor
       docked = {
@@ -29,6 +31,7 @@ in {
             status = "disable";
           }
         ];
+        exec = "$waybar_reload"; 
       };
     };
   };
