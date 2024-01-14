@@ -43,9 +43,12 @@
         browserpass
         duckduckgo-privacy-essentials
         firefox-color # manually choose catppuccin colorscheme https://github.com/catppuccin/firefox
-        # languagetool # TODO: not working, unfree package
         ublock-origin
         vimium # manually choose catppuccin colorscheme https://github.com/catppuccin/vimium
+
+        dictionary-german
+        french-dictionary
+        new-zealand-english-dict # only english dict in repo
       ];
       settings = {
         "browser.startup.homepage" = "https://duckduckgo.com";
