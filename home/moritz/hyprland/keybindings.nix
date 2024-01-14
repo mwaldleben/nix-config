@@ -23,7 +23,6 @@ in {
       grimblast = "${
           inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
         }/bin/grimblast";
-      hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
       pactl = "${pkgs.pulseaudio}/bin/pactl";
       swaylock = "${config.programs.swaylock.package}/bin/swaylock";
       terminal = "${config.programs.alacritty.package}/bin/alacritty";
@@ -45,10 +44,6 @@ in {
       "SUPER,p,exec,rofi -show powermenu -modi powermenu:rofi-power-menu"
       "SUPERSHIFT,p,exec,rofi-pass"
       "SUPER,c,exec,rofi -show calc"
-
-      # config reloads (waybar has to be restarted to reload workspaces correctly) 
-      "SUPER,r,exec,${hyprctl} reload & systemctl --user restart waybar.service"
-      "SUPERSHIFT,r,exec,systemctl --user restart kanshi.service & systemctl --user restart waybar.service"
 
       # screen lock
       "SUPER,backspace,exec,${swaylock}"
