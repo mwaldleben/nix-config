@@ -48,7 +48,6 @@
 
         dictionary-german
         french-dictionary
-        new-zealand-english-dict # only english dict in repo
       ];
       settings = {
         "browser.startup.homepage" = "https://duckduckgo.com";
