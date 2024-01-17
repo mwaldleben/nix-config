@@ -55,10 +55,6 @@ in {
             foreground = "#${colors.base00}";
             background = "#${colors.base0B}";
           };
-          footer_bar = {
-            foreground = "#${colors.base00}";
-            background = "#${colors.base05}";
-          };
         };
         hints = {
           start = {
