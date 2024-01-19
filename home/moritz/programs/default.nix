@@ -22,20 +22,25 @@
     ./zsh.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # packages without setup
   home.packages = with pkgs; [
     # gui
     darktable
     inkscape
-    mpv
     picard
+    teams-for-linux
+    google-chrome
 
     # cli and utils
     brightnessctl
     cargo
     libnotify
+    mpv
     nodejs
     openjdk
+    sops
     texlive.combined.scheme-full
     urlscan
     youtube-dl
