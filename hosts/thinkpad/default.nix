@@ -1,4 +1,4 @@
-{ inputs, outputs, pkgs, ... }: {
+{ inputs, outputs, config, pkgs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
@@ -11,6 +11,7 @@
     ../common/nix.nix
     ../common/pcscd.nix
     ../common/printing.nix
+    ../common/sops.nix
     ../common/zsh.nix
     ../common/udisks2.nix
     ../common/users/moritz
@@ -21,9 +22,13 @@
     users.moritz = import ../../home/moritz/thinkpad.nix;
   };
 
-  # TODO: Use hashed passwords
-  users.users.root.password = "test";
   users.mutableUsers = false;
+
+  users.users.root.hashedPasswordFile = config.sops.secrets.root-password.path;
+  sops.secrets.root-password = {
+    sopsFile = ./secrets.yaml;
+    neededForUsers = true;
+  };
 
   environment.systemPackages = with pkgs; [
     e2fsprogs # mkfs program

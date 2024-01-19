@@ -1,10 +1,15 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   users.users.moritz = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     packages = [ pkgs.home-manager ];
-    password = "test";
+    hashedPasswordFile = config.sops.secrets.moritz-password.path;
+  };
+
+  sops.secrets.moritz-password = {
+    sopsFile = ../../../thinkpad/secrets.yaml;
+    neededForUsers = true;
   };
 
   # no password for sudo commands
