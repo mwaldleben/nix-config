@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ inputs, config, pkgs, ... }: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -37,6 +37,15 @@
         XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
       };
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    configPackages = [ inputs.hyprland.packages.${pkgs.system}.hyprland ];
   };
 
   home.packages = [ pkgs.xdg-utils ];

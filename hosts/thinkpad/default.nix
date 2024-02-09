@@ -72,11 +72,5 @@
     lidSwitchExternalPower = "suspend";
   };
 
-  # portals
-  xdg.portal.config = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
   system.stateVersion = "23.11";
 }
