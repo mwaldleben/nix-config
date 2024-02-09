@@ -1,14 +1,16 @@
 { inputs, pkgs, config, ... }: {
   imports = [ ./keybindings.nix ./hyprpaper.nix ./font.nix ];
 
-  home.packages = with pkgs; [
-    hyprpaper
+  home.packages = [
+    pkgs.hyprpaper
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd.enable = true;
+    xwayland.enable = true;
     settings = {
       exec-once = [ "${pkgs.hyprpaper}/bin/hyprpaper" ];
       general = {
