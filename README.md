@@ -1,20 +1,18 @@
 # My NixOS configuration
 
-This repository contains my personal NixOS configuration! This setup leverages
+This repository contains my personal NixOS configuration! The setup leverages
 [Nix flakes](https://nixos.wiki/wiki/Flakes) and integrates [Home
 Manager](https://github.com/nix-community/home-manager) for the user
 configuration. As my daily driver, I rely on the
 [Hyprland](https://github.com/hyprwm/Hyprland) window manager for Wayland.
 
-<p float="left">
-  <img src="/showcase1.png" width="150" />
-  <img src="/showcase2.png" width="150" /> 
-</p>
+<img src="/showcase1.png" width=75%>
+<img src="/showcase2.png" width=75%>
 
 ## Features:
 
 - Possible multi-user/multi-system setup
-- Encrypted BTRFS Partition
+- Encrypted BTRFS partition
 - Ephemeral root setup with opt-in persistence through
   [impermance](https://github.com/nix-community/impermanence)
 - Consistent theming with
@@ -27,13 +25,12 @@ To set up a similar environment, one would need to roughly follow theses steps:
 
 1. Create a [BTRFS](https://nixos.wiki/wiki/Btrfs) filesystem with subvolumes
    `/nix`, `/persist`, swap file and root subvolume.
-3. Generate a simple NixOS configuration for your system.
-4. Place the `hardware-configuration.nix` file from this setup into the
-   `hosts/mycomputer` folder to configure new host.
-5. Change login passwords in the secrets file and use a SSH key for secret
-   encryption with sops.
-5. Customize user-specific configurations in the home folder and adjust the
-   user name accordingly.
+2. Generate a simple NixOS configuration for your system.
+3. Place the `hardware-configuration.nix` file from this setup into the
+   `hosts/mycomputer` folder to configure a new host.
+4. Make new secrets file with login password.
+5. Customize user-specific configurations in the folder `home\moritz` and
+   adjust the user name accordingly.
 
 ## Programs I Use
 
@@ -58,6 +55,6 @@ To set up a similar environment, one would need to roughly follow theses steps:
 
 Most of the code in this configuration was adapted from
 [this](https://github.com/Misterio77/nix-config/tree/main) amazing
-configuration. Check out the
+configuration. Check out as well the
 [starter-templates](https://github.com/Misterio77/nix-starter-configs) to
 getting started with Nix flakes.
