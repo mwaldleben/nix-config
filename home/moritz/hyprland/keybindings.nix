@@ -25,6 +25,7 @@ in {
         }/bin/grimblast";
       pactl = "${pkgs.pulseaudio}/bin/pactl";
       swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+      systemctl = "${pkgs.systemd}/bin/systemctl";
       terminal = "${config.programs.alacritty.package}/bin/alacritty";
       makoctl = "${config.services.mako.package}/bin/makoctl";
     in [
@@ -47,6 +48,9 @@ in {
 
       # screen lock
       "SUPER,backspace,exec,${swaylock}"
+
+      # waybar reload
+      "SUPERSHIFT,r,exec,${systemctl} --user restart waybar.service"
 
       # notification manager
       "SUPER,d,exec,${makoctl} dismiss"
