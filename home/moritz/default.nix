@@ -21,6 +21,7 @@
           "notes"
           "pictures"
           "projs"
+          "other"
           ".calendar"
           ".contacts"
           ".local"
