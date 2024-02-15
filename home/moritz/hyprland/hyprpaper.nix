@@ -3,5 +3,6 @@
     preload = ${config.wallpaper}
     wallpaper = eDP-1,${config.wallpaper}
     wallpaper = HDMI-A-2,${config.wallpaper}
+    splash = false
   '';
 }
