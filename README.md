@@ -29,7 +29,7 @@ To set up a similar environment, one would need to roughly follow theses steps:
 3. Place the `hardware-configuration.nix` file from this setup into the
    `hosts/mycomputer` folder to configure a new host.
 4. Make new secrets file with login password.
-5. Customize user-specific configurations in the folder `home\moritz` and
+5. Customize user-specific configurations in the folder `home/moritz` and
    adjust the user name accordingly.
 
 ## Programs I Use
