@@ -38,7 +38,9 @@
     neovim
     python3
     ripgrep
+    sops
     srm
+    ssh-to-age
     trash-cli
     unzip
     wget

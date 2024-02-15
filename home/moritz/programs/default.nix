@@ -39,7 +39,6 @@
     mpv
     nodejs
     openjdk
-    sops
     texlive.combined.scheme-full
     urlscan
     yt-dlp
