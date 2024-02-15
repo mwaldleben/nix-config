@@ -24,31 +24,39 @@
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-label/root_enc";
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
-    fsType = "btrfs";
-    options = [ "subvol=root,compress=zstd" ];
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
+      fsType = "btrfs";
+      options = [ "subvol=root,compress=zstd" ];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+
+    "/nix" = {
+      device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=nix,compress=zstd,noatime" ];
+    };
+
+    "/persist" = {
+      device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=persist,compress=zstd" ];
+      neededForBoot = true;
+    };
+
+    "/swap" = {
+      device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=swap" "noatime" ];
+    };
   };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = [ "subvol=nix,compress=zstd,noatime" ];
-  };
-
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = [ "subvol=persist,compress=zstd" ];
-    neededForBoot = true;
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/boot";
-    fsType = "vfat";
-  };
-
-  swapDevices = [ ];
+  swapDevices = [{ device = "/swap/swapfile"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
