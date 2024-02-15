@@ -11,6 +11,7 @@
     ./neomutt.nix
     ./neovim.nix
     ./pass.nix
+    ./picard.nix
     ./qt.nix
     ./rofi.nix
     ./ssh.nix
@@ -29,13 +30,11 @@
     # gui
     darktable
     inkscape
-    picard
-    teams-for-linux
-    google-chrome
 
     # cli and utils
     brightnessctl
     cargo
+    exiftool
     libnotify
     mpv
     nodejs
@@ -43,7 +42,7 @@
     sops
     texlive.combined.scheme-full
     urlscan
-    youtube-dl
+    yt-dlp
     wl-clipboard
 
     # personal scripts (pkgs directory)
