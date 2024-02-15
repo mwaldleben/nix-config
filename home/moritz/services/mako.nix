@@ -1,5 +1,5 @@
 { config, ... }:
-let inherit (config.colorscheme) colors;
+let inherit (config.colorscheme) palette;
 in {
   services.mako = {
     enable = true;
@@ -8,16 +8,16 @@ in {
     # addapted from https://github.com/catppuccin/mako
     extraConfig = ''
       default-timeout=5000
-      background-color=#${colors.base00}
-      text-color=#${colors.base05}
-      border-color=#${colors.base0D}
-      progress-color=over #${colors.base02}
+      background-color=#${palette.base00}
+      text-color=#${palette.base05}
+      border-color=#${palette.base0D}
+      progress-color=over #${palette.base02}
 
       border-radius=8
       border-size=2
 
       [urgency=high]
-      border-color=#${colors.base08}
+      border-color=#${palette.base08}
     '';
   };
 }

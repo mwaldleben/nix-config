@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-let inherit (config.colorscheme) colors;
+let inherit (config.colorscheme) palette;
 in {
   programs.swaylock = {
     enable = true;
@@ -25,9 +25,9 @@ in {
       indicator-idle-visible = true;
       hide-keyboard-layout = true;
 
-      bs-hl-color = "${colors.base08}";
-      caps-lock-bs-hl-color = "${colors.base08}";
-      caps-lock-key-hl-color = "${colors.base08}";
+      bs-hl-color = "${palette.base08}";
+      caps-lock-bs-hl-color = "${palette.base08}";
+      caps-lock-key-hl-color = "${palette.base08}";
       inside-color = "00000000";
       inside-clear-color = "00000000";
       inside-caps-lock-color = "00000000";
@@ -42,17 +42,17 @@ in {
       line-caps-lock-color = "00000000";
       line-ver-color = "00000000";
       line-wrong-color = "00000000";
-      ring-color = "${colors.base05}";
-      ring-clear-color = "${colors.base08}";
-      ring-caps-lock-color = "${colors.base08}";
-      ring-ver-color = "${colors.base0D}";
-      ring-wrong-color = "${colors.base08}";
+      ring-color = "${palette.base05}";
+      ring-clear-color = "${palette.base08}";
+      ring-caps-lock-color = "${palette.base08}";
+      ring-ver-color = "${palette.base0D}";
+      ring-wrong-color = "${palette.base08}";
       separator-color = "00000000";
-      text-color = "${colors.base05}";
-      text-clear-color = "${colors.base0D}";
-      text-caps-lock-color = "${colors.base08}";
-      text-ver-color = "${colors.base0D}";
-      text-wrong-color = "${colors.base08}";
+      text-color = "${palette.base05}";
+      text-clear-color = "${palette.base0D}";
+      text-caps-lock-color = "${palette.base08}";
+      text-ver-color = "${palette.base0D}";
+      text-wrong-color = "${palette.base08}";
     };
   };
 }

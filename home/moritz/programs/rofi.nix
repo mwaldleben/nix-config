@@ -1,5 +1,5 @@
 { pkgs, config, ... }:
-let inherit (config.colorscheme) colors;
+let inherit (config.colorscheme) palette;
 in {
   home.packages = [ pkgs.rofi-power-menu ];
   programs.rofi = {
@@ -26,12 +26,12 @@ in {
         display-calc = "Calc";
       };
       "*" = {
-        background = mkLiteral "#${colors.base00}";
-        background-alt = mkLiteral "#${colors.base02}";
-        foreground = mkLiteral "#${colors.base05}";
-        selected = mkLiteral "#${colors.base0D}";
-        active = mkLiteral "#${colors.base0D}";
-        urgent = mkLiteral "#${colors.base08}";
+        background = mkLiteral "#${palette.base00}";
+        background-alt = mkLiteral "#${palette.base02}";
+        foreground = mkLiteral "#${palette.base05}";
+        selected = mkLiteral "#${palette.base0D}";
+        active = mkLiteral "#${palette.base0D}";
+        urgent = mkLiteral "#${palette.base08}";
       };
       window = {
         transparency = "real";

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  inherit (config.colorscheme) colors;
+  inherit (config.colorscheme) palette;
   pamixer = "${pkgs.pamixer}/bin/pamixer";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
 in {
@@ -81,21 +81,21 @@ in {
 
 
       window#waybar {
-          color: #${colors.base05};
+          color: #${palette.base05};
           background: rgba(0, 0, 0, 0);
       }
 
       #workspaces button {
-          color: #${colors.base03};
+          color: #${palette.base03};
       }
 
       #workspaces button.active {
-          color: #${colors.base05};
+          color: #${palette.base05};
       }
 
       #workspaces button:hover {
-          color: #${colors.base05};
-          background: #${colors.base00};
+          color: #${palette.base05};
+          background: #${palette.base00};
           border-radius: 8px;
       }
 
@@ -105,7 +105,7 @@ in {
       #pulseaudio,
       #tray,
       #workspaces {
-          background: #${colors.base00};
+          background: #${palette.base00};
           padding: 0px 10px;
           margin: 3px 0px;
           margin-top: 10px;
@@ -119,38 +119,38 @@ in {
       }
 
       #clock {
-          color: #${colors.base0D};
+          color: #${palette.base0D};
           border-radius: 8px;
       }
 
       #battery {
-          color: #${colors.base0B};
+          color: #${palette.base0B};
           border-radius: 8px 0px 0px 8px;
           border-right: 0px;
       }
 
       #battery.warning {
-          color: #${colors.base00};
-          background: #${colors.base09};
+          color: #${palette.base00};
+          background: #${palette.base09};
       }
 
       #battery.critical {
-          color: #${colors.base00};
-          background: #${colors.base08};
+          color: #${palette.base00};
+          background: #${palette.base08};
       }
 
       #backlight {
-          color: #${colors.base0A};
+          color: #${palette.base0A};
       }
 
       #pulseaudio {
-          color: #${colors.base0C};
+          color: #${palette.base0C};
           border-left: 0px;
           border-right: 0px;
       }
 
       #pulseaudio.microphone {
-          color: #${colors.base0E};
+          color: #${palette.base0E};
           border-left: 0px;
           border-right: 0px;
       }

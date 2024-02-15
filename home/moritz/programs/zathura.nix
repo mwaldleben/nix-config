@@ -1,5 +1,5 @@
 { config, ... }:
-let inherit (config.colorscheme) colors;
+let inherit (config.colorscheme) palette;
 in {
   programs.zathura = {
     enable = true;
@@ -15,42 +15,42 @@ in {
     };
     extraConfig = ''
       # addapted from https://github.com/catppuccin/zathura
-      set default-fg                "#${colors.base05}"
-      set default-bg 			          "#${colors.base00}"
-      set completion-bg		          "#${colors.base01}"
-      set completion-fg		          "#${colors.base05}"
-      set completion-highlight-bg	  "#${colors.base00}"
-      set completion-highlight-fg	  "#${colors.base05}"
-      set completion-group-bg		    "#${colors.base02}"
-      set completion-group-fg		    "#${colors.base0D}"
+      set default-fg                "#${palette.base05}"
+      set default-bg 			          "#${palette.base00}"
+      set completion-bg		          "#${palette.base01}"
+      set completion-fg		          "#${palette.base05}"
+      set completion-highlight-bg	  "#${palette.base00}"
+      set completion-highlight-fg	  "#${palette.base05}"
+      set completion-group-bg		    "#${palette.base02}"
+      set completion-group-fg		    "#${palette.base0D}"
 
-      set statusbar-fg		          "#${colors.base05}"
-      set statusbar-bg		          "#${colors.base02}"
+      set statusbar-fg		          "#${palette.base05}"
+      set statusbar-bg		          "#${palette.base02}"
 
-      set notification-bg		        "#${colors.base02}"
-      set notification-fg		        "#${colors.base05}"
-      set notification-error-bg	    "#${colors.base02}"
-      set notification-error-fg	    "#${colors.base08}"
-      set notification-warning-bg	  "#${colors.base05}"
-      set notification-warning-fg	  "#${colors.base0A}"
+      set notification-bg		        "#${palette.base02}"
+      set notification-fg		        "#${palette.base05}"
+      set notification-error-bg	    "#${palette.base02}"
+      set notification-error-fg	    "#${palette.base08}"
+      set notification-warning-bg	  "#${palette.base05}"
+      set notification-warning-fg	  "#${palette.base0A}"
 
-      set inputbar-fg			          "#${colors.base00}"
-      set inputbar-bg 		          "#${colors.base05}"
+      set inputbar-fg			          "#${palette.base00}"
+      set inputbar-bg 		          "#${palette.base05}"
 
-      set recolor-lightcolor		    "#${colors.base00}"
-      set recolor-darkcolor		      "#${colors.base05}"
+      set recolor-lightcolor		    "#${palette.base00}"
+      set recolor-darkcolor		      "#${palette.base05}"
 
-      set index-fg			            "#${colors.base05}"
-      set index-bg			            "#${colors.base00}"
-      set index-active-fg		        "#${colors.base05}"
-      set index-active-bg		        "#${colors.base02}"
+      set index-fg			            "#${palette.base05}"
+      set index-bg			            "#${palette.base00}"
+      set index-active-fg		        "#${palette.base05}"
+      set index-active-bg		        "#${palette.base02}"
 
-      set render-loading-bg		      "#${colors.base00}"
-      set render-loading-fg		      "#${colors.base05}"
+      set render-loading-bg		      "#${palette.base00}"
+      set render-loading-fg		      "#${palette.base05}"
 
-      set highlight-color		        "#${colors.base03}"
-      set highlight-fg              "#${colors.base0E}"
-      set highlight-active-color	  "#${colors.base0E}"
+      set highlight-color		        "#${palette.base03}"
+      set highlight-fg              "#${palette.base0E}"
+      set highlight-active-color	  "#${palette.base0E}"
     '';
   };
 }

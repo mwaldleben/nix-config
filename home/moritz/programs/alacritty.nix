@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config.colorscheme) colors;
+  inherit (config.colorscheme) palette;
   tmux = "${config.programs.tmux.package}/bin/tmux";
 in {
   programs.alacritty = {
@@ -33,81 +33,81 @@ in {
       # addapted from https://github.com/catppuccin/alacritty
       colors = {
         primary = {
-          background = "#${colors.base00}";
-          foreground = "#${colors.base05}";
-          dim_foreground = "#${colors.base05}";
-          bright_foreground = "#${colors.base05}";
+          background = "#${palette.base00}";
+          foreground = "#${palette.base05}";
+          dim_foreground = "#${palette.base05}";
+          bright_foreground = "#${palette.base05}";
         };
         cursor = {
-          text = "#${colors.base00}";
-          cursor = "#${colors.base06}";
+          text = "#${palette.base00}";
+          cursor = "#${palette.base06}";
         };
         vi_mode_cursor = {
-          text = "#${colors.base00}";
-          cursor = "#${colors.base07}";
+          text = "#${palette.base00}";
+          cursor = "#${palette.base07}";
         };
         search = {
           matches = {
-            foreground = "#${colors.base00}";
-            background = "#${colors.base05}";
+            foreground = "#${palette.base00}";
+            background = "#${palette.base05}";
           };
           focused_match = {
-            foreground = "#${colors.base00}";
-            background = "#${colors.base0B}";
+            foreground = "#${palette.base00}";
+            background = "#${palette.base0B}";
           };
         };
         hints = {
           start = {
-            foreground = "#${colors.base00}";
-            background = "#${colors.base0A}";
+            foreground = "#${palette.base00}";
+            background = "#${palette.base0A}";
           };
           end = {
-            foreground = "#${colors.base00}";
-            background = "#${colors.base05}";
+            foreground = "#${palette.base00}";
+            background = "#${palette.base05}";
           };
         };
         selection = {
-          text = "#${colors.base00}";
-          background = "#${colors.base06}";
+          text = "#${palette.base00}";
+          background = "#${palette.base06}";
         };
         normal = {
-          black = "#${colors.base03}";
-          red = "#${colors.base08}";
-          green = "#${colors.base0B}";
-          yellow = "#${colors.base0A}";
-          blue = "#${colors.base0D}";
-          magenta = "#${colors.base0F}";
-          cyan = "#${colors.base0C}";
-          white = "#${colors.base05}";
+          black = "#${palette.base03}";
+          red = "#${palette.base08}";
+          green = "#${palette.base0B}";
+          yellow = "#${palette.base0A}";
+          blue = "#${palette.base0D}";
+          magenta = "#${palette.base0F}";
+          cyan = "#${palette.base0C}";
+          white = "#${palette.base05}";
         };
         bright = {
-          black = "#${colors.base04}";
-          red = "#${colors.base08}";
-          green = "#${colors.base0B}";
-          yellow = "#${colors.base0A}";
-          blue = "#${colors.base0D}";
-          magenta = "#${colors.base0F}";
-          cyan = "#${colors.base0C}";
-          white = "#${colors.base00}";
+          black = "#${palette.base04}";
+          red = "#${palette.base08}";
+          green = "#${palette.base0B}";
+          yellow = "#${palette.base0A}";
+          blue = "#${palette.base0D}";
+          magenta = "#${palette.base0F}";
+          cyan = "#${palette.base0C}";
+          white = "#${palette.base00}";
         };
         dim = {
-          black = "#${colors.base03}";
-          red = "#${colors.base08}";
-          green = "#${colors.base0B}";
-          yellow = "#${colors.base0A}";
-          blue = "#${colors.base0D}";
-          magenta = "#${colors.base0F}";
-          cyan = "#${colors.base0C}";
-          white = "#${colors.base05}";
+          black = "#${palette.base03}";
+          red = "#${palette.base08}";
+          green = "#${palette.base0B}";
+          yellow = "#${palette.base0A}";
+          blue = "#${palette.base0D}";
+          magenta = "#${palette.base0F}";
+          cyan = "#${palette.base0C}";
+          white = "#${palette.base05}";
         };
         indexed_colors = [
           {
             index = 16;
-            color = "#${colors.base09}";
+            color = "#${palette.base09}";
           }
           {
             index = 17;
-            color = "#${colors.base06}";
+            color = "#${palette.base06}";
           }
         ];
       };
