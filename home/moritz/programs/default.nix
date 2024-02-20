@@ -48,6 +48,7 @@
     backup
 
     # language servers
+    clang-tools
     lua-language-server
     stylua
   ];
