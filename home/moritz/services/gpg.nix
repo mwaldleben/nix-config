@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   programs.gpg = { enable = true; };
   services.gpg-agent = {
     enable = true;
@@ -9,7 +9,7 @@
     enableSshSupport = true;
     sshKeys = [ "E79176999CD6967EDFF33456D2A4998C974C7DDB" ];
     enableZshIntegration = true;
-    pinentryFlavor = "qt";
+    pinentryPackage = pkgs.pinentry-qt;
     enableExtraSocket = true;
   };
 
