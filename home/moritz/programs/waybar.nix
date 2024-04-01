@@ -38,7 +38,7 @@ in {
         };
         clock = {
           interval = 1;
-          format = "{: %R   %d/%m}";
+          format = " {:%R   %d/%m}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
