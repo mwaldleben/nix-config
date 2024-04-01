@@ -4,7 +4,14 @@ in {
   accounts.contact = {
     accounts = {
       personal = {
-        vdirsyncer = { enable = true; };
+        vdirsyncer = {
+          enable = true;
+          urlCommand =
+            [ "cat" "${config.sops.secrets.vdirsyncer-url-contact.path}" ];
+          userNameCommand =
+            [ "cat" "${config.sops.secrets.vdirsyncer-userName.path}" ];
+
+        };
         khard.enable = true;
         khal.enable = true;
         local = {
@@ -14,12 +21,16 @@ in {
         };
         remote = {
           type = "carddav";
-          # TODO: waiting for https://github.com/nix-community/home-manager/issues/4399 to keep url secret
-          # url = "";
-          # userName = "";
-          # passwordCommand = [ ];
+          passwordCommand = [ "pass" "show" "caldav" ];
         };
       };
     };
+  };
+
+  sops.secrets.vdirsyncer-url-contact = {
+    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+  };
+  sops.secrets.vdirsyncer-userName = {
+    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
   };
 }

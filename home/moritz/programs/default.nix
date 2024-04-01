@@ -14,6 +14,7 @@
     ./picard.nix
     ./qt.nix
     ./rofi.nix
+    ./sops.nix
     ./ssh.nix
     ./swaylock.nix
     ./tmux.nix
@@ -30,6 +31,7 @@
     # gui
     darktable
     inkscape
+    libreoffice-still
 
     # cli and utils
     brightnessctl

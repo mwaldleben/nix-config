@@ -5,7 +5,13 @@ in {
     accounts = {
       personal = {
         primary = true;
-        vdirsyncer = { enable = true; };
+        vdirsyncer = {
+          enable = true;
+          urlCommand =
+            [ "cat" "${config.sops.secrets.vdirsyncer-url-calendar.path}" ];
+          userNameCommand =
+            [ "cat" "${config.sops.secrets.vdirsyncer-userName.path}" ];
+        };
         khal.enable = true;
         local = {
           path = "~/.calendar";
@@ -14,13 +20,18 @@ in {
         };
         remote = {
           type = "caldav";
-          # TODO: waiting for https://github.com/nix-community/home-manager/issues/4399 to keep url secret
-          # url = "";
-          # userName = "";
-          # passwordCommand = [ ];
+          passwordCommand = [ "pass" "show" "caldav" ];
         };
       };
     };
   };
+
   programs.vdirsyncer = { enable = true; };
+
+  sops.secrets.vdirsyncer-url-calendar = {
+    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+  };
+  sops.secrets.vdirsyncer-userName = {
+    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+  };
 }
