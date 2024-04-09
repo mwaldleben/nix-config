@@ -3,7 +3,6 @@
     enable = true;
 
     plugins = with pkgs; [
-      tmuxPlugins.cpu
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
