@@ -1,9 +1,19 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
     autosuggestion.enable = true;
     enableCompletion = true;
+    plugins = [{
+      name = "zsh-nix-shell";
+      file = "nix-shell.plugin.zsh";
+      src = pkgs.fetchFromGitHub {
+        owner = "chisui";
+        repo = "zsh-nix-shell";
+        rev = "v0.8.0";
+        sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+      };
+    }];
     shellAliases = {
       ls = "ls --color=auto";
       ll = "ls -l --color=auto";
@@ -27,12 +37,35 @@
       # exports
       export EDITOR=nvim
 
-      # personal prompt
-      PROMPT="[%F{blue}%2~%f%b]%# "
-
       # history search
       bindkey "^p" history-beginning-search-backward
       bindkey "^n" history-beginning-search-forward
+
+      # custom prompt
+      prompt_nix_shell() {
+        if [[ -n "$IN_NIX_SHELL" ]]; then
+          echo -n "%F{yellow}(nix-shell)%f "
+        fi
+      }
+
+      export VIRTUAL_ENV_DISABLE_PROMPT=1
+      prompt_virtualenv() {
+        local virtualenv_path="$VIRTUAL_ENV"
+        if [[ -n $virtualenv_path ]]; then
+          local env_name=$(basename "$virtualenv_path")
+          echo -n "%F{magenta}($env_name)%f "
+        fi
+      }
+
+      prompt_git_branch() {
+        local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+        if [[ -n $branch ]]; then
+          echo -n " %F{green}($branch)%f"
+        fi
+      }
+
+      setopt PROMPT_SUBST
+      PROMPT='$(prompt_virtualenv)$(prompt_nix_shell)[%F{blue}%2~%f%b]$(prompt_git_branch)%# '
     '';
   };
 
