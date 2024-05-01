@@ -15,7 +15,6 @@ in {
     };
     settings = {
       mailcap_path = "${config.home.homeDirectory}/.config/neomutt/mailcap";
-      editor = ''"${nvim} -c 'set fo+=aw'"''; # add text-flowed
       confirm_append = "no";
       confirm_create = "no";
       fast_reply = "yes";
@@ -30,9 +29,13 @@ in {
       query_command = ''"khard email --parsable '%s'"'';
       quit = "ask-yes";
       reverse_name = "yes";
+      sort = "last-date";
+      sort_aux = "date";
       sleep_time = "0";
       text_flowed = "yes";
+      use_threads="threads";
       wait_key = "no";
+
     };
     binds = [
       {
