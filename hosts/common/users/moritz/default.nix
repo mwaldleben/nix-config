@@ -2,7 +2,7 @@
   users.users.moritz = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "docker" ];
     packages = [ pkgs.home-manager ];
     hashedPasswordFile = config.sops.secrets.moritz-password.path;
   };
