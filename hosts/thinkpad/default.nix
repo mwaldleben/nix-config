@@ -5,6 +5,7 @@
     ../common/audio.nix
     ../common/blueman.nix
     ../common/dconf.nix
+    ../common/docker.nix
     ../common/impermanence.nix
     ../common/locale.nix
     ../common/networking.nix
