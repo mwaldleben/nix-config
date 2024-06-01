@@ -52,6 +52,8 @@
               }";
             position = "${toString m.x}x${toString m.y}";
           in "${m.name},${resolution},${position},1") (config.monitors);
+
+        workspace = map (m: "${m.name},${m.workspace}") (config.monitors);
       };
     };
   };
