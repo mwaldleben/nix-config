@@ -33,7 +33,7 @@ in {
       sort_aux = "date";
       sleep_time = "0";
       text_flowed = "yes";
-      use_threads="threads";
+      use_threads = "threads";
       wait_key = "no";
 
     };
