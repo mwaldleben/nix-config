@@ -66,6 +66,9 @@
 
       setopt PROMPT_SUBST
       PROMPT='$(prompt_virtualenv)$(prompt_nix_shell)[%F{blue}%2~%f%b]$(prompt_git_branch)%# '
+
+      # Wait for window resize when starting alacritty
+      sleep 0.05
     '';
   };
 
