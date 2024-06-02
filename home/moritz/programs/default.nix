@@ -41,6 +41,7 @@
     mpv
     nodejs
     openjdk
+    pandoc
     texlive.combined.scheme-full
     urlscan
     yt-dlp
