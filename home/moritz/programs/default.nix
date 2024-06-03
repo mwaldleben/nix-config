@@ -2,6 +2,7 @@
   imports = [
     ./alacritty.nix
     ./firefox.nix
+    ./foot.nix
     ./git.nix
     ./gtk.nix
     ./imv.nix
@@ -32,11 +33,14 @@
     darktable
     inkscape
     libreoffice-still
+    chromium
+    zoom-us
 
     # cli and utils
     brightnessctl
     cargo
     exiftool
+    ghostscript
     libnotify
     mpv
     nodejs

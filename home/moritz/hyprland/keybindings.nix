@@ -26,7 +26,7 @@ in {
       pactl = "${pkgs.pulseaudio}/bin/pactl";
       swaylock = "${config.programs.swaylock.package}/bin/swaylock";
       systemctl = "${pkgs.systemd}/bin/systemctl";
-      terminal = "${config.programs.alacritty.package}/bin/alacritty";
+      terminal = "${config.programs.foot.package}/bin/footclient";
       makoctl = "${config.services.mako.package}/bin/makoctl";
     in [
       "SUPER,q,killactive"
@@ -34,7 +34,7 @@ in {
       "SUPER,m,fullscreen"
 
       # program bindings
-      "SUPERSHIFT,return,exec,${terminal}"
+      "SUPERSHIFT,return,exec,${terminal} -e tmux"
       "SUPER,w,exec,${firefox}"
       "SUPER,e,exec,${terminal} -e neomutt"
       "SUPER,n,exec,${terminal} -e ncmpcpp"

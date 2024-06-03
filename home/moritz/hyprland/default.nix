@@ -11,7 +11,10 @@
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
-      exec-once = [ "${pkgs.hyprpaper}/bin/hyprpaper" ];
+      exec-once = [
+        "${pkgs.hyprpaper}/bin/hyprpaper"
+        "${config.programs.foot.package}/bin/foot --server"
+      ];
       general = {
         gaps_in = 10;
         gaps_out = 20;
