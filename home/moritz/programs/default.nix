@@ -58,5 +58,6 @@
     clang-tools
     lua-language-server
     stylua
+    tree-sitter
   ];
 }
