@@ -16,7 +16,7 @@ in {
         };
         khal.enable = true;
         local = {
-          path = "~/.calendar/personal";
+          path = "~/.calendars/personal";
           type = "filesystem";
           fileExt = ".ics";
         };
@@ -40,7 +40,7 @@ in {
           readOnly = true;
         };
         local = {
-          path = "~/.calendar/work";
+          path = "~/.calendars/work";
           type = "filesystem";
           fileExt = ".ics";
         };
@@ -64,7 +64,7 @@ in {
           readOnly = true;
         };
         local = {
-          path = "~/.calendar/holidays";
+          path = "~/.calendars/holidays";
           type = "filesystem";
           fileExt = ".ics";
         };

@@ -22,7 +22,7 @@
           "pictures"
           "projs"
           "other"
-          ".calendar"
+          ".calendars"
           ".contacts"
           ".local"
           ".mail"

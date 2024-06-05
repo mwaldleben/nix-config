@@ -4,16 +4,16 @@
     [calendars]
 
       [[personal]]
-        path = ~/.calendar/personal/
+        path = ~/.calendars/personal/
         color = dark blue
 
       [[work]]
-        path = ~/.calendar/work/
+        path = ~/.calendars/work/
         color = yellow
         readonly = True
 
       [[holidays]]
-        path = ~/.calendar/holidays/
+        path = ~/.calendars/holidays/
         color = dark green 
         readonly = True
 
