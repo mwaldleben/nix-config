@@ -17,6 +17,11 @@
         color = dark green 
         readonly = True
 
+      [[birthdays]]
+        path = ~/.contacts/
+        color = dark cyan  
+        type = birthdays
+
     [default]
       default_calendar = personal
       highlight_event_days = true
