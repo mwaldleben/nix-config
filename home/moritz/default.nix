@@ -15,12 +15,12 @@
     persistence = {
       "/persist/home/${config.home.username}" = {
         directories = [
+          "code"
           "downloads"
           "music"
           "nixos"
           "notes"
           "pictures"
-          "projs"
           "other"
           ".calendars"
           ".contacts"
