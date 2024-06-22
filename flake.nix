@@ -56,17 +56,17 @@
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = [ ./hosts/thinkpad ];
-        };
-      };
-
-      homeConfigurations = {
-        "moritz@thinkpad" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home/moritz/thinkpad.nix ];
+          modules = [
+            ./hosts/thinkpad/default.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.users.moritz = import ./home/moritz/thinkpad.nix;
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+            }
+          ];
         };
       };
     };

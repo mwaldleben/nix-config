@@ -26,8 +26,6 @@
     ./zsh.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   # packages without setup
   home.packages = with pkgs; [
     # gui

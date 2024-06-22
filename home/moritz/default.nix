@@ -14,10 +14,6 @@
     home-manager.enable = true;
   };
 
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
-  };
-
   home = {
     username = "moritz";
     homeDirectory = "/home/${config.home.username}";
@@ -48,6 +44,5 @@
     QT_QPA_PLATFORM = "wayland;xcb";
   };
 
-  # restart systemd services when running "home-manager --flake . switch"
   systemd.user.startServices = "sd-switch";
 }
