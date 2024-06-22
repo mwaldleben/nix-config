@@ -45,7 +45,7 @@
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      overlays = import ./overlays { inherit inputs outputs; };
+      overlays = import ./overlays { inherit inputs; };
 
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
@@ -53,20 +53,20 @@
       nixosConfigurations = {
         # personal laptop
         thinkpad = nixpkgs.lib.nixosSystem {
-          modules = [ ./hosts/thinkpad ];
           specialArgs = {
             inherit inputs outputs;
           };
+          modules = [ ./hosts/thinkpad ];
         };
       };
 
       homeConfigurations = {
         "moritz@thinkpad" = home-manager.lib.homeManagerConfiguration {
-          modules = [ ./home/moritz/thinkpad.nix ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
           };
+          modules = [ ./home/moritz/thinkpad.nix ];
         };
       };
     };
