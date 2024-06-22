@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   services = {
     syncthing = {
       enable = true;
@@ -11,7 +12,6 @@
   };
 
   home.persistence = {
-    "/persist/home/${config.home.username}".directories =
-      [ ".config/syncthing" ];
+    "/persist/home/${config.home.username}".directories = [ ".config/syncthing" ];
   };
 }

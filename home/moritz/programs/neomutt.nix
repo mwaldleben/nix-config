@@ -3,7 +3,8 @@ let
   nvim = "${pkgs.neovim}/bin/nvim";
   mbsync = "${config.programs.mbsync.package}/bin/mbsync";
   urlscan = "${pkgs.urlscan}/bin/urlscan";
-in {
+in
+{
   programs.neomutt = {
     enable = true;
     vimKeys = true;
@@ -71,7 +72,10 @@ in {
       {
         action = "sync-mailbox";
         key = "S";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
       {
         action = "complete-query";
@@ -81,44 +85,68 @@ in {
       {
         action = "view-raw-message";
         key = "H";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
     ];
     macros = [
       {
         action = "<sidebar-next><sidebar-open>";
         key = "\\cj";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
       {
         action = "<sidebar-prev><sidebar-open>";
         key = "\\ck";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
       {
         action = "<sidebar-toggle-visible>";
         key = "E";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
       {
         action = "<shell-escape>${mbsync} -a<enter>";
         key = "O";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
       {
         action = "<pipe-message>${urlscan}<enter>";
         key = "F";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
       {
         action = "<pipe-entry>${urlscan}<enter>";
         key = "F";
-        map = [ "attach" "compose" ];
+        map = [
+          "attach"
+          "compose"
+        ];
       }
       {
         action = "<pipe-message>khard add-email<enter>";
         key = "A";
-        map = [ "index" "pager" ];
+        map = [
+          "index"
+          "pager"
+        ];
       }
     ];
     extraConfig = ''

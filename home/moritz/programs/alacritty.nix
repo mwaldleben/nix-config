@@ -2,7 +2,8 @@
 let
   inherit (config.colorscheme) palette;
   tmux = "${config.programs.tmux.package}/bin/tmux";
-in {
+in
+{
   programs.alacritty = {
     enable = true;
     settings = {
@@ -13,7 +14,9 @@ in {
           y = 10;
         };
       };
-      shell = { program = "${tmux}"; };
+      shell = {
+        program = "${tmux}";
+      };
       font = {
         normal = {
           family = "monospace";

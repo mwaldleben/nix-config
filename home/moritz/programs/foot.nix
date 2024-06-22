@@ -2,7 +2,8 @@
 let
   inherit (config.colorscheme) palette;
   tmux = "${config.programs.tmux.package}/bin/tmux";
-in {
+in
+{
   programs.foot = {
     enable = true;
     settings = {
@@ -12,7 +13,9 @@ in {
         dpi-aware = "no";
         pad = "10x10";
       };
-      mouse = { hide-when-typing = "yes"; };
+      mouse = {
+        hide-when-typing = "yes";
+      };
       colors = {
         alpha = 0.97;
 

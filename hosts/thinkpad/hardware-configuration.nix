@@ -1,10 +1,21 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}:
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules =
-    [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ehci_pci"
+    "ahci"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /mnt
@@ -52,11 +63,14 @@
     "/swap" = {
       device = "/dev/disk/by-label/root";
       fsType = "btrfs";
-      options = [ "subvol=swap" "noatime" ];
+      options = [
+        "subvol=swap"
+        "noatime"
+      ];
     };
   };
 
-  swapDevices = [{ device = "/swap/swapfile"; }];
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = true;

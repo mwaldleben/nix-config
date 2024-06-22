@@ -1,5 +1,15 @@
-{ inputs, pkgs, config, ... }: {
-  imports = [ ./keybindings.nix ./hyprpaper.nix ./font.nix ];
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
+{
+  imports = [
+    ./keybindings.nix
+    ./hyprpaper.nix
+    ./font.nix
+  ];
 
   home.packages = [
     pkgs.hyprpaper
@@ -33,7 +43,9 @@
       };
       decoration = {
         rounding = 5;
-        blur = { enabled = false; };
+        blur = {
+          enabled = false;
+        };
         drop_shadow = false;
       };
       animations = {
@@ -48,13 +60,14 @@
           "workspaces, 0, 6, default"
         ];
         # default setup for monitors (kanshi handles auto setup)
-        monitor = map (m:
+        monitor = map (
+          m:
           let
-            resolution = "${toString m.width}x${toString m.height}@${
-                toString m.refreshRate
-              }";
+            resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
             position = "${toString m.x}x${toString m.y}";
-          in "${m.name},${resolution},${position},1") (config.monitors);
+          in
+          "${m.name},${resolution},${position},1"
+        ) (config.monitors);
 
         workspace = map (m: "${m.name},${m.workspace}") (config.monitors);
       };

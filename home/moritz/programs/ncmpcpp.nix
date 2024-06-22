@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.ncmpcpp = {
     enable = true;
     bindings = [
@@ -12,11 +13,17 @@
       }
       {
         key = "J";
-        command = [ "select_item" "scroll_down" ];
+        command = [
+          "select_item"
+          "scroll_down"
+        ];
       }
       {
         key = "K";
-        command = [ "select_item" "scroll_up" ];
+        command = [
+          "select_item"
+          "scroll_up"
+        ];
       }
       {
         key = "l";
@@ -40,8 +47,7 @@
       header_window_color = "black";
       main_window_color = "white";
       statusbar_color = "white";
-      song_columns_list_format =
-        "(20)[]{a} (6f)[cyan]{NE} (50)[white]{t|f:Title} (20)[yellow]{b} (7f)[red]{l}";
+      song_columns_list_format = "(20)[]{a} (6f)[cyan]{NE} (50)[white]{t|f:Title} (20)[yellow]{b} (7f)[red]{l}";
       progressbar_color = "black:b";
       progressbar_elapsed_color = "black:b";
       progressbar_look = "██▒";

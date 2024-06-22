@@ -1,6 +1,8 @@
 { config, ... }:
-let pass = "${config.programs.password-store.package}/bin/pass";
-in {
+let
+  pass = "${config.programs.password-store.package}/bin/pass";
+in
+{
   accounts.calendar = {
     accounts = {
       personal = {
@@ -11,8 +13,10 @@ in {
             "cat"
             "${config.sops.secrets.vdirsyncer-url-calendar-personal.path}"
           ];
-          userNameCommand =
-            [ "cat" "${config.sops.secrets.vdirsyncer-userName.path}" ];
+          userNameCommand = [
+            "cat"
+            "${config.sops.secrets.vdirsyncer-userName.path}"
+          ];
         };
         khal.enable = true;
         local = {
@@ -22,7 +26,11 @@ in {
         };
         remote = {
           type = "caldav";
-          passwordCommand = [ "pass" "show" "caldav" ];
+          passwordCommand = [
+            "pass"
+            "show"
+            "caldav"
+          ];
         };
       };
       work = {
@@ -32,8 +40,10 @@ in {
             "cat"
             "${config.sops.secrets.vdirsyncer-url-calendar-work.path}"
           ];
-          userNameCommand =
-            [ "cat" "${config.sops.secrets.vdirsyncer-userName.path}" ];
+          userNameCommand = [
+            "cat"
+            "${config.sops.secrets.vdirsyncer-userName.path}"
+          ];
         };
         khal = {
           enable = true;
@@ -46,7 +56,11 @@ in {
         };
         remote = {
           type = "caldav";
-          passwordCommand = [ "pass" "show" "caldav" ];
+          passwordCommand = [
+            "pass"
+            "show"
+            "caldav"
+          ];
         };
       };
       holidays = {
@@ -56,8 +70,10 @@ in {
             "cat"
             "${config.sops.secrets.vdirsyncer-url-calendar-holidays.path}"
           ];
-          userNameCommand =
-            [ "cat" "${config.sops.secrets.vdirsyncer-userName.path}" ];
+          userNameCommand = [
+            "cat"
+            "${config.sops.secrets.vdirsyncer-userName.path}"
+          ];
         };
         khal = {
           enable = true;
@@ -70,13 +86,19 @@ in {
         };
         remote = {
           type = "caldav";
-          passwordCommand = [ "pass" "show" "caldav" ];
+          passwordCommand = [
+            "pass"
+            "show"
+            "caldav"
+          ];
         };
       };
     };
   };
 
-  programs.vdirsyncer = { enable = true; };
+  programs.vdirsyncer = {
+    enable = true;
+  };
 
   sops.secrets.vdirsyncer-userName = {
     sopsFile = ../../../hosts/thinkpad/secrets.yaml;

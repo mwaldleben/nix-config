@@ -1,15 +1,21 @@
 { config, ... }:
-let pass = "${config.programs.password-store.package}/bin/pass";
-in {
+let
+  pass = "${config.programs.password-store.package}/bin/pass";
+in
+{
   accounts.contact = {
     accounts = {
       personal = {
         vdirsyncer = {
           enable = true;
-          urlCommand =
-            [ "cat" "${config.sops.secrets.vdirsyncer-url-contact.path}" ];
-          userNameCommand =
-            [ "cat" "${config.sops.secrets.vdirsyncer-userName.path}" ];
+          urlCommand = [
+            "cat"
+            "${config.sops.secrets.vdirsyncer-url-contact.path}"
+          ];
+          userNameCommand = [
+            "cat"
+            "${config.sops.secrets.vdirsyncer-userName.path}"
+          ];
 
         };
         khard.enable = true;
@@ -21,7 +27,11 @@ in {
         };
         remote = {
           type = "carddav";
-          passwordCommand = [ "pass" "show" "caldav" ];
+          passwordCommand = [
+            "pass"
+            "show"
+            "caldav"
+          ];
         };
       };
     };

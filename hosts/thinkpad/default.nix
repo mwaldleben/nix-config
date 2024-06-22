@@ -1,4 +1,11 @@
-{ inputs, outputs, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
@@ -19,7 +26,9 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
     users.moritz = import ../../home/moritz/thinkpad.nix;
   };
 
@@ -48,13 +57,21 @@
     zip
   ];
 
-  nixpkgs = { config = { allowUnfree = true; }; };
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 
-  networking = { hostName = "thinkpad"; };
+  networking = {
+    hostName = "thinkpad";
+  };
 
   boot = {
     loader = {
-      efi = { canTouchEfiVariables = true; };
+      efi = {
+        canTouchEfiVariables = true;
+      };
       systemd-boot = {
         enable = true;
         configurationLimit = 4;

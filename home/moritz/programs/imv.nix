@@ -1,6 +1,8 @@
 { config, ... }:
-let inherit (config.colorscheme) palette;
-in {
+let
+  inherit (config.colorscheme) palette;
+in
+{
   programs.imv = {
     enable = true;
     settings = {

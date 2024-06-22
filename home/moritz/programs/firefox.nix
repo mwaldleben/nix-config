@@ -1,4 +1,10 @@
-{ pkgs, inputs, config, ... }: {
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
+{
   programs.browserpass = {
     enable = true;
     browsers = [ "firefox" ];
@@ -6,28 +12,30 @@
 
   programs.firefox = {
     enable = true;
-    package = (pkgs.firefox.override {
-      # workaround: programs.firefox.policies doesn't seem to work
-      extraPolicies = {
-        DefaultDownloadDirectory = "${config.home.homeDirectory}/downloads";
-        DisableFirefoxAccounts = true;
-        DisplayBookmarksToolbar = "always";
-        DisableFirefoxStudies = true;
-        DisablePocket = true;
-        DisableTelemetry = true;
-        FirefoxHome = {
-          Search = true;
-          Pocket = false;
-          Snippets = false;
-          TopSites = false;
-          Highlights = false;
+    package = (
+      pkgs.firefox.override {
+        # workaround: programs.firefox.policies doesn't seem to work
+        extraPolicies = {
+          DefaultDownloadDirectory = "${config.home.homeDirectory}/downloads";
+          DisableFirefoxAccounts = true;
+          DisplayBookmarksToolbar = "always";
+          DisableFirefoxStudies = true;
+          DisablePocket = true;
+          DisableTelemetry = true;
+          FirefoxHome = {
+            Search = true;
+            Pocket = false;
+            Snippets = false;
+            TopSites = false;
+            Highlights = false;
+          };
+          NoDefaultBookmarks = true;
+          OfferToSaveLogins = false;
+          PasswordManagerEnabled = false;
+          ExtensionUpdate = true;
         };
-        NoDefaultBookmarks = true;
-        OfferToSaveLogins = false;
-        PasswordManagerEnabled = false;
-        ExtensionUpdate = true;
-      };
-    });
+      }
+    );
     profiles.default = {
       isDefault = true;
       search = {
@@ -37,7 +45,10 @@
         };
         force = true;
         default = "DuckDuckGo";
-        order = [ "Google" "DuckDuckGo" ];
+        order = [
+          "Google"
+          "DuckDuckGo"
+        ];
       };
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         browserpass
@@ -60,7 +71,6 @@
   };
 
   home.persistence = {
-    "/persist/home/${config.home.username}".directories =
-      [ ".mozilla/firefox" ];
+    "/persist/home/${config.home.username}".directories = [ ".mozilla/firefox" ];
   };
 }

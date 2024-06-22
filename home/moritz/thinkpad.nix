@@ -1,5 +1,12 @@
-{ inputs, ... }: {
-  imports = [ ./default.nix ./accounts ./services ./programs ./hyprland ];
+{ inputs, ... }:
+{
+  imports = [
+    ./default.nix
+    ./accounts
+    ./services
+    ./programs
+    ./hyprland
+  ];
 
   wallpaper = ./wallpapers/default.jpg;
   colorscheme = inputs.nix-colors.colorSchemes.catppuccin-frappe;

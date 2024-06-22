@@ -1,8 +1,15 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   users.users.moritz = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" "docker" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "audio"
+      "docker"
+    ];
     packages = [ pkgs.home-manager ];
     hashedPasswordFile = config.sops.secrets.moritz-password.path;
   };
@@ -13,13 +20,17 @@
   };
 
   # no password for sudo commands
-  security.sudo.extraRules = [{
-    users = [ "moritz" ];
-    commands = [{
-      command = "ALL";
-      options = [ "NOPASSWD" ];
-    }];
-  }];
+  security.sudo.extraRules = [
+    {
+      users = [ "moritz" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 
   # invalid password fix for swaylock, https://github.com/NixOS/nixpkgs/issues/158025
   security.pam.services.swaylock = { };

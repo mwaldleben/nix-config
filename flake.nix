@@ -28,17 +28,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
-      packages =
-        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    in
+    {
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       overlays = import ./overlays { inherit inputs outputs; };
 
@@ -49,7 +54,9 @@
         # personal laptop
         thinkpad = nixpkgs.lib.nixosSystem {
           modules = [ ./hosts/thinkpad ];
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = {
+            inherit inputs outputs;
+          };
         };
       };
 
@@ -57,7 +64,9 @@
         "moritz@thinkpad" = home-manager.lib.homeManagerConfiguration {
           modules = [ ./home/moritz/thinkpad.nix ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
         };
       };
     };

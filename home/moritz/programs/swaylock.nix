@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
-let inherit (config.colorscheme) palette;
-in {
+let
+  inherit (config.colorscheme) palette;
+in
+{
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;

@@ -2,7 +2,8 @@
 let
   swaylock = "${config.programs.swaylock.package}/bin/swaylock";
   systemctl = "${pkgs.systemd}/bin/systemctl";
-in {
+in
+{
   services.swayidle = {
     enable = true;
     timeouts = [
@@ -15,9 +16,11 @@ in {
         command = "${systemctl} suspend";
       }
     ];
-    events = [{
-      event = "before-sleep";
-      command = "${swaylock}";
-    }];
+    events = [
+      {
+        event = "before-sleep";
+        command = "${swaylock}";
+      }
+    ];
   };
 }

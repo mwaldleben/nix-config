@@ -3,7 +3,8 @@ let
   inherit (config.colorscheme) palette;
   pamixer = "${pkgs.pamixer}/bin/pamixer";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-in {
+in
+{
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -15,12 +16,21 @@ in {
         position = "top";
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
-        modules-right =
-          [ "battery" "backlight" "pulseaudio" "pulseaudio#microphone" "tray" ];
+        modules-right = [
+          "battery"
+          "backlight"
+          "pulseaudio"
+          "pulseaudio#microphone"
+          "tray"
+        ];
         backlight = {
           device = "intel_backlight";
           format = "{icon} {percent}%";
-          format-icons = [ "󰃞" "󰃟" "󰃠" ];
+          format-icons = [
+            "󰃞"
+            "󰃟"
+            "󰃠"
+          ];
           on-scroll-up = "${brightnessctl} set 1%+";
           on-scroll-down = "${brightnessctl} set 1%-";
         };
@@ -34,7 +44,13 @@ in {
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
         clock = {
           interval = 1;
@@ -49,7 +65,11 @@ in {
           format-icons = {
             headphone = "󰋋";
             headset = "󰋎";
-            default = [ "" "" "" ];
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
           on-click = "${pamixer} -t";
           on-scroll-up = "${pamixer} -i 5";

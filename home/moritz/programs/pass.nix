@@ -1,7 +1,10 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.password-store = {
     enable = true;
-    settings = { PASSWORD_STORE_DIR = "$HOME/.password-store"; };
+    settings = {
+      PASSWORD_STORE_DIR = "$HOME/.password-store";
+    };
   };
 
   home.persistence = {

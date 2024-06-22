@@ -1,1 +1,5 @@
-{ services.batsignal = { enable = true; }; }
+{
+  services.batsignal = {
+    enable = true;
+  };
+}

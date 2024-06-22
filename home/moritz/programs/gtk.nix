@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   home.pointerCursor = {
     gtk.enable = true;
     name = "Catppuccin-Frappe-Dark-Cursors";

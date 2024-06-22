@@ -1,6 +1,8 @@
 { config, ... }:
-let pass = "${config.programs.password-store.package}/bin/pass";
-in {
+let
+  pass = "${config.programs.password-store.package}/bin/pass";
+in
+{
   accounts.email = {
     maildirBasePath = ".mail";
     accounts = {

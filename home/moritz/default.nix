@@ -1,12 +1,22 @@
-{ inputs, outputs, config, ... }: {
+{
+  inputs,
+  outputs,
+  config,
+  ...
+}:
+{
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.nix-colors.homeManagerModule
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
-  programs = { home-manager.enable = true; };
+  programs = {
+    home-manager.enable = true;
+  };
 
-  nixpkgs = { overlays = builtins.attrValues outputs.overlays; };
+  nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays;
+  };
 
   home = {
     username = "moritz";
