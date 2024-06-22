@@ -18,7 +18,6 @@
           "code"
           "downloads"
           "music"
-          "nixos"
           "notes"
           "pictures"
           "other"
