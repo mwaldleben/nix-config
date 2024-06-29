@@ -16,7 +16,7 @@ configuration. As my daily driver, I rely on the
 - Ephemeral root setup with opt-in persistence through
   [impermance](https://github.com/nix-community/impermanence)
 - Consistent theming with
-  [nix-colors](https://github.com/Misterio77/nix-colors)
+  [catppucccin](https://github.com/catppucccin/nix)
 - Declarative Secrets with [sops-nix](https://github.com/Mic92/sops-nix)
 
 ## Installation
@@ -45,7 +45,7 @@ To set up a similar environment, one would need to roughly follow theses steps:
 | Browser              | firefox                                                                |
 | Mail                 | neomutt with mbsync                                                    |
 | Calendar/contacts    | khal, khard and vdirsyncer                                             |
-| Application launcher | rofi                                                                   |
+| Application launcher | fuzzel                                                                 |
 | Password manager     | pass with GPG key stored on a YubiKey                                  |
 | PDF reader           | zathura                                                                |
 | Music player         | ncmpcpp                                                                |
