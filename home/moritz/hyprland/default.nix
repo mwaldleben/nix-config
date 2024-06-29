@@ -30,7 +30,6 @@
         gaps_out = 20;
         border_size = 0;
         layout = "dwindle";
-        cursor_inactive_timeout = 5;
       };
       misc = {
         disable_hyprland_logo = true;
@@ -40,6 +39,9 @@
       input = {
         kb_layout = "us,ch";
         kb_options = "caps:escape,grp:switch,grp:ctrls_toggle";
+      };
+      cursor = {
+        inactive_timeout = 5;
       };
       decoration = {
         rounding = 5;
