@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     impermanence.url = "github:nix-community/impermanence";
+    catppuccin.url = "github:catppuccin/nix";
     nix-colors.url = "github:misterio77/nix-colors";
 
     home-manager = {

@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 let
-  inherit (config.colorscheme) palette;
   pamixer = "${pkgs.pamixer}/bin/pamixer";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
 in
@@ -89,7 +88,10 @@ in
         };
       };
     };
+    catppuccin.mode = "createLink";
     style = ''
+      @import "/home/moritz/.config/waybar/catppuccin.css";
+
       * {
           border: none;
           border-radius: 0;
@@ -99,23 +101,22 @@ in
           min-height: 0;
       }
 
-
       window#waybar {
-          color: #${palette.base05};
+          color: @text;
           background: rgba(0, 0, 0, 0);
       }
 
       #workspaces button {
-          color: #${palette.base03};
+          color: @surface1;
       }
 
       #workspaces button.active {
-          color: #${palette.base05};
+          color: @text;
       }
 
       #workspaces button:hover {
-          color: #${palette.base05};
-          background: #${palette.base00};
+          color: @text;
+          background: @base;
           border-radius: 8px;
       }
 
@@ -125,7 +126,7 @@ in
       #pulseaudio,
       #tray,
       #workspaces {
-          background: #${palette.base00};
+          background: @base;
           padding: 0px 10px;
           margin: 3px 0px;
           margin-top: 10px;
@@ -139,38 +140,38 @@ in
       }
 
       #clock {
-          color: #${palette.base0D};
+          color: @blue;
           border-radius: 8px;
       }
 
       #battery {
-          color: #${palette.base0B};
+          color: @green;
           border-radius: 8px 0px 0px 8px;
           border-right: 0px;
       }
 
       #battery.warning {
-          color: #${palette.base00};
-          background: #${palette.base09};
+          color: @base;
+          background: @peach;
       }
 
       #battery.critical {
-          color: #${palette.base00};
-          background: #${palette.base08};
+          color: @base;
+          background: @red;
       }
 
       #backlight {
-          color: #${palette.base0A};
+          color: @yellow;
       }
 
       #pulseaudio {
-          color: #${palette.base0C};
+          color: @teal;
           border-left: 0px;
           border-right: 0px;
       }
 
       #pulseaudio.microphone {
-          color: #${palette.base0E};
+          color: @teal;
           border-left: 0px;
           border-right: 0px;
       }

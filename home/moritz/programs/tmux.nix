@@ -2,6 +2,7 @@
 {
   programs.tmux = {
     enable = true;
+    catppuccin.enable = false;
 
     plugins = with pkgs; [
       {
