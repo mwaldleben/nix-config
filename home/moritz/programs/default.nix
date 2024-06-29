@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./catppuccin.nix
     ./firefox.nix
+    ./fuzzel.nix
     ./foot.nix
     ./git.nix
     ./gtk.nix
@@ -16,7 +17,6 @@
     ./pass.nix
     ./picard.nix
     ./qt.nix
-    ./rofi.nix
     ./sops.nix
     ./ssh.nix
     ./swaylock.nix
@@ -52,7 +52,7 @@
     wl-clipboard
 
     # personal scripts (pkgs directory)
-    backup
+    # backup
 
     # language servers
     clang-tools

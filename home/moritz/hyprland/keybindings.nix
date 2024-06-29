@@ -31,6 +31,7 @@ in
       let
         brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
         firefox = "${config.programs.firefox.package}/bin/firefox";
+        fuzzel = "${config.programs.fuzzel.package}/bin/fuzzel";
         grimblast = "${inputs.hyprland-contrib.packages.${pkgs.system}.grimblast}/bin/grimblast";
         pactl = "${pkgs.pulseaudio}/bin/pactl";
         swaylock = "${config.programs.swaylock.package}/bin/swaylock";
@@ -50,11 +51,7 @@ in
         "SUPER,n,exec,${terminal} -e ncmpcpp"
 
         # launcher rofi
-        # TODO: doesn't work when specifying rofi binary
-        "SUPER,o,exec,rofi -show drun"
-        "SUPER,p,exec,rofi -show powermenu -modi powermenu:rofi-power-menu"
-        "SUPERSHIFT,p,exec,rofi-pass"
-        "SUPER,c,exec,rofi -show calc"
+        "SUPER,p,exec,${fuzzel} --no-icons"
 
         # screen lock
         "SUPER,backspace,exec,${swaylock}"
