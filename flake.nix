@@ -56,17 +56,7 @@
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = [
-            ./hosts/thinkpad/default.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.users.moritz = import ./home/moritz/thinkpad.nix;
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
-            }
-          ];
+          modules = [ ./hosts/thinkpad/default.nix ];
         };
       };
     };

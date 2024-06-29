@@ -7,7 +7,7 @@
 {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
-    inputs.nix-colors.homeManagerModule
+    inputs.nix-colors.homeManagerModules.default
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   programs = {
