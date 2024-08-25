@@ -6,25 +6,16 @@
     ./firefox.nix
     ./fuzzel.nix
     ./foot.nix
-    ./git.nix
     ./gtk.nix
     ./imv.nix
     ./khal.nix
     ./khard.nix
-    ./ncmpcpp.nix
-    ./neomutt.nix
-    ./neovim.nix
-    ./pass.nix
     ./picard.nix
     ./qt.nix
-    ./sops.nix
-    ./ssh.nix
     ./swaylock.nix
-    ./tmux.nix
     ./waybar.nix
     ./xdg.nix
     ./zathura.nix
-    ./zsh.nix
   ];
 
   # packages without setup

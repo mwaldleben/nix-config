@@ -101,15 +101,15 @@ in
   };
 
   sops.secrets.vdirsyncer-userName = {
-    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-url-calendar-personal = {
-    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-url-calendar-work = {
-    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-url-calendar-holidays = {
-    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
 }

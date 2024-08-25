@@ -38,9 +38,9 @@ in
   };
 
   sops.secrets.vdirsyncer-url-contact = {
-    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-userName = {
-    sopsFile = ../../../hosts/thinkpad/secrets.yaml;
+    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
 }

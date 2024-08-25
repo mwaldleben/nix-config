@@ -31,7 +31,7 @@
     extraSpecialArgs = {
       inherit inputs outputs;
     };
-    users.moritz = import ../../home/moritz/thinkpad.nix;
+    users.moritz = import ../../../home/moritz/thinkpad.nix;
   };
 
   users.mutableUsers = false;

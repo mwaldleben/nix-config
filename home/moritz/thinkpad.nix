@@ -1,11 +1,12 @@
 { inputs, ... }:
 {
   imports = [
-    ./default.nix
     ./accounts
-    ./services
-    ./programs
-    ./hyprland
+    ./cli
+    ./nixos/default.nix
+    ./nixos/hyprland
+    ./nixos/services
+    ./nixos/programs
   ];
 
   wallpaper = ./wallpapers/default.jpg;
