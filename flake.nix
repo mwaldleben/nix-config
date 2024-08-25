@@ -7,6 +7,11 @@
     impermanence.url = "github:nix-community/impermanence";
     catppuccin.url = "github:catppuccin/nix";
 
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,12 +37,16 @@
     {
       self,
       nixpkgs,
+      darwin,
       home-manager,
       ...
     }@inputs:
     let
       inherit (self) outputs;
-      systems = [ "x86_64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
@@ -48,6 +57,7 @@
       overlays = import ./overlays { inherit inputs; };
 
       nixosModules = import ./modules/nixos;
+      darwinModules = import ./modules/darwin;
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
@@ -57,6 +67,16 @@
             inherit inputs outputs;
           };
           modules = [ ./hosts/nixos/thinkpad/default.nix ];
+        };
+      };
+
+      darwinConfigurations = {
+        # work laptop
+        macbook = darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./hosts/darwin/macbook/default.nix ];
         };
       };
     };

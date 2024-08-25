@@ -15,6 +15,26 @@
         "type": "github"
       }
     },
+    "darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724561770,
+        "narHash": "sha256-zv8C9RNa86CIpyHwPIVO/k+5TfM8ZbjGwOOpTe1grls=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "ac5694a0b855a981e81b4d9f14052e3ff46ca39e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -143,6 +163,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "darwin": "darwin",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "hyprland-contrib": "hyprland-contrib",
