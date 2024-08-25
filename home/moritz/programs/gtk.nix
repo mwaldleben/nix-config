@@ -1,8 +1,10 @@
 { pkgs, config, ... }:
 {
   home.pointerCursor = {
-    gtk.enable = true;
+    package = pkgs.catppuccin-cursors.frappeBlue;
+    name = "Catppucin-cursors-frappeBlue";
     size = 32;
+    gtk.enable = true;
   };
   gtk = {
     enable = true;
