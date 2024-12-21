@@ -7,16 +7,18 @@
 }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [
+    "nvme"
     "xhci_pci"
-    "ehci_pci"
-    "ahci"
+    "thunderbolt"
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /mnt
     mount -t btrfs /dev/mapper/enc /mnt
@@ -30,48 +32,64 @@
     echo "Restoring blank subvolume"
     btrfs subvolume snapshot /mnt/root-blank /mnt/root
   '';
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "amd-pstate"
+  ];
+  boot.kernelParams = [
+    "initcall_blacklist=acpi_cpufreq_init"
+    "acpi_backlight=native"
+    "apm=power_off"
+  ];
   boot.extraModulePackages = [ ];
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = [
+      "subvol=root"
+      "compress=zstd"
+    ];
+  };
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-label/root_enc";
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/a3e87481-1bbd-4c2c-a1cd-2aef3ecdc742";
-      fsType = "btrfs";
-      options = [ "subvol=root,compress=zstd" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = [
+      "subvol=nix"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
 
-    "/boot" = {
-      device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-    };
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = [
+      "subvol=persist"
+      "compress=zstd"
+    ];
+    neededForBoot = true;
+  };
 
-    "/nix" = {
-      device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [ "subvol=nix,compress=zstd,noatime" ];
-    };
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = [
+      "subvol=swap"
+      "noatime"
+    ];
+  };
 
-    "/persist" = {
-      device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [ "subvol=persist,compress=zstd" ];
-      neededForBoot = true;
-    };
-
-    "/swap" = {
-      device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [
-        "subvol=swap"
-        "noatime"
-      ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
-  nixpkgs.hostPlatform = "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = true;
 }
