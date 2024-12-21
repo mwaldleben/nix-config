@@ -10,15 +10,14 @@
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../common/audio.nix
+    ../common/auto-epp.nix
     ../common/blueman.nix
     ../common/dconf.nix
-    ../common/docker.nix
     ../common/impermanence.nix
     ../common/locale.nix
     ../common/networking.nix
     ../common/nix.nix
     ../common/pcscd.nix
-    ../common/printing.nix
     ../common/sops.nix
     ../common/zsh.nix
     ../common/udisks2.nix
