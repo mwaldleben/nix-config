@@ -14,17 +14,16 @@
   monitors = [
     {
       name = "eDP-1";
-      width = 1920;
-      height = 1080;
-      refreshRate = 60;
+      width = 2880;
+      height = 1800;
+      refreshRate = 90;
       workspace = "1";
     }
     {
-      name = "HDMI-A-2";
+      name = "HDMI-A-1";
       width = 2560;
       height = 1440;
       refreshRate = 60;
-      x = 1920;
       workspace = "2";
     }
   ];
