@@ -23,6 +23,19 @@
     users.moritzwaldleben = import ../../../home/moritz/macbook.nix;
   };
 
+  environment.systemPackages = with pkgs; [
+    git
+    gnupg
+    htop
+    neovim
+    ripgrep
+    srm
+    trash-cli
+    unzip
+    wget
+    zip
+  ];
+
   services.nix-daemon.enable = true;
 
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
