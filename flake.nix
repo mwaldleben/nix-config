@@ -72,7 +72,7 @@
 
       darwinConfigurations = {
         # work laptop
-        macbook = darwin.lib.darwinSystem {
+        "MacBook-Pro" = darwin.lib.darwinSystem {
           specialArgs = {
             inherit inputs outputs;
           };

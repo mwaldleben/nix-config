@@ -2,7 +2,7 @@
 {
   imports = [
     ./accounts
-    ./cli
+    ./essentials
     ./nixos/default.nix
     ./nixos/hyprland
     ./nixos/services

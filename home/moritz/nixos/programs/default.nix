@@ -10,8 +10,13 @@
     ./imv.nix
     ./khal.nix
     ./khard.nix
+    ./ncmpcpp.nix
+    ./neomutt.nix
+    ./pass.nix
     ./picard.nix
     ./qt.nix
+    ./sops.nix
+    ./ssh.nix
     ./swaylock.nix
     ./waybar.nix
     ./xdg.nix
