@@ -8,7 +8,6 @@
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
-    ../common/gpg-agent.nix
     ../common/homebrew.nix
     ../common/nix.nix
     ../common/system.nix
