@@ -1,13 +1,9 @@
 {
   homebrew = {
     enable = true;
-
-    brews = [ "pyenv" ];
+    onActivation.cleanup = "uninstall";
 
     casks = [
-      "alacritty"
-      "basictex"
-      "flameshot"
       "firefox"
     ];
   };
