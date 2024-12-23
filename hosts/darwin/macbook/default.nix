@@ -20,7 +20,7 @@
     extraSpecialArgs = {
       inherit inputs outputs;
     };
-    users.moritz = import ../../home/moritz/macbook.nix;
+    users.moritzwaldleben = import ../../../home/moritz/macbook.nix;
   };
 
   services.nix-daemon.enable = true;

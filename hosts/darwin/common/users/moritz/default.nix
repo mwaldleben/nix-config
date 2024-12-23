@@ -1,5 +1,5 @@
 {
-  users.users.moritz = {
+  users.users.moritzwaldleben = {
     home = "/Users/moritzwaldleben";
   };
 }
