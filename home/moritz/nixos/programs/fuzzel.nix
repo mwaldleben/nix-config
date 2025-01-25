@@ -16,7 +16,7 @@
       border = {
         radius = 8;
       };
-      # TODO: catppuccin nix doesnt support fuzzel yet 
+      # TODO: catppuccin nix doesnt support fuzzel yet
       colors = {
         text = "c6d0f5ff";
         selection-text = "c6d0f5ff";

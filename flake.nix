@@ -66,7 +66,9 @@
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = [ ./hosts/nixos/thinkpad/default.nix ];
+          modules = [
+            ./hosts/nixos/thinkpad/default.nix
+          ];
         };
       };
 
