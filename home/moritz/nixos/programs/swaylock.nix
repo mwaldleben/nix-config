@@ -5,14 +5,13 @@
     package = pkgs.swaylock-effects;
     settings = {
       effect-blur = "20x2";
-      # fade-in = 1; # very laggy
 
       clock = true;
       timestr = "%H:%M";
       datestr = "%a %d %b %Y";
 
       font = config.fontProfiles.monospace.family;
-      font-size = 37;
+      font-size = 40;
 
       image = "${config.wallpaper}";
 
