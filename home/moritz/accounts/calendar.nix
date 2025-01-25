@@ -20,7 +20,7 @@ in
         };
         khal.enable = true;
         local = {
-          path = "~/.calendars/personal";
+          path = "/home/${config.home.username}/.calendars/personal";
           type = "filesystem";
           fileExt = ".ics";
         };

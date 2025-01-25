@@ -21,7 +21,7 @@ in
         khard.enable = true;
         khal.enable = true;
         local = {
-          path = "~/.contacts";
+          path = "/home/${config.home.username}/.contacts";
           type = "filesystem";
           fileExt = ".vcf";
         };
