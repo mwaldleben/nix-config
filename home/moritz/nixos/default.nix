@@ -29,8 +29,17 @@
           "other"
           ".calendars"
           ".contacts"
-          ".local"
           ".mail"
+          ".local"
+          ".password-store"
+          ".gnupg"
+          ".ssh"
+          ".mozilla/firefox"
+          ".config/MusicBrainz"
+          ".config/nvim"
+          ".config/tmux"
+          ".config/todo"
+          ".config/syncthing"
         ];
         allowOther = true;
       };

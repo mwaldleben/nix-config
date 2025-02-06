@@ -6,8 +6,4 @@
       PASSWORD_STORE_DIR = "$HOME/.password-store";
     };
   };
-
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [ ".password-store" ];
-  };
 }

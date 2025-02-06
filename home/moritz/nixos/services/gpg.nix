@@ -15,8 +15,4 @@
     pinentryPackage = pkgs.pinentry-qt;
     enableExtraSocket = true;
   };
-
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [ ".gnupg" ];
-  };
 }
