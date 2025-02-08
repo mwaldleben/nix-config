@@ -13,6 +13,7 @@
     ../common/auto-epp.nix
     ../common/blueman.nix
     ../common/dconf.nix
+    ../common/fwudp.nix
     ../common/impermanence.nix
     ../common/locale.nix
     ../common/networking.nix
