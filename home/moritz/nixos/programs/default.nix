@@ -7,6 +7,7 @@
     ./fuzzel.nix
     ./foot.nix
     ./gtk.nix
+    ./htop.nix
     ./imv.nix
     ./khal.nix
     ./khard.nix

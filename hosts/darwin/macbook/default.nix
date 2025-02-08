@@ -26,7 +26,6 @@
   environment.systemPackages = with pkgs; [
     git
     gnupg
-    htop
     neovim
     ripgrep
     srm

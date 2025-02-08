@@ -43,10 +43,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    e2fsprogs # mkfs program
     git
     gcc
-    htop
     neovim
     python3
     ripgrep
