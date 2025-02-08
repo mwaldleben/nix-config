@@ -24,6 +24,7 @@
       exec-once = [
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${config.programs.foot.package}/bin/foot --server"
+        "${config.wayland.windowManager.hyprland.package}/bin/hyprctl setcursor catppuccin-frappe-blue-cursors 32"
       ];
       general = {
         gaps_in = 10;
@@ -39,25 +40,30 @@
       input = {
         kb_layout = "us,ch";
         kb_options = "caps:escape,grp:switch,grp:ctrls_toggle";
+        touchpad = {
+          disable_while_typing = true;
+        };
       };
       cursor = {
         inactive_timeout = 5;
       };
       decoration = {
-        rounding = 5;
+        rounding = 10;
         blur = {
           enabled = false;
         };
-        drop_shadow = false;
+        shadow = {
+          enabled = false;
+        };
       };
       animations = {
-        enabled = true;
+        enabled = false;
         bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
         animation = [
           "windows, 1, 4, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
+          "border, 0, 10, default"
+          "borderangle, 0, 8, default"
           "fade, 1, 7, default"
           "workspaces, 0, 6, default"
         ];

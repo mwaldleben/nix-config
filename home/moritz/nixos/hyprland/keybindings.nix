@@ -50,7 +50,7 @@ in
         "SUPER,e,exec,${terminal} -e neomutt"
         "SUPER,n,exec,${terminal} -e ncmpcpp"
 
-        # launcher rofi
+        # launcher fuzzel
         "SUPER,p,exec,${fuzzel} --no-icons"
 
         # screen lock
@@ -91,7 +91,7 @@ in
         (lib.mapAttrsToList (key: direction: "SUPER,${key},movefocus,${direction}") directions)
       ++
 
-        # resize window 
+        # resize window
         (lib.mapAttrsToList (key: resize: "SUPERALT,${key},resizeactive,${resize}") resizes)
       ++
 
