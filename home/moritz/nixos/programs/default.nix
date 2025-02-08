@@ -48,7 +48,7 @@
     # texlive.combined.scheme-full
 
     # personal scripts (pkgs directory)
-    # backup
+    # backup TODO: referencing this here does not work
 
     # language servers
     clang-tools

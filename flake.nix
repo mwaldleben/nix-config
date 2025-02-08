@@ -43,16 +43,26 @@
     }@inputs:
     let
       inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
       systems = [
         "x86_64-linux"
         "aarch64-darwin"
       ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+      forEachSystem =
+        f:
+        lib.genAttrs systems (
+          system:
+          f (
+            import nixpkgs {
+              inherit system;
+            }
+          )
+        );
     in
     {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forEachSystem (pkgs: pkgs.nixfmt-rfc-style);
 
       overlays = import ./overlays { inherit inputs; };
 
