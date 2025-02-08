@@ -129,16 +129,20 @@ in
           color: @surface1;
       }
 
-      #workspaces button.active {
-          color: @text;
-      }
-
       #workspaces button:hover {
           box-shadow: inherit;
           text-shadow: inherit;
           background: inherit;
           border: inherit;
           color: @surface1;
+      }
+
+      #workspaces button.active {
+          color: @text;
+      }
+
+      #workspaces button.active:hover {
+          color: @text;
       }
 
       #clock {
