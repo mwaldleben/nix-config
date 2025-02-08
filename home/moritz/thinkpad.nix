@@ -16,7 +16,8 @@
       name = "eDP-1";
       width = 2880;
       height = 1800;
-      refreshRate = 90;
+      refreshRate = 60;
+      scale = 1.5;
       workspace = "1";
     }
     {
@@ -24,6 +25,7 @@
       width = 2560;
       height = 1440;
       refreshRate = 60;
+      scale = 1.0;
       workspace = "2";
     }
   ];

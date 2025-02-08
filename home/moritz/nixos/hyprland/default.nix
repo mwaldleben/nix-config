@@ -67,11 +67,12 @@
           let
             resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
             position = "${toString m.x}x${toString m.y}";
+            scale = "${toString m.scale}";
           in
-          "${m.name},${resolution},${position},1"
+          "${m.name}, ${resolution}, ${position}, ${scale}"
         ) (config.monitors);
 
-        workspace = map (m: "${m.name},${m.workspace}") (config.monitors);
+        workspace = map (m: "${m.name}, ${m.workspace}") (config.monitors);
       };
     };
   };

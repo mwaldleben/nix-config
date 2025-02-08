@@ -14,7 +14,7 @@ in
         profile.outputs = [
           {
             criteria = "${primary.name}";
-            scale = 1.5;
+            scale = primary.scale;
             status = "enable";
           }
         ];
@@ -24,7 +24,7 @@ in
         profile.outputs = [
           {
             criteria = "${secondary.name}";
-            scale = 1.0;
+            scale = secondary.scale;
             status = "enable";
           }
           {

@@ -31,6 +31,10 @@ in
             type = types.int;
             default = 0;
           };
+          scale = mkOption {
+            type = types.float;
+            default = 1.0;
+          };
           workspace = mkOption {
             type = types.nullOr types.str;
             default = null;
