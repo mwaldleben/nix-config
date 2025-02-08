@@ -37,7 +37,7 @@
     exiftool
     ghostscript
     libnotify
-    jmtpfs
+    android-file-transfer
     mpv
     nodejs
     openjdk
