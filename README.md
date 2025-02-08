@@ -11,26 +11,32 @@ configuration. As my daily driver, I rely on the
 
 ## Features:
 
-- Possible multi-user/multi-system setup
+- Possible multi-user/multi-host setup
+- Cross-platform config having a minimal setup for darwin (MacOS)
 - Encrypted BTRFS partition
 - Ephemeral root setup with opt-in persistence through
-  [impermance](https://github.com/nix-community/impermanence)
+  [impermanence](https://github.com/nix-community/impermanence)
+- An essential programs folder (zsh, tmux...) where the extraConfig part does
+  work as config file for other Linux distros
 - Consistent theming with
   [catppucccin](https://github.com/catppucccin/nix)
 - Declarative Secrets with [sops-nix](https://github.com/Mic92/sops-nix)
 
 ## Installation
 
-To set up a similar environment, one would need to roughly follow theses steps:
+The installation script `install.sh` can be used to generate a BTRFS filestysem with
+minimal NixOS config. Below the steps one would roughly need to follow to setup up the system:
 
 1. Create a [BTRFS](https://nixos.wiki/wiki/Btrfs) filesystem with subvolumes
    `/nix`, `/persist`, swap file and root subvolume.
 2. Generate a simple NixOS configuration for your system.
 3. Place the `hardware-configuration.nix` file from this setup into the
    `hosts/mycomputer` folder to configure a new host.
-4. Make new secrets file with login password.
+4. Make new secrets file with login passwords.
 5. Customize user-specific configurations in the folder `home/moritz` and
    adjust the user name accordingly.
+8. Make the folder `/persist/home/myname` owned by your user for home-manager
+   to work with impermanence.
 
 ## Programs I Use
 
@@ -49,7 +55,7 @@ To set up a similar environment, one would need to roughly follow theses steps:
 | Password manager     | pass with GPG key stored on a YubiKey                                  |
 | PDF reader           | zathura                                                                |
 | Music player         | ncmpcpp                                                                |
-| Colorscheme          | catpuccin frappe                                                       |
+| Colorscheme          | catppuccin frappe                                                       |
 
 ## Credits
 
