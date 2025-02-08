@@ -27,10 +27,8 @@
   home.packages = with pkgs; [
     # gui
     darktable
-    inkscape
-    libreoffice-still
-    chromium
-    zoom-us
+    lollypop
+    libreoffice
 
     # cli and utils
     brightnessctl
@@ -38,14 +36,15 @@
     exiftool
     ghostscript
     libnotify
+    jmtpfs
     mpv
     nodejs
     openjdk
     pandoc
-    texlive.combined.scheme-full
     urlscan
     yt-dlp
     wl-clipboard
+    # texlive.combined.scheme-full
 
     # personal scripts (pkgs directory)
     # backup
