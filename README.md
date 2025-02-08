@@ -24,38 +24,40 @@ configuration. As my daily driver, I rely on the
 
 ## Installation
 
-The installation script `install.sh` can be used to generate a BTRFS filestysem with
-minimal NixOS config. Below the steps one would roughly need to follow to setup up the system:
+The installation script `install.sh` helps to generate a BTRFS filesystem with
+the default NixOS config. Below the steps one would roughly need to follow to setup up the system:
 
 1. Create a [BTRFS](https://nixos.wiki/wiki/Btrfs) filesystem with subvolumes
    `/nix`, `/persist`, swap file and root subvolume.
-2. Generate a simple NixOS configuration for your system.
-3. Place the `hardware-configuration.nix` file from this setup into the
+2. Generate and build default NixOS configuration for your system.
+3. Clone this repository.
+4. Place the `hardware-configuration.nix` file from this setup into the
    `hosts/mycomputer` folder to configure a new host.
-4. Make new secrets file with login passwords.
-5. Customize user-specific configurations in the folder `home/moritz` and
+5. Make new secrets file with login passwords.
+6. Customize user-specific configurations in the folder `home/moritz` and
    adjust the user name accordingly.
-8. Make the folder `/persist/home/myname` owned by your user for home-manager
+7. Make the folder `/persist/home/myname` owned by your user for home-manager
    to work with impermanence.
 
 ## Programs I Use
 
-| Name                 | Description                                                            |
-| -------------------- | ---------------------------------------------------------------------- |
-| Window manager       | Hyprland                                                               |
-| Status bar           | waybar                                                                 |
-| Shell                | zsh                                                                    |
-| Terminal emulator    | alacritty                                                              |
-| Terminal multiplexer | tmux                                                                   |
-| Editor               | neovim (managed in a separate [repo](https://github.com/morwald/nvim)) |
-| Browser              | firefox                                                                |
-| Mail                 | neomutt with mbsync                                                    |
-| Calendar/contacts    | khal, khard and vdirsyncer                                             |
-| Application launcher | fuzzel                                                                 |
-| Password manager     | pass with GPG key stored on a YubiKey                                  |
-| PDF reader           | zathura                                                                |
-| Music player         | ncmpcpp                                                                |
-| Colorscheme          | catppuccin frappe                                                       |
+| Name                 | Description                                                               |
+| -------------------- | ------------------------------------------------------------------------- |
+| Window manager       | Hyprland                                                                  |
+| Status bar           | waybar                                                                    |
+| Shell                | zsh                                                                       |
+| Terminal emulator    | alacritty                                                                 |
+| Terminal multiplexer | tmux                                                                      |
+| Editor               | neovim (managed in a separate [repo](https://github.com/mwaldleben/nvim)) |
+| Browser              | firefox                                                                   |
+| Mail                 | neomutt with mbsync                                                       |
+| Calendar/contacts    | khal, khard and vdirsyncer                                                |
+| Todos                | todo.txt                                                                  |
+| Application launcher | fuzzel                                                                    |
+| Password manager     | pass with GPG key stored on a YubiKey                                     |
+| PDF reader           | zathura                                                                   |
+| Music player         | Lollypop                                                                  |
+| Colorscheme          | catppuccin frappe                                                         |
 
 ## Credits
 
