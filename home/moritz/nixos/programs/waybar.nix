@@ -106,20 +106,6 @@ in
           background: rgba(0, 0, 0, 0);
       }
 
-      #workspaces button {
-          color: @surface1;
-      }
-
-      #workspaces button.active {
-          color: @text;
-      }
-
-      #workspaces button:hover {
-          color: @text;
-          background: @base;
-          border-radius: 8px;
-      }
-
       #battery,
       #backlight,
       #clock,
@@ -137,6 +123,22 @@ in
           margin-left: 20px;
           padding-left: 5px;
           padding-right: 5px;
+      }
+
+      #workspaces button {
+          color: @surface1;
+      }
+
+      #workspaces button.active {
+          color: @text;
+      }
+
+      #workspaces button:hover {
+          box-shadow: inherit;
+          text-shadow: inherit;
+          background: inherit;
+          border: inherit;
+          color: @surface1;
       }
 
       #clock {
