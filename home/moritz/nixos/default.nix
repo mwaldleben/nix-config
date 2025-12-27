@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   config,
   ...
 }:
@@ -8,7 +7,7 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.catppuccin.homeModules.catppuccin
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+  ] ++ (builtins.attrValues inputs.self.homeManagerModules);
 
   programs = {
     home-manager.enable = true;

@@ -42,15 +42,13 @@
       ...
     }@inputs:
     let
-      inherit (self) outputs;
-      lib = nixpkgs.lib // home-manager.lib;
       systems = [
         "x86_64-linux"
         "aarch64-darwin"
       ];
       forEachSystem =
         f:
-        lib.genAttrs systems (
+        nixpkgs.lib.genAttrs systems (
           system:
           f (
             import nixpkgs {
@@ -74,7 +72,7 @@
         # personal laptop
         thinkpad = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs;
           };
           modules = [
             ./hosts/nixos/thinkpad/default.nix
@@ -86,7 +84,7 @@
         # work laptop
         "MacBook-Pro" = darwin.lib.darwinSystem {
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs;
           };
           modules = [ ./hosts/darwin/macbook/default.nix ];
         };

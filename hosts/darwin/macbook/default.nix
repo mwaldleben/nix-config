@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   config,
   pkgs,
   ...
@@ -18,7 +17,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs outputs;
+      inherit inputs;
     };
     users.moritzwaldleben = import ../../../home/moritz/macbook.nix;
   };

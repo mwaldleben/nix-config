@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   config,
   pkgs,
   ...
@@ -29,7 +28,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs outputs;
+      inherit inputs;
     };
     users.moritz = import ../../../home/moritz/thinkpad.nix;
   };
