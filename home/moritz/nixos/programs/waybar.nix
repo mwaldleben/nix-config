@@ -88,7 +88,6 @@ in
         };
       };
     };
-    catppuccin.mode = "createLink";
     style = ''
       @import "/home/moritz/.config/waybar/catppuccin.css";
 

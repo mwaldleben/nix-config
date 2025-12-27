@@ -2,7 +2,7 @@
 {
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "/home/${config.home.username}/.config/zsh";
     autosuggestion.enable = true;
     enableCompletion = true;
     plugins = [
@@ -26,7 +26,7 @@
       trash = "TRASH_ENABLE_HOME_FALLBACK=1 trash-put --home-fallback";
     };
     history.path = "$HOME/.config/zsh/history";
-    initExtra = ''
+    initContent = ''
       # share history between open terminals
       setopt share_history
 

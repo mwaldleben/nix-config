@@ -57,6 +57,8 @@
     zip
   ];
 
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -88,9 +90,13 @@
 
   # lid settings
   services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "suspend";
+    settings = {
+      Login = {
+        HandleLidSwitch = "suspend";
+        HandleLidSwitchExternalPower = "suspend";
+      };
+    };
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }

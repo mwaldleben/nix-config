@@ -7,7 +7,7 @@
 {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   programs = {
@@ -17,7 +17,7 @@
   home = {
     username = "moritz";
     homeDirectory = "/home/${config.home.username}";
-    stateVersion = "24.05";
+    stateVersion = "25.11";
     persistence = {
       "/persist/home/${config.home.username}" = {
         directories = [

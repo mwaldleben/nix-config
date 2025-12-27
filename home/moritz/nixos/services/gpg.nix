@@ -12,7 +12,7 @@
     enableSshSupport = true;
     sshKeys = [ "E79176999CD6967EDFF33456D2A4998C974C7DDB" ];
     enableZshIntegration = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentry.package = pkgs.pinentry-qt;
     enableExtraSocket = true;
   };
 }

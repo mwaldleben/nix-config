@@ -40,26 +40,29 @@
       isDefault = true;
       search = {
         engines = {
-          "DuckDuckGo".metaData.alias = "@d";
-          "Google".metaData.alias = "@g";
+          "ddg".metaData.alias = "@d";
+          "google".metaData.alias = "@g";
         };
         force = true;
-        default = "DuckDuckGo";
+        default = "ddg";
         order = [
-          "Google"
-          "DuckDuckGo"
+          "google"
+          "ddg"
         ];
       };
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-        browserpass
-        duckduckgo-privacy-essentials
-        firefox-color # manually choose catppuccin colorscheme https://github.com/catppuccin/firefox
-        ublock-origin
-        vimium # manually choose catppuccin colorscheme https://github.com/catppuccin/vimium
+      extensions = {
+        packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+          browserpass
+          duckduckgo-privacy-essentials
+          firefox-color # manually choose catppuccin colorscheme https://github.com/catppuccin/firefox
+          ublock-origin
+          vimium # manually choose catppuccin colorscheme https://github.com/catppuccin/vimium
 
-        dictionary-german
-        french-dictionary
-      ];
+          dictionary-german
+          french-dictionary
+        ];
+        force = true;
+      };
       settings = {
         "browser.startup.homepage" = "https://duckduckgo.com";
         "browser.search.region" = "CH";

@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   programs = {
@@ -16,6 +16,6 @@
   home = {
     username = "moritzwaldleben";
     homeDirectory = "/Users/${config.home.username}";
-    stateVersion = "23.11";
+    stateVersion = "25.11";
   };
 }

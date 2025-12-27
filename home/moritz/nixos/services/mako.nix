@@ -2,12 +2,11 @@
 {
   services.mako = {
     enable = true;
-    borderRadius = 8;
-    borderSize = 2;
-    maxIconSize = 32;
-    defaultTimeout = 5000;
-    extraConfig = ''
-      default-timeout=0
-    '';
+    settings = {
+      border-radius = 8;
+      border-size = 2;
+      max-icon-size = 32;
+      default-timeout = 5000;
+    };
   };
 }

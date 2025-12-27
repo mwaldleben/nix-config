@@ -8,7 +8,6 @@
   };
   gtk = {
     enable = true;
-    catppuccin.enable = true;
     font = {
       name = "${config.fontProfiles.regular.family} Sans";
       size = 11;
