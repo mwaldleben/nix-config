@@ -72,7 +72,7 @@
           m:
           let
             resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-            position = "${toString m.x}x${toString m.y}";
+            position = "auto";
             scale = "${toString m.scale}";
           in
           "${m.name}, ${resolution}, ${position}, ${scale}"

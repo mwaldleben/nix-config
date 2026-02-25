@@ -24,12 +24,10 @@ in
             default = 60;
           };
           x = mkOption {
-            type = types.int;
-            default = 0;
+            default = "auto";
           };
           y = mkOption {
-            type = types.int;
-            default = 0;
+            default = "auto";
           };
           scale = mkOption {
             type = types.float;

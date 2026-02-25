@@ -22,10 +22,10 @@
     }
     {
       name = "HDMI-A-1";
-      width = 2560;
-      height = 1440;
+      width = 3840;
+      height = 2160;
       refreshRate = 60;
-      scale = 1.0;
+      scale = 1.5;
       workspace = "2";
     }
   ];
