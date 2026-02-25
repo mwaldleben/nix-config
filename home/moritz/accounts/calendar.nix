@@ -33,36 +33,6 @@ in
           ];
         };
       };
-      work = {
-        vdirsyncer = {
-          enable = true;
-          urlCommand = [
-            "cat"
-            "${config.sops.secrets.vdirsyncer-url-calendar-work.path}"
-          ];
-          userNameCommand = [
-            "cat"
-            "${config.sops.secrets.vdirsyncer-userName.path}"
-          ];
-        };
-        khal = {
-          enable = true;
-          readOnly = true;
-        };
-        local = {
-          path = "~/.calendars/work";
-          type = "filesystem";
-          fileExt = ".ics";
-        };
-        remote = {
-          type = "caldav";
-          passwordCommand = [
-            "pass"
-            "show"
-            "caldav"
-          ];
-        };
-      };
       holidays = {
         vdirsyncer = {
           enable = true;
@@ -104,9 +74,6 @@ in
     sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-url-calendar-personal = {
-    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
-  };
-  sops.secrets.vdirsyncer-url-calendar-work = {
     sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-url-calendar-holidays = {
