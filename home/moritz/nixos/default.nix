@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.catppuccin.homeModules.catppuccin
   ] ++ (builtins.attrValues inputs.self.homeManagerModules);
 
@@ -18,7 +17,7 @@
     homeDirectory = "/home/${config.home.username}";
     stateVersion = "25.11";
     persistence = {
-      "/persist/home/${config.home.username}" = {
+      "/persist" = {
         directories = [
           "code"
           "downloads"
