@@ -21,6 +21,9 @@
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
+      xwayland = {
+        force_zero_scaling = true;
+      };
       exec-once = [
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${config.programs.foot.package}/bin/foot --server"
