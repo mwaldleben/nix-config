@@ -39,8 +39,8 @@
           ".config/tmux"
           ".config/todo"
           ".config/syncthing"
+          ".config/Signal"
         ];
-        allowOther = true;
       };
     };
   };

@@ -42,6 +42,7 @@
     nodejs
     openjdk
     pandoc
+    signal-desktop
     urlscan
     yt-dlp
     wl-clipboard
