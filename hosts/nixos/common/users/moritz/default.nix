@@ -8,7 +8,7 @@
       "networkmanager"
       "video"
       "audio"
-      "docker"
+      "davfs2"
     ];
     packages = [ pkgs.home-manager ];
     hashedPasswordFile = config.sops.secrets.moritz-password.path;
@@ -34,4 +34,11 @@
 
   # invalid password fix for swaylock, https://github.com/NixOS/nixpkgs/issues/158025
   security.pam.services.swaylock = { };
+
+  # add nix-ld
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+    ];
+  };
 }
