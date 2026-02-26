@@ -19,5 +19,7 @@
     export COLOR_META=$LIGHT_GREY
 
     export TODOTXT_VERBOSE=0
+    export TODOTXT_DEFAULT_ACTION='ls'
+    export TODOTXT_FINAL_FILTER="sed 's/@[a-zA-Z0-9_]*//g'"
   '';
 }
