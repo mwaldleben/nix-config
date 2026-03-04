@@ -19,9 +19,8 @@
     ];
     shellAliases = {
       zathura = "zathura --fork > /dev/null 2>&1";
-      no = "sudo nixos-rebuild --flake . switch";
-      hm = "home-manager --flake . switch";
-      H = "Hyprland";
+      nrs = "sudo nixos-rebuild --flake . switch";
+      h = "start-hyprland";
       # btrfs workaround for trash-cli, https://github.com/andreafrancia/trash-cli/issues/300#issuecomment-1786065185
       trash = "TRASH_ENABLE_HOME_FALLBACK=1 trash-put --home-fallback";
     };
