@@ -2,6 +2,7 @@
 {
   imports = [
     ./common/font.nix
+    ./common/ghostty.nix
     ./common/git.nix
     ./common/neovim.nix
     ./common/tmux.nix

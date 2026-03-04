@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./alacritty.nix
     ./catppuccin.nix
     ./firefox.nix
     ./fuzzel.nix
