@@ -1,8 +1,10 @@
 { inputs, ... }:
 {
   imports = [
-    ./accounts
     ./essentials
+    ./essentials/calendar.nix
+    ./essentials/contacts.nix
+    ./essentials/mail.nix
     ./nixos/default.nix
     ./nixos/hyprland
     ./nixos/services
