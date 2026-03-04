@@ -2,7 +2,7 @@
 {
   programs.zsh = {
     enable = true;
-    dotDir = "/home/${config.home.username}/.config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     autosuggestion.enable = true;
     enableCompletion = true;
     plugins = [
@@ -31,8 +31,8 @@
       setopt share_history
 
       # default aliases
-      ls="ls --color=auto"
-      ll="ls -l --color=auto"
+      alias ls="ls --color=auto"
+      alias ll="ls -l --color=auto"
       alias vim="nvim"
       alias t="todo.sh"
 
