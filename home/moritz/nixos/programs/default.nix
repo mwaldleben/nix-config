@@ -50,7 +50,7 @@
     # texlive.combined.scheme-full
 
     # personal scripts (pkgs directory)
-    # backup TODO: referencing this here does not work
+    backup
 
     # language servers
     clang-tools

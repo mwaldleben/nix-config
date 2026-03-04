@@ -56,13 +56,10 @@
     zip
   ];
 
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
 
   networking = {
     hostName = "thinkpad";
