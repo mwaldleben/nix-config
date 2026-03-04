@@ -60,7 +60,7 @@
     {
       packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
 
-      formatter = forEachSystem (pkgs: pkgs.nixfmt-rfc-style);
+      formatter = forEachSystem (pkgs: pkgs.nixfmt-tree);
 
       overlays = import ./overlays { inherit inputs; };
 
@@ -75,7 +75,18 @@
             inherit inputs;
           };
           modules = [
-            ./hosts/nixos/thinkpad/default.nix
+            ./hosts/nixos/thinkpad
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+                users.moritz = import ./home/moritz/thinkpad.nix;
+              };
+            }
           ];
         };
       };
@@ -86,7 +97,20 @@
           specialArgs = {
             inherit inputs;
           };
-          modules = [ ./hosts/darwin/macbook/default.nix ];
+          modules = [
+            ./hosts/darwin/macbook
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+                users.moritzwaldleben = import ./home/moritz/macbook.nix;
+              };
+            }
+          ];
         };
       };
     };
