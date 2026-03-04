@@ -75,7 +75,7 @@
                 extraSpecialArgs = {
                   inherit inputs;
                 };
-                users.moritz = import ./home/moritz/thinkpad.nix;
+                users.moritz = import (./home + "/moritz@thinkpad.nix");
               };
             }
           ];
@@ -98,7 +98,7 @@
                 extraSpecialArgs = {
                   inherit inputs;
                 };
-                users.moritzwaldleben = import ./home/moritz/macbook.nix;
+                users.moritzwaldleben = import (./home + "/moritzwaldleben@macbook.nix");
               };
             }
           ];

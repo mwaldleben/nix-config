@@ -71,12 +71,12 @@ in
   };
 
   sops.secrets.vdirsyncer-userName = {
-    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
+    sopsFile = ../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-url-calendar-personal = {
-    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
+    sopsFile = ../../hosts/nixos/thinkpad/secrets.yaml;
   };
   sops.secrets.vdirsyncer-url-calendar-holidays = {
-    sopsFile = ../../../hosts/nixos/thinkpad/secrets.yaml;
+    sopsFile = ../../hosts/nixos/thinkpad/secrets.yaml;
   };
 }
