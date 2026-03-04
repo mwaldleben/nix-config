@@ -66,7 +66,7 @@
             inherit inputs;
           };
           modules = [
-            ./hosts/nixos/thinkpad
+            ./hosts/nixos/thinkpad/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -89,7 +89,7 @@
             inherit inputs;
           };
           modules = [
-            ./hosts/darwin/macbook
+            ./hosts/darwin/macbook/configuration.nix
             home-manager.darwinModules.home-manager
             {
               home-manager = {

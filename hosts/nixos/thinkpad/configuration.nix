@@ -19,16 +19,50 @@
     ../common/sops.nix
     ../common/zsh.nix
     ../common/udisks2.nix
-    ../common/users/moritz
   ];
 
   users.mutableUsers = false;
 
+  users.users.moritz = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "audio"
+      "davfs2"
+    ];
+    packages = [ pkgs.home-manager ];
+    hashedPasswordFile = config.sops.secrets.moritz-password.path;
+  };
+
   users.users.root.hashedPasswordFile = config.sops.secrets.root-password.path;
+
+  sops.secrets.moritz-password = {
+    sopsFile = ./secrets.yaml;
+    neededForUsers = true;
+  };
   sops.secrets.root-password = {
     sopsFile = ./secrets.yaml;
     neededForUsers = true;
   };
+
+  # no password for sudo commands
+  security.sudo.extraRules = [
+    {
+      users = [ "moritz" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
+  # invalid password fix for swaylock, https://github.com/NixOS/nixpkgs/issues/158025
+  security.pam.services.swaylock = { };
 
   environment.systemPackages = with pkgs; [
     git

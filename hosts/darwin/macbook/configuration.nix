@@ -9,8 +9,11 @@
     ../common/homebrew.nix
     ../common/nix.nix
     ../common/system.nix
-    ../common/users/moritz
   ];
+
+  users.users.moritzwaldleben = {
+    home = "/Users/moritzwaldleben";
+  };
 
   environment.systemPackages = with pkgs; [
     git
