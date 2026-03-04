@@ -22,20 +22,6 @@
       indicator-thickness = 6;
       indicator-idle-visible = true;
       hide-keyboard-layout = true;
-
-      inside-color = "00000000";
-      inside-clear-color = "00000000";
-      inside-caps-lock-color = "00000000";
-      inside-ver-color = "00000000";
-      inside-wrong-color = "00000000";
-      layout-bg-color = "00000000";
-      layout-border-color = "00000000";
-      line-color = "00000000";
-      line-clear-color = "00000000";
-      line-caps-lock-color = "00000000";
-      line-ver-color = "00000000";
-      line-wrong-color = "00000000";
-      separator-color = "00000000";
     };
   };
 }

@@ -13,7 +13,7 @@
 
   home.packages = [
     pkgs.hyprpaper
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
   ];
 
   wayland.windowManager.hyprland = {
@@ -70,19 +70,18 @@
           "fade, 1, 7, default"
           "workspaces, 0, 6, default"
         ];
-        # default setup for monitors (kanshi handles auto setup)
-        monitor = map (
-          m:
-          let
-            resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-            position = "auto";
-            scale = "${toString m.scale}";
-          in
-          "${m.name}, ${resolution}, ${position}, ${scale}"
-        ) (config.monitors);
-
-        workspace = map (m: "${m.name}, ${m.workspace}") (config.monitors);
       };
+      # default setup for monitors (kanshi handles auto setup)
+      monitor = map (
+        m:
+        let
+          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+          position = "auto";
+          scale = "${toString m.scale}";
+        in
+        "${m.name}, ${resolution}, ${position}, ${scale}"
+      ) (config.monitors);
+      workspace = map (m: "${m.name}, ${m.workspace}") (config.monitors);
     };
   };
 }

@@ -51,7 +51,7 @@
         ];
       };
       extensions = {
-        packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+        packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           browserpass
           duckduckgo-privacy-essentials
           firefox-color # manually choose catppuccin colorscheme https://github.com/catppuccin/firefox
