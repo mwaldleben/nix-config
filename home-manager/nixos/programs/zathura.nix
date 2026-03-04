@@ -1,6 +1,4 @@
-{ config, ... }:
-let
-in
+{ ... }:
 {
   programs.zathura = {
     enable = true;

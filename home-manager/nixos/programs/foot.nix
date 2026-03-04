@@ -1,7 +1,4 @@
-{ config, ... }:
-let
-  tmux = "${config.programs.tmux.package}/bin/tmux";
-in
+{ ... }:
 {
   programs.foot = {
     enable = true;
