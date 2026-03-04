@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   pkgs,
   ...
 }:
@@ -26,8 +25,6 @@
     wget
     zip
   ];
-
-  services.nix-daemon.enable = true;
 
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 

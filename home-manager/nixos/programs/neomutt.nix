@@ -8,7 +8,6 @@ in
   programs.neomutt = {
     enable = true;
     vimKeys = true;
-    sort = "reverse-date-received";
     checkStatsInterval = 60;
     sidebar = {
       enable = true;

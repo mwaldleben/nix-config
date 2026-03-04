@@ -8,11 +8,6 @@
         path = ~/.calendars/personal/
         color = dark blue
 
-      [[work]]
-        path = ~/.calendars/work/
-        color = yellow
-        readonly = True
-
       [[holidays]]
         path = ~/.calendars/holidays/
         color = dark green 

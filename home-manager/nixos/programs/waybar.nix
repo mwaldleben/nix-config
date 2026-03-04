@@ -89,7 +89,7 @@ in
       };
     };
     style = ''
-      @import "/home/moritz/.config/waybar/catppuccin.css";
+      @import "${config.home.homeDirectory}/.config/waybar/catppuccin.css";
 
       * {
           border: none;

@@ -1,7 +1,4 @@
 { config, ... }:
-let
-  pass = "${config.programs.password-store.package}/bin/pass";
-in
 {
   accounts.contact = {
     accounts = {
@@ -21,7 +18,7 @@ in
         khard.enable = true;
         khal.enable = true;
         local = {
-          path = "/home/${config.home.username}/.contacts";
+          path = "${config.home.homeDirectory}/.contacts";
           type = "filesystem";
           fileExt = ".vcf";
         };

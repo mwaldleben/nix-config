@@ -1,8 +1,9 @@
+{ config, ... }:
 {
   services.mpd = {
     enable = true;
     network.startWhenNeeded = true;
-    playlistDirectory = "/home/moritz/music/playlists";
+    playlistDirectory = "${config.home.homeDirectory}/music/playlists";
     extraConfig = ''
       audio_output {
         type "pipewire"

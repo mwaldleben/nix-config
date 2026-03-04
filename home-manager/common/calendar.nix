@@ -1,7 +1,4 @@
 { config, ... }:
-let
-  pass = "${config.programs.password-store.package}/bin/pass";
-in
 {
   accounts.calendar = {
     accounts = {
@@ -20,7 +17,7 @@ in
         };
         khal.enable = true;
         local = {
-          path = "/home/${config.home.username}/.calendars/personal";
+          path = "${config.home.homeDirectory}/.calendars/personal";
           type = "filesystem";
           fileExt = ".ics";
         };
@@ -50,7 +47,7 @@ in
           readOnly = true;
         };
         local = {
-          path = "~/.calendars/holidays";
+          path = "${config.home.homeDirectory}/.calendars/holidays";
           type = "filesystem";
           fileExt = ".ics";
         };
