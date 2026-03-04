@@ -13,6 +13,7 @@
     ./khard.nix
     ./ncmpcpp.nix
     ./neomutt.nix
+    ./opencode.nix
     ./pass.nix
     ./picard.nix
     ./qt.nix
