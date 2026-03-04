@@ -39,6 +39,7 @@ in
         swaylock = "${config.programs.swaylock.package}/bin/swaylock";
         systemctl = "${pkgs.systemd}/bin/systemctl";
         terminal = "${config.programs.foot.package}/bin/footclient";
+        ghostty = "${config.programs.ghostty.package}/bin/ghostty";
         makoctl = "${config.services.mako.package}/bin/makoctl";
       in
       [
@@ -47,7 +48,7 @@ in
         "SUPER,m,fullscreen"
 
         # program bindings
-        "SUPERSHIFT,return,exec,${terminal} -e tmux"
+        "SUPERSHIFT,return,exec,${ghostty}"
         "SUPER,w,exec,${firefox}"
         "SUPER,e,exec,${terminal} -e neomutt"
         "SUPER,n,exec,${terminal} -e ncmpcpp"
