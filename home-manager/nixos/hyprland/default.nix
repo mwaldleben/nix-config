@@ -11,7 +11,6 @@
   ];
 
   home.packages = [
-    pkgs.hyprpaper
     inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
   ];
 
@@ -24,7 +23,6 @@
         force_zero_scaling = true;
       };
       exec-once = [
-        "${pkgs.hyprpaper}/bin/hyprpaper"
         "${config.programs.foot.package}/bin/foot --server"
         "${config.wayland.windowManager.hyprland.package}/bin/hyprctl setcursor catppuccin-frappe-blue-cursors 32"
       ];
