@@ -1,8 +1,4 @@
-{ config, pkgs, ... }:
-let
-  primary = builtins.elemAt config.monitors 0;
-  secondary = builtins.elemAt config.monitors 1;
-in
+{ pkgs, ... }:
 {
   home.packages = [ pkgs.kanshi ];
   services.kanshi = {
@@ -10,11 +6,11 @@ in
     systemdTarget = "hyprland-session.target";
     settings = [
       {
-        profile.name = "default";
+        profile.name = "undocked";
         profile.outputs = [
           {
-            criteria = "${primary.name}";
-            scale = primary.scale;
+            criteria = "eDP-1";
+            scale = 1.5;
             status = "enable";
           }
         ];
@@ -23,12 +19,12 @@ in
         profile.name = "docked";
         profile.outputs = [
           {
-            criteria = "${secondary.name}";
-            scale = secondary.scale;
+            criteria = "HDMI-A-1";
+            scale = 1.5;
             status = "enable";
           }
           {
-            criteria = "${primary.name}";
+            criteria = "eDP-1";
             status = "disable";
           }
         ];

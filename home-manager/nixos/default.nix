@@ -6,8 +6,7 @@
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
-  ]
-  ++ (builtins.attrValues inputs.self.homeManagerModules);
+  ];
 
   programs = {
     home-manager.enable = true;

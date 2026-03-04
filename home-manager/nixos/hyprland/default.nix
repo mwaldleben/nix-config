@@ -8,7 +8,6 @@
   imports = [
     ./keybindings.nix
     ./hyprpaper.nix
-    ./font.nix
   ];
 
   home.packages = [
@@ -71,17 +70,16 @@
           "workspaces, 0, 6, default"
         ];
       };
-      # default setup for monitors (kanshi handles auto setup)
-      monitor = map (
-        m:
-        let
-          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-          position = "auto";
-          scale = "${toString m.scale}";
-        in
-        "${m.name}, ${resolution}, ${position}, ${scale}"
-      ) (config.monitors);
-      workspace = map (m: "${m.name}, ${m.workspace}") (config.monitors);
+      # monitor setup (kanshi handles switching profiles)
+      monitor = [
+        "eDP-1, 2880x1800@60, auto, 1.5"
+        "HDMI-A-1, 3840x2160@60, auto, 1.5"
+        ", preferred, auto, 1" # catch-all for unknown monitors
+      ];
+      workspace = [
+        "1, monitor:eDP-1, default:true"
+        "2, monitor:HDMI-A-1, default:true"
+      ];
     };
   };
 }

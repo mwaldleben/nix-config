@@ -1,13 +1,11 @@
-{ config, pkgs, ... }:
+{ ... }:
 let
-  primary = builtins.elemAt config.monitors 0;
-  secondary = builtins.elemAt config.monitors 1;
+  wallpaper = ../../wallpapers/default.jpg;
 in
 {
   home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ${config.wallpaper}
-    wallpaper = ${primary.name},${config.wallpaper}
-    wallpaper = ${secondary.name},${config.wallpaper}
+    preload = ${wallpaper}
+    wallpaper = ,${wallpaper}
     splash = false
   '';
 }

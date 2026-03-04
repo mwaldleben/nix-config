@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
+let
+  wallpaper = ../../wallpapers/default.jpg;
+in
 {
   programs.swaylock = {
     enable = true;
@@ -10,10 +13,10 @@
       timestr = "%H:%M";
       datestr = "%a %d %b %Y";
 
-      font = config.fontProfiles.monospace.family;
+      font = "Hack Nerd Font";
       font-size = 40;
 
-      image = "${config.wallpaper}";
+      image = "${wallpaper}";
 
       line-uses-inside = true;
       disable-caps-lock-text = true;

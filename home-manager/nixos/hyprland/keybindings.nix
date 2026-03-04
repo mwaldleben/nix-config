@@ -32,7 +32,9 @@ in
         brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
         firefox = "${config.programs.firefox.package}/bin/firefox";
         fuzzel = "${config.programs.fuzzel.package}/bin/fuzzel";
-        grimblast = "${inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast}/bin/grimblast";
+        grimblast = "${
+          inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
+        }/bin/grimblast";
         pactl = "${pkgs.pulseaudio}/bin/pactl";
         swaylock = "${config.programs.swaylock.package}/bin/swaylock";
         systemctl = "${pkgs.systemd}/bin/systemctl";

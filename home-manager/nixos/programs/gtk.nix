@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.frappeBlue;
@@ -9,7 +9,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "${config.fontProfiles.regular.family} Sans";
+      name = "Liberation Sans";
       size = 11;
     };
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;

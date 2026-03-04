@@ -5,7 +5,7 @@
     settings = {
       main = {
         dpi-aware = false;
-        font = "${config.fontProfiles.monospace.family}:size=13";
+        font = "Hack Nerd Font:size=13";
         terminal = "${config.programs.foot.package}/bin/foot";
         prompt = "'❯ '";
         lines = 10;
