@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    ./essentials
+    ./common
     ./darwin/default.nix
     ./darwin/programs
   ];
