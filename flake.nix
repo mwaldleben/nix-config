@@ -55,9 +55,6 @@
 
       overlays = import ./overlays { inherit inputs; };
 
-      nixosModules = import ./modules/nixos;
-      darwinModules = import ./modules/darwin;
-
       nixosConfigurations = {
         # personal laptop
         thinkpad = nixpkgs.lib.nixosSystem {
