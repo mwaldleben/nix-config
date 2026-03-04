@@ -10,7 +10,7 @@
       ];
       tray = {
         enable = true;
-        command = "syncthingtray --config-dir-path=${config.home.homeDirectory}/.config/syncthing";
+        command = "syncthingtray --wait --config-dir-path=${config.home.homeDirectory}/.config/syncthing";
       };
     };
   };
