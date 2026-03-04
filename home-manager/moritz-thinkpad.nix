@@ -1,7 +1,11 @@
 { inputs, ... }:
 {
   imports = [
-    ./common
+    ./common/git.nix
+    ./common/neovim.nix
+    ./common/tmux.nix
+    ./common/todo-txt.nix
+    ./common/zsh.nix
     ./common/calendar.nix
     ./common/contacts.nix
     ./common/mail.nix
