@@ -1,12 +1,10 @@
 {
-  inputs,
   config,
   pkgs,
   ...
 }:
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../common/audio.nix
     ../common/auto-epp.nix
@@ -23,15 +21,6 @@
     ../common/udisks2.nix
     ../common/users/moritz
   ];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-    users.moritz = import ../../../home/moritz/thinkpad.nix;
-  };
 
   users.mutableUsers = false;
 

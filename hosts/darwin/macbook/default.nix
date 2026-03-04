@@ -6,21 +6,11 @@
 }:
 {
   imports = [
-    inputs.home-manager.darwinModules.home-manager
     ../common/homebrew.nix
     ../common/nix.nix
     ../common/system.nix
     ../common/users/moritz
   ];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-    users.moritzwaldleben = import ../../../home/moritz/macbook.nix;
-  };
 
   environment.systemPackages = with pkgs; [
     git
