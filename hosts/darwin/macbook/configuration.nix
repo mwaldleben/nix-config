@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    ../common/homebrew.nix
     ../common/nix.nix
     ../common/system.nix
   ];
@@ -15,6 +14,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    entr
     git
     gnupg
     neovim
@@ -25,6 +25,14 @@
     wget
     zip
   ];
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
+  system.primaryUser = "moritzwaldleben";
 
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 

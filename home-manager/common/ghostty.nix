@@ -1,9 +1,10 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   tmux = "${config.programs.tmux.package}/bin/tmux";
 in
 {
   programs.ghostty = {
+    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     enable = true;
     enableZshIntegration = true;
     settings = {

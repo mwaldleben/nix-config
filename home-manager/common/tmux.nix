@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  catppuccin.tmux.enable = false;
+  # catppuccin.tmux.enable = false;
   programs.tmux = {
     enable = true;
 

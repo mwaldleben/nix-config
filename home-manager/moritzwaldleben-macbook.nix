@@ -1,6 +1,12 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  config,
+  ...
+}:
 {
   imports = [
+    ./common/catppuccin.nix
+    ./common/firefox.nix
     ./common/font.nix
     ./common/ghostty.nix
     ./common/git.nix
@@ -8,7 +14,15 @@
     ./common/tmux.nix
     ./common/todo-txt.nix
     ./common/zsh.nix
-    ./darwin/default.nix
-    ./darwin/programs
   ];
+
+  programs = {
+    home-manager.enable = true;
+  };
+
+  home = {
+    username = "moritzwaldleben";
+    homeDirectory = "/Users/${config.home.username}";
+    stateVersion = "25.11";
+  };
 }

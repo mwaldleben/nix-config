@@ -3,14 +3,14 @@
   home.packages = [ pkgs.todo-txt-cli ];
 
   xdg.configFile."todo/config".text = ''
-    export TODO_DIR=/home/${config.home.username}/notes
+    export TODO_DIR=/Users/${config.home.username}/Documents/notes
     export TODO_FILE="$TODO_DIR/todo.txt"
     export DONE_FILE="$TODO_DIR/done.txt"
     export REPORT_FILE="$TODO_DIR/report.txt"
 
-    export PRI_A=$YELLOW
-    export PRI_B=$GREEN
-    export PRI_C=$BLUE
+    export PRI_T=$LIGHT_GEY
+    export PRI_P=$GREEN
+    export PRI_B=$BLUE
     export COLOR_DONE=$LIGHT_GREY
     export COLOR_PROJECT=$RED
     export COLOR_CONTEXT=$CYAN
