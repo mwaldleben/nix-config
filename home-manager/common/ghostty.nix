@@ -9,11 +9,15 @@ in
     enableZshIntegration = true;
     settings = {
       command = tmux;
+      confirm-close-surface = false;
       font-family = "monospace";
       font-size = 13;
+      macos-titlebar-style = "hidden";
+      maximize = true;
+      resize-overlay = "never";
       window-padding-x = 10;
       window-padding-y = 10;
-      background-opacity = 0.97;
+      background-opacity = if pkgs.stdenv.isDarwin then 1 else 0.97;
     };
   };
 }
