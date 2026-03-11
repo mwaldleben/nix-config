@@ -8,6 +8,7 @@
     enable = true;
     flavor = "frappe";
     accent = "blue";
+    firefox.force = true;
     waybar.mode = "createLink";
   };
 }

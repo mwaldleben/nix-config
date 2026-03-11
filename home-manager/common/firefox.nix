@@ -29,6 +29,7 @@
             TopSites = false;
             Highlights = false;
           };
+          GenerativeAI = false;
           NoDefaultBookmarks = true;
           OfferToSaveLogins = false;
           PasswordManagerEnabled = false;
@@ -54,10 +55,8 @@
         packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           browserpass
           duckduckgo-privacy-essentials
-          firefox-color # manually choose catppuccin colorscheme https://github.com/catppuccin/firefox
           ublock-origin
-          vimium # manually choose catppuccin colorscheme https://github.com/catppuccin/vimium
-
+          firefox-color
           dictionary-german
           french-dictionary
         ];
@@ -69,6 +68,7 @@
         "browser.search.isUS" = false;
         "distribution.searchplugins.defaultLocale" = "de-CH";
         "general.useragent.locale" = "de-CH";
+        "sidebar.verticalTabs" = true;
       };
     };
   };
