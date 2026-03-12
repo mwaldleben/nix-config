@@ -11,7 +11,8 @@ in
       command = tmux;
       confirm-close-surface = false;
       font-family = "monospace";
-      font-size = 13;
+      font-size = if pkgs.stdenv.isDarwin then 15 else 13;
+      keybind = "clear";
       macos-titlebar-style = "hidden";
       maximize = true;
       resize-overlay = "never";
