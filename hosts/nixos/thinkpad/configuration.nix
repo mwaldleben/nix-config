@@ -7,7 +7,6 @@
   imports = [
     ./hardware-configuration.nix
     ../common/audio.nix
-    ../common/auto-epp.nix
     ../common/dconf.nix
     ../common/fwupd.nix
     ../common/impermanence.nix
@@ -108,6 +107,7 @@
   programs.nix-ld.enable = true;
 
   services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   # lid settings
   services.logind = {
