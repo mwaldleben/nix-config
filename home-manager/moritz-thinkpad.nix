@@ -25,7 +25,7 @@
     ./nixos/gpg.nix
     ./nixos/kanshi.nix
     ./nixos/mako.nix
-    ./nixos/mpd.nix
+
     ./nixos/syncthing.nix
     ./nixos/udiskie.nix
   ];
@@ -44,6 +44,7 @@
 
     # cli tools and utils
     mpv # media player
+    playerctl # media player controller
     signal-desktop # messaging app
     yt-dlp # video downloader
     android-file-transfer # transfer files to/from android
