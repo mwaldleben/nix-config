@@ -59,9 +59,6 @@ in
         # screen lock
         "SUPER,backspace,exec,${hyprlock}"
 
-        # waybar reload
-        "SUPERSHIFT,r,exec,${systemctl} --user restart waybar.service"
-
         # notification manager
         "SUPER,d,exec,${makoctl} dismiss"
 

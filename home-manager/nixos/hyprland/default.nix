@@ -28,8 +28,8 @@
         "${config.wayland.windowManager.hyprland.package}/bin/hyprctl setcursor catppuccin-frappe-blue-cursors 32"
       ];
       general = {
-        gaps_in = 10;
-        gaps_out = 20;
+        gaps_in = 5;
+        gaps_out = 10;
         border_size = 0;
         layout = "dwindle";
       };
@@ -49,7 +49,7 @@
         inactive_timeout = 5;
       };
       decoration = {
-        rounding = 10;
+        rounding = 15;
         blur = {
           enabled = false;
         };
@@ -74,10 +74,6 @@
         "eDP-1, 2880x1800@60, auto, 1.5"
         "HDMI-A-1, 3840x2160@60, auto, 1.5"
         ", preferred, auto, 1" # catch-all for unknown monitors
-      ];
-      workspace = [
-        "1, monitor:eDP-1, default:true"
-        "2, monitor:HDMI-A-1, default:true"
       ];
     };
   };
