@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./catppuccin.nix
-    ./firefox.nix
+    ./ashell.nix
     ./fuzzel.nix
     ./gtk.nix
     ./htop.nix

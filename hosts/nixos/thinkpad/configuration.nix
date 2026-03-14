@@ -62,8 +62,8 @@
     }
   ];
 
-  # invalid password fix for swaylock, https://github.com/NixOS/nixpkgs/issues/158025
-  security.pam.services.swaylock = { };
+  # PAM must be configured for screen saver
+  security.pam.services.hyprlock = { };
 
   environment.systemPackages = with pkgs; [
     git
@@ -107,6 +107,8 @@
   hardware.graphics.enable = true;
 
   programs.nix-ld.enable = true;
+
+  services.upower.enable = true;
 
   # lid settings
   services.logind = {
