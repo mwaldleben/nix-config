@@ -25,7 +25,6 @@
         force_zero_scaling = true;
       };
       exec-once = [
-        "${config.programs.foot.package}/bin/foot --server"
         "${config.wayland.windowManager.hyprland.package}/bin/hyprctl setcursor catppuccin-frappe-blue-cursors 32"
       ];
       general = {

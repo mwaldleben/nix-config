@@ -4,7 +4,6 @@
     ./catppuccin.nix
     ./firefox.nix
     ./fuzzel.nix
-    ./foot.nix
     ./gtk.nix
     ./htop.nix
     ./imv.nix
