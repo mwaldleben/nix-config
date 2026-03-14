@@ -1,4 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
+let
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
+  date = "${pkgs.coreutils}/bin/date";
+in
 {
   programs.hyprlock = {
     enable = true;
@@ -43,12 +47,30 @@
         }
         {
           monitor = "";
-          text = "cmd[update:43200000] LC_TIME=C date '+%A, %d %B %Y'";
+          text = "cmd[update:43200000] LC_TIME=C ${date} '+%A, %d %B %Y'";
           color = "$text";
           font_size = 25;
           position = "0, 100";
           halign = "center";
           valign = "center";
+        }
+        {
+          monitor = "";
+          text = "cmd[update:5000] echo \"󰎈  $(${playerctl} metadata xesam:title 2>/dev/null)\"";
+          color = "$text";
+          font_size = 20;
+          position = "-50, -50";
+          halign = "right";
+          valign = "top";
+        }
+        {
+          monitor = "";
+          text = "cmd[update:5000] ${playerctl} metadata xesam:artist 2>/dev/null";
+          color = "$subtext0";
+          font_size = 16;
+          position = "-50, -80";
+          halign = "right";
+          valign = "top";
         }
       ];
     };
