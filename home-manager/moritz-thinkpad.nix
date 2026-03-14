@@ -15,11 +15,9 @@
     ./nixos/ashell.nix
     ./nixos/fuzzel.nix
     ./nixos/gtk.nix
-    ./nixos/htop.nix
     ./nixos/imv.nix
     ./nixos/opencode.nix
     ./nixos/pass.nix
-    ./nixos/picard.nix
     ./nixos/qt.nix
     ./nixos/sops.nix
     ./nixos/xdg.nix
@@ -39,36 +37,31 @@
   # packages without setup
   home.packages = with pkgs; [
     # gui
-    darktable
-    lollypop
-    libreoffice
+    lollypop # music player
+    libreoffice # office suite
+    darktable # photo editor
+    picard # music tagger
 
-    # cli and utils
-    hyprshot
-    brightnessctl
-    cargo
-    exiftool
-    ghostscript
-    libnotify
-    android-file-transfer
-    mpv
-    nodejs
-    openjdk
-    pandoc
-    signal-desktop
-    urlscan
-    yt-dlp
-    wl-clipboard
-    # texlive.combined.scheme-full
+    # cli tools and utils
+    mpv # media player
+    signal-desktop # messaging app
+    yt-dlp # video downloader
+    android-file-transfer # transfer files to/from android
+    hyprshot # screenshot utility
+    brightnessctl # screen brightness control
+    pandoc # document converter
+    ghostscript # postscript and pdf interpreter
+    htop # interactive process viewer
+    libnotify # desktop notification library
+    wl-clipboard # wayland clipboard utilities
+    tree-sitter # parser generator for code in editor
+    nodejs # javascript runtime
+    cargo # rust package manager
+    openjdk # java development kit
 
     # personal scripts (pkgs directory)
-    backup
+    backup # system backup script
 
-    # language servers
-    clang-tools
-    lua-language-server
-    stylua
-    tree-sitter
   ];
 
   home = {
