@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./hyprland
     ./ashell.nix
     ./fuzzel.nix
     ./gtk.nix
@@ -15,9 +16,14 @@
     ./picard.nix
     ./qt.nix
     ./sops.nix
-    ./ssh.nix
     ./xdg.nix
     ./zathura.nix
+    ./gpg.nix
+    ./kanshi.nix
+    ./mako.nix
+    ./mpd.nix
+    ./syncthing.nix
+    ./udiskie.nix
   ];
 
   # packages without setup

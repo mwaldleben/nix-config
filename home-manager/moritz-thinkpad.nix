@@ -1,8 +1,4 @@
-{
-  inputs,
-  config,
-  ...
-}:
+{ config, ... }:
 {
   imports = [
     ./common/catppuccin.nix
@@ -13,13 +9,12 @@
     ./common/neovim.nix
     ./common/tmux.nix
     ./common/todo-txt.nix
+    ./common/ssh.nix
     ./common/zsh.nix
     ./common/calendar.nix
     ./common/contacts.nix
     ./common/mail.nix
-    ./nixos/hyprland
-    ./nixos/services
-    ./nixos/programs
+    ./nixos
   ];
 
   programs = {
