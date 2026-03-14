@@ -9,6 +9,6 @@
     flavor = "frappe";
     accent = "blue";
     firefox.force = true;
-    waybar.mode = "createLink";
+    hyprlock.useDefaultConfig = false;
   };
 }

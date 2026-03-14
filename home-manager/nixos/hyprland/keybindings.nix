@@ -36,7 +36,7 @@ in
           inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
         }/bin/grimblast";
         pactl = "${pkgs.pulseaudio}/bin/pactl";
-        swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+        hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
         systemctl = "${pkgs.systemd}/bin/systemctl";
         terminal = "${config.programs.foot.package}/bin/footclient";
         ghostty = "${config.programs.ghostty.package}/bin/ghostty";
@@ -57,7 +57,7 @@ in
         "SUPER,p,exec,${fuzzel} --no-icons"
 
         # screen lock
-        "SUPER,backspace,exec,${swaylock}"
+        "SUPER,backspace,exec,${hyprlock}"
 
         # waybar reload
         "SUPERSHIFT,r,exec,${systemctl} --user restart waybar.service"

@@ -18,8 +18,6 @@
     ./qt.nix
     ./sops.nix
     ./ssh.nix
-    ./swaylock.nix
-    ./waybar.nix
     ./xdg.nix
     ./zathura.nix
   ];
