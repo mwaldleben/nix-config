@@ -43,13 +43,13 @@ in
         "SUPERSHIFT,q,exit"
         "SUPER,m,fullscreen"
 
-        # program bindings
+        # terminal
         "SUPERSHIFT,return,exec,${terminal}"
-        "SUPER,w,exec,${firefox}"
-        "SUPER,e,exec,${terminal} -e neomutt"
-        "SUPER,n,exec,${terminal} -e ncmpcpp"
 
-        # launcher fuzzel
+        # browser
+        "SUPER,w,exec,${firefox}"
+
+        # launcher
         "SUPER,o,exec,${fuzzel} --no-icons"
 
         # screen lock

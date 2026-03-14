@@ -7,10 +7,6 @@
     ./gtk.nix
     ./htop.nix
     ./imv.nix
-    ./khal.nix
-    ./khard.nix
-    ./ncmpcpp.nix
-    ./neomutt.nix
     ./opencode.nix
     ./pass.nix
     ./picard.nix

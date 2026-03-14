@@ -11,9 +11,6 @@
     ./common/todo-txt.nix
     ./common/ssh.nix
     ./common/zsh.nix
-    ./common/calendar.nix
-    ./common/contacts.nix
-    ./common/mail.nix
     ./nixos
   ];
 
