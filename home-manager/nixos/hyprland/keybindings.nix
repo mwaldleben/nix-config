@@ -83,11 +83,11 @@ in
       ]
       ++
         # change workspace
-        (map (n: "SUPER,${n},workspace,name:${n}") workspaces)
+        (map (n: "SUPER,${n},workspace,${n}") workspaces)
       ++
 
         # move window to workspace
-        (map (n: "SUPERSHIFT,${n},movetoworkspacesilent,name:${n}") workspaces)
+        (map (n: "SUPERSHIFT,${n},movetoworkspacesilent,${n}") workspaces)
       ++
 
         # move focus
