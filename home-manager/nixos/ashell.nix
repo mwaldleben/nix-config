@@ -8,6 +8,7 @@
         left = [ "Workspaces" ];
         center = [ "Clock" ];
         right = [
+          "MediaPlayer"
           [
             "Tray"
             "Settings"
@@ -15,11 +16,15 @@
         ];
       };
       workspaces = {
-        enable_workspace_filling = false;
+        enable_workspace_filling = true;
+        max_workspaces = 5;
       };
       appearance = {
         style = "Islands";
-        scale_factor = 1.1;
+        scale_factor = 1;
+      };
+      media_player = {
+        max_title_length = 40;
       };
     };
   };
