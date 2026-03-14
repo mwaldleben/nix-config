@@ -38,8 +38,7 @@ in
         pactl = "${pkgs.pulseaudio}/bin/pactl";
         hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
         systemctl = "${pkgs.systemd}/bin/systemctl";
-        terminal = "${config.programs.foot.package}/bin/footclient";
-        ghostty = "${config.programs.ghostty.package}/bin/ghostty";
+        terminal = "${config.programs.ghostty.package}/bin/ghostty";
         makoctl = "${config.services.mako.package}/bin/makoctl";
       in
       [
@@ -48,13 +47,13 @@ in
         "SUPER,m,fullscreen"
 
         # program bindings
-        "SUPERSHIFT,return,exec,${ghostty}"
+        "SUPERSHIFT,return,exec,${terminal}"
         "SUPER,w,exec,${firefox}"
         "SUPER,e,exec,${terminal} -e neomutt"
         "SUPER,n,exec,${terminal} -e ncmpcpp"
 
         # launcher fuzzel
-        "SUPER,p,exec,${fuzzel} --no-icons"
+        "SUPER,o,exec,${fuzzel} --no-icons"
 
         # screen lock
         "SUPER,backspace,exec,${hyprlock}"
