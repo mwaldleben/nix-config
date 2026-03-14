@@ -28,6 +28,7 @@
     libreoffice
 
     # cli and utils
+    hyprshot
     brightnessctl
     cargo
     exiftool

@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   pkgs,
   lib,
@@ -32,9 +31,7 @@ in
         brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
         firefox = "${config.programs.firefox.package}/bin/firefox";
         fuzzel = "${config.programs.fuzzel.package}/bin/fuzzel";
-        grimblast = "${
-          inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
-        }/bin/grimblast";
+        hyprshot = "${pkgs.hyprshot}/bin/hyprshot";
         pactl = "${pkgs.pulseaudio}/bin/pactl";
         hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
         systemctl = "${pkgs.systemd}/bin/systemctl";
@@ -74,8 +71,8 @@ in
         ",XF86MonBrightnessDown,exec,${brightnessctl} s 5%-"
 
         # screenshots
-        ",Print,exec,${grimblast} --notify save"
-        "SHIFT,Print,exec,${grimblast} --notify save area"
+        ",Print,exec,${hyprshot} -m output"
+        "SHIFT,Print,exec,${hyprshot} -m region"
       ]
       ++
         # change workspace

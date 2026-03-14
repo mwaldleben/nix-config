@@ -1,19 +1,10 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}:
+{ config, ... }:
 {
   imports = [
     ./keybindings.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-  ];
-
-  home.packages = [
-    inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
   ];
 
   wayland.windowManager.hyprland = {
