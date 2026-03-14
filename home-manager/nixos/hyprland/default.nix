@@ -7,6 +7,8 @@
 {
   imports = [
     ./keybindings.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     ./hyprpaper.nix
   ];
 

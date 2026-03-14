@@ -7,7 +7,6 @@
     ./mako.nix
     ./mpd.nix
     ./nm-applet.nix
-    ./swayidle.nix
     ./syncthing.nix
     ./udiskie.nix
   ];
