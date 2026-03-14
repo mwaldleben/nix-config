@@ -8,7 +8,6 @@
     ./hardware-configuration.nix
     ../common/audio.nix
     ../common/auto-epp.nix
-    ../common/blueman.nix
     ../common/dconf.nix
     ../common/fwupd.nix
     ../common/impermanence.nix
