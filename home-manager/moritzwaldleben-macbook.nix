@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./common/catppuccin.nix
@@ -18,6 +18,12 @@
   programs = {
     home-manager.enable = true;
   };
+
+  # packages without setup
+  home.packages = with pkgs; [
+    # cli and utils
+    nodejs
+  ];
 
   home = {
     username = "moritzwaldleben";
