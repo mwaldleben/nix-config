@@ -17,13 +17,19 @@
         };
       }
     ];
-    shellAliases = {
-      zathura = "zathura --fork > /dev/null 2>&1";
-      nrs = "sudo nixos-rebuild --flake . switch";
-      h = "start-hyprland";
-      # btrfs workaround for trash-cli, https://github.com/andreafrancia/trash-cli/issues/300#issuecomment-1786065185
-      trash = "TRASH_ENABLE_HOME_FALLBACK=1 trash-put --home-fallback";
-    };
+    shellAliases =
+      if pkgs.stdenv.isDarwin then
+        {
+          nrs = "sudo -H nix run nix-darwin -- switch --flake .";
+        }
+      else
+        {
+          nrs = "sudo nixos-rebuild --flake . switch";
+          zathura = "zathura --fork > /dev/null 2>&1";
+          h = "start-hyprland";
+          # btrfs workaround for trash-cli, https://github.com/andreafrancia/trash-cli/issues/300#issuecomment-1786065185
+          trash = "TRASH_ENABLE_HOME_FALLBACK=1 trash-put --home-fallback";
+        };
     history.path = "$HOME/.config/zsh/history";
     initContent = ''
       # share history between open terminals
