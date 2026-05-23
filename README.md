@@ -1,9 +1,9 @@
 # My NixOS configuration
 
-This repository contains my personal NixOS configuration! The setup leverages
+This repository contains my personal NixOS + nix-darwin configuration. The setup leverages
 [Nix flakes](https://nixos.wiki/wiki/Flakes) and integrates [Home
 Manager](https://github.com/nix-community/home-manager) for the user
-configuration. As my daily driver, I rely on the
+configuration. On NixOS, I rely on the
 [Hyprland](https://github.com/hyprwm/Hyprland) window manager for Wayland.
 
 <img src="/showcase1.png" width=75%>
@@ -51,11 +51,10 @@ set up the system:
 2. Generate and build default NixOS configuration for your system.
 3. Clone this repository.
 4. Place the `hardware-configuration.nix` file from this setup into the
-   `hosts/mycomputer` folder to configure a new host.
+   appropriate host folder under `hosts/`.
 5. Make new secrets file with login passwords.
-6. Customize user-specific configurations in the folder `home/moritz` and
-   adjust the user name accordingly.
-7. Make the folder `/persist/home/myname` owned by your user for home-manager
+6. Customize the user-specific Home Manager configuration.
+7. Make the folder `/persist/home/myname` owned by your user for Home Manager
    to work with impermanence.
 
 ## Credits
