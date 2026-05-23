@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  tmux = "${config.programs.tmux.package}/bin/tmux";
+  zellij = "${config.programs.zellij.package}/bin/zellij";
 in
 {
   programs.ghostty = {
@@ -8,7 +8,7 @@ in
     enable = true;
     enableZshIntegration = true;
     settings = {
-      command = tmux;
+      command = zellij;
       confirm-close-surface = false;
       font-family = "monospace";
       font-size = if pkgs.stdenv.isDarwin then 15 else 13;

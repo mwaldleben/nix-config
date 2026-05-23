@@ -7,9 +7,8 @@
     ./common/ghostty.nix
     ./common/git.nix
     ./common/neovim.nix
-    ./common/tmux.nix
-    ./common/todo-txt.nix
     ./common/ssh.nix
+    ./common/zellij.nix
     ./common/zsh.nix
     ./nixos/hyprland
     ./nixos/ashell.nix
