@@ -85,7 +85,7 @@
           ".gnupg"
           ".ssh"
           ".mozilla/firefox"
-          ".pi",
+          ".pi"
           ".config/MusicBrainz"
           ".config/nvim"
           ".config/tmux"
