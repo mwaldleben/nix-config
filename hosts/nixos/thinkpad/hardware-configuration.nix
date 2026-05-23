@@ -1,6 +1,7 @@
 {
   lib,
   modulesPath,
+  utils,
   ...
 }:
 
@@ -17,19 +18,35 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    mkdir /mnt
-    mount -t btrfs /dev/mapper/enc /mnt
+  boot.initrd.systemd = {
+    enable = true;
+    services.wipe-file-systems = {
+      unitConfig.DefaultDependencies = false;
+      serviceConfig.Type = "oneshot";
+      requiredBy = [ "initrd.target" ];
+      before = [ "sysroot.mount" ];
 
-    echo "Cleaning root subvolume"
-    btrfs subvolume list -o "/mnt/root" | cut -f9 -d ' ' |
-    while read -r subvolume; do
-      btrfs subvolume delete "/mnt/$subvolume"
-      done && btrfs subvolume delete /mnt/root
+      requires = [ "${utils.escapeSystemdPath "/dev/by-label/root"}.device" ];
+      after = [
+        "${utils.escapeSystemdPath "/dev/by-label/root"}.device"
+        "local-fs-pre.target"
+      ];
 
-    echo "Restoring blank subvolume"
-    btrfs subvolume snapshot /mnt/root-blank /mnt/root
-  '';
+      script = ''
+        mkdir /mnt
+        mount -t btrfs /dev/mapper/enc /mnt
+
+        echo "Cleaning root subvolume"
+        btrfs subvolume list -o "/mnt/root" | cut -f9 -d ' ' |
+        while read -r subvolume; do
+          btrfs subvolume delete "/mnt/$subvolume"
+          done && btrfs subvolume delete /mnt/root
+
+        echo "Restoring blank subvolume"
+        btrfs subvolume snapshot /mnt/root-blank /mnt/root
+      '';
+    };
+  };
   boot.kernelModules = [
     "kvm-amd"
     "amd-pstate"
