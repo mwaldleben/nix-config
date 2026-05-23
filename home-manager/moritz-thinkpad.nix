@@ -84,7 +84,7 @@
           ".password-store"
           ".gnupg"
           ".ssh"
-          ".mozilla/firefox"
+          ".config/mozilla/firefox"
           ".pi"
           ".config/MusicBrainz"
           ".config/nvim"

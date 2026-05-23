@@ -9,6 +9,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang"; # TODO: to be migrated to lua
     systemd.enable = true;
     xwayland.enable = true;
     settings = {

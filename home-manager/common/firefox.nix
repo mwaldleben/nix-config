@@ -12,6 +12,7 @@
 
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     package = (
       pkgs.firefox.override {
         # workaround: programs.firefox.policies doesn't seem to work
