@@ -8,6 +8,7 @@
     ./common/git.nix
     ./common/neovim.nix
     ./common/ssh.nix
+    ./common/uv.nix
     ./common/zellij.nix
     ./common/zsh.nix
     ./nixos/hyprland
