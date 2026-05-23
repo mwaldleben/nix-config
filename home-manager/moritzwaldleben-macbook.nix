@@ -2,7 +2,6 @@
 {
   imports = [
     ./common/catppuccin.nix
-    ./common/claude-code.nix
     ./common/firefox.nix
     ./common/font.nix
     ./common/ghostty.nix
