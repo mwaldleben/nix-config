@@ -1,3 +1,4 @@
+{ ... }:
 {
   programs.opencode = {
     enable = true;
