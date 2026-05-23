@@ -9,23 +9,42 @@ configuration. As my daily driver, I rely on the
 <img src="/showcase1.png" width=75%>
 <img src="/showcase2.png" width=75%>
 
-## Features:
+## Features
 
-- Possible multi-user/multi-host setup
-- Cross-platform config having a minimal setup for darwin (MacOS)
+- Multi-host setup: ThinkPad (NixOS) and MacBook (nix-darwin)
+- Cross-platform common config shared between both machines
 - Encrypted BTRFS partition
 - Ephemeral root setup with opt-in persistence through
   [impermanence](https://github.com/nix-community/impermanence)
-- An essential programs folder (zsh, tmux...) where the extraConfig part does
-  work as config file for other Linux distros
-- Consistent theming with
-  [catppucccin](https://github.com/catppucccin/nix)
-- Declarative Secrets with [sops-nix](https://github.com/Mic92/sops-nix)
+- Consistent theming with [catppuccin](https://github.com/catppuccin/nix) (frappe, blue accent)
+- Declarative secrets with [sops-nix](https://github.com/Mic92/sops-nix)
+
+## Programs
+
+| Category             | Program                                                                   |
+| -------------------- | ------------------------------------------------------------------------- |
+| Window manager       | Hyprland                                                                  |
+| Status bar           | ashell                                                                    |
+| Shell                | zsh                                                                       |
+| Terminal emulator    | Ghostty                                                                   |
+| Terminal multiplexer | tmux                                                                      |
+| Editor               | neovim (managed in a separate [repo](https://github.com/mwaldleben/nvim)) |
+| Browser              | Firefox                                                                   |
+| Application launcher | fuzzel                                                                    |
+| Password manager     | pass with GPG key stored on a YubiKey                                     |
+| Notifications        | mako                                                                      |
+| PDF reader           | zathura                                                                   |
+| Image viewer         | imv                                                                       |
+| Music player         | Lollypop                                                                  |
+| Screenshots          | hyprshot                                                                  |
+| AI coding assistant  | pi (NixOS)                                                                |
+| Colorscheme          | catppuccin frappe                                                         |
 
 ## Installation
 
 The installation script `install.sh` helps to generate a BTRFS filesystem with
-the default NixOS config. Below the steps one would roughly need to follow to setup up the system:
+the default NixOS config. Below the steps one would roughly need to follow to
+set up the system:
 
 1. Create a [BTRFS](https://nixos.wiki/wiki/Btrfs) filesystem with subvolumes
    `/nix`, `/persist`, swap file and root subvolume.
@@ -38,26 +57,6 @@ the default NixOS config. Below the steps one would roughly need to follow to se
    adjust the user name accordingly.
 7. Make the folder `/persist/home/myname` owned by your user for home-manager
    to work with impermanence.
-
-## Programs I Use
-
-| Name                 | Description                                                               |
-| -------------------- | ------------------------------------------------------------------------- |
-| Window manager       | Hyprland                                                                  |
-| Status bar           | waybar                                                                    |
-| Shell                | zsh                                                                       |
-| Terminal emulator    | alacritty                                                                 |
-| Terminal multiplexer | tmux                                                                      |
-| Editor               | neovim (managed in a separate [repo](https://github.com/mwaldleben/nvim)) |
-| Browser              | firefox                                                                   |
-| Mail                 | neomutt with mbsync                                                       |
-| Calendar/contacts    | khal, khard and vdirsyncer                                                |
-| Todos                | todo.txt                                                                  |
-| Application launcher | fuzzel                                                                    |
-| Password manager     | pass with GPG key stored on a YubiKey                                     |
-| PDF reader           | zathura                                                                   |
-| Music player         | Lollypop                                                                  |
-| Colorscheme          | catppuccin frappe                                                         |
 
 ## Credits
 
