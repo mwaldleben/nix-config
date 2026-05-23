@@ -10,7 +10,6 @@
     ./common/github.nix
     ./common/neovim.nix
     ./common/tmux.nix
-    ./common/todo-txt.nix
     ./common/ssh.nix
     ./common/zsh.nix
   ];
