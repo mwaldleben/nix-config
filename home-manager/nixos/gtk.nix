@@ -23,7 +23,6 @@ in
       name = "catppuccin-frappe-blue-standard";
       package = catppuccin-gtk;
     };
-    gtk4.theme = null;
   };
 
   # GTK4 / libadwaita theming (Lollypop, etc.)

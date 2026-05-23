@@ -67,7 +67,7 @@
   home = {
     username = "moritz";
     homeDirectory = "/home/${config.home.username}";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     persistence = {
       "/persist" = {
         directories = [
