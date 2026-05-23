@@ -1,5 +1,7 @@
-{ config, ... }:
+{ pkgs, ... }:
 {
+  programs.gpg.enable = true; # needed for commit signing
+
   programs.git = {
     enable = true;
     settings = {
@@ -13,7 +15,7 @@
         signing.key = "B5D736799A90EAA5";
       };
       commit.gpgSign = true;
-      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
+      gpg.program = "${pkgs.gnupg}/bin/gpg2";
     };
   };
 }
