@@ -15,7 +15,6 @@
     ./nixos/fuzzel.nix
     ./nixos/gtk.nix
     ./nixos/imv.nix
-    ./nixos/opencode.nix
     ./nixos/pass.nix
     ./nixos/qt.nix
     ./nixos/sops.nix
@@ -58,6 +57,7 @@
     nodejs # javascript runtime
     cargo # rust package manager
     openjdk # java development kit
+    pi-coding-agent # terminal coding agent
 
     # personal scripts (pkgs directory)
     backup # system backup script
@@ -85,6 +85,7 @@
           ".gnupg"
           ".ssh"
           ".mozilla/firefox"
+          ".pi",
           ".config/MusicBrainz"
           ".config/nvim"
           ".config/tmux"
