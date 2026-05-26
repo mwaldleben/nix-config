@@ -8,7 +8,6 @@
     ./common/git.nix
     ./common/github.nix
     ./common/neovim.nix
-    ./common/tmux.nix
     ./common/ssh.nix
     ./common/uv.nix
     ./common/zellij.nix
