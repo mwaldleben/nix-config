@@ -23,7 +23,7 @@ in
         dots_center = true;
         outer_color = "$accent";
         inner_color = "$surface0";
-        font_color = "$text'";
+        font_color = "$text";
         fade_on_empty = false;
         placeholder_text = "<span foreground='##$textAlpha'><i>󰌾 Hello </i><span foreground='##$accentAlpha'>$USER</span></span>";
         hide_input = false;
