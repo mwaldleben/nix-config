@@ -26,14 +26,14 @@
       requiredBy = [ "initrd.target" ];
       before = [ "sysroot.mount" ];
 
-      requires = [ "${utils.escapeSystemdPath "/dev/by-label/root"}.device" ];
+      requires = [ "systemd-cryptsetup@enc.service" ];
       after = [
-        "${utils.escapeSystemdPath "/dev/by-label/root"}.device"
+        "systemd-cryptsetup@enc.service"
         "local-fs-pre.target"
       ];
 
       script = ''
-        mkdir /mnt
+        mkdir -p /mnt
         mount -t btrfs /dev/mapper/enc /mnt
 
         echo "Cleaning root subvolume"
@@ -44,13 +44,12 @@
 
         echo "Restoring blank subvolume"
         btrfs subvolume snapshot /mnt/root-blank /mnt/root
+
+        umount /mnt
       '';
     };
   };
-  boot.kernelModules = [
-    "kvm-amd"
-    "amd-pstate"
-  ];
+  boot.kernelModules = [ ];
   boot.kernelParams = [
     "initcall_blacklist=acpi_cpufreq_init"
     "acpi_backlight=native"
@@ -101,6 +100,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
