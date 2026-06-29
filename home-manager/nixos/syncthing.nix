@@ -6,7 +6,6 @@
       extraOptions = [
         "--config=${config.home.homeDirectory}/.config/syncthing"
         "--data=${config.home.homeDirectory}/.config/syncthing/db"
-        "--no-default-folder"
       ];
       tray = {
         enable = true;
