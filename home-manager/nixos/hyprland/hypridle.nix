@@ -2,6 +2,8 @@
 
 let
   hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
+  pidof = "${pkgs.procps}/bin/pidof";
+  lock = "${pidof} hyprlock || ${hyprlock}";
   systemctl = "${pkgs.systemd}/bin/systemctl";
 in
 {
@@ -10,14 +12,14 @@ in
 
     settings = {
       general = {
-        lock_cmd = "pidof hyprlock || ${hyprlock}";
-        before_sleep_cmd = "${hyprlock}";
+        lock_cmd = lock;
+        before_sleep_cmd = lock;
       };
 
       listener = [
         {
           timeout = 900;
-          on-timeout = "${hyprlock}";
+          on-timeout = lock;
         }
 
         {

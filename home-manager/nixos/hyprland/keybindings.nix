@@ -34,6 +34,8 @@ in
         hyprshot = "${pkgs.hyprshot}/bin/hyprshot";
         pactl = "${pkgs.pulseaudio}/bin/pactl";
         hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
+        pidof = "${pkgs.procps}/bin/pidof";
+        lock = "${pidof} hyprlock || ${hyprlock}";
         systemctl = "${pkgs.systemd}/bin/systemctl";
         terminal = "${config.programs.ghostty.package}/bin/ghostty";
         makoctl = "${config.services.mako.package}/bin/makoctl";
@@ -53,7 +55,7 @@ in
         "SUPER,o,exec,${fuzzel} --no-icons"
 
         # screen lock
-        "SUPER,backspace,exec,${hyprlock}"
+        "SUPER,backspace,exec,${lock}"
 
         # notification manager
         "SUPER,d,exec,${makoctl} dismiss"
