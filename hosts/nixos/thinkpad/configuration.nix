@@ -7,7 +7,6 @@
   imports = [
     ./hardware-configuration.nix
     ../common/audio.nix
-    ../common/auto-epp.nix
     ../common/dconf.nix
     ../common/fwupd.nix
     ../common/impermanence.nix
@@ -108,6 +107,19 @@
   programs.nix-ld.enable = true;
 
   services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+
+  systemd.services.power-profile-power-saver = {
+    description = "Set power-profiles-daemon profile to power-saver";
+    wantedBy = [ "power-profiles-daemon.service" ];
+    after = [ "power-profiles-daemon.service" ];
+    bindsTo = [ "power-profiles-daemon.service" ];
+    partOf = [ "power-profiles-daemon.service" ];
+    serviceConfig.Type = "oneshot";
+    script = ''
+      ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver
+    '';
+  };
 
   # lid settings
   services.logind = {
