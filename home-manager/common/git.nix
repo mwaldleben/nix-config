@@ -12,7 +12,7 @@
       user = {
         email = "moritz@waldleben.ch";
         name = "Moritz Waldleben";
-        signing.key = "B5D736799A90EAA5";
+        signingKey = "9EF57D12FE49D907!";
       };
       commit.gpgSign = true;
       gpg.program = "${pkgs.gnupg}/bin/gpg2";
