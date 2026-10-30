@@ -51,7 +51,7 @@
       overlays = import ./overlays { inherit inputs; };
 
       nixosConfigurations = {
-        # personal laptop
+        # personal laptop (nixos)
         thinkpad = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
@@ -74,7 +74,7 @@
       };
 
       darwinConfigurations = {
-        # work laptop
+        # work laptop (nix-darwin)
         "MacBook-Pro" = darwin.lib.darwinSystem {
           specialArgs = {
             inherit inputs;
@@ -93,6 +93,21 @@
               };
             }
           ];
+        };
+      };
+
+      homeConfigurations = {
+        # wsl laptop (standalone home-manager)
+        "moritz@wsl" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = builtins.attrValues self.overlays;
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./home-manager/moritz-wsl.nix ];
         };
       };
     };

@@ -8,6 +8,7 @@ NixOS + nix-darwin flake managing a personal ThinkPad (NixOS) and a work MacBook
 nrs                         # alias: sudo nixos-rebuild --flake . switch
 hm                          # alias: home-manager --flake . switch
 darwin-rebuild --flake .#MacBook-Pro switch
+home-manager switch --flake .#moritz@wsl  # wsl laptop (standalone)
 nix fmt                     # formatter: nixfmt-tree
 sops hosts/nixos/thinkpad/secrets.yaml  # edit encrypted secrets
 ```
@@ -15,7 +16,7 @@ sops hosts/nixos/thinkpad/secrets.yaml  # edit encrypted secrets
 ## Repository Structure
 
 ```
-flake.nix                              # inputs, nixosConfigurations.thinkpad, darwinConfigurations."MacBook-Pro"
+flake.nix                              # inputs, nixosConfigurations.thinkpad, darwinConfigurations."MacBook-Pro", homeConfigurations."moritz@wsl"
 hosts/
   nixos/common/                        # shared NixOS system modules (audio, networking, impermanence, sops, ...)
   nixos/thinkpad/                      # host config, hardware config, secrets.yaml
@@ -24,6 +25,7 @@ hosts/
 home-manager/
   moritz-thinkpad.nix                  # NixOS user profile entry point
   moritzwaldleben-macbook.nix          # darwin user profile entry point
+  moritz-wsl.nix                       # standalone home-manager on WSL (single-user nix, no systemd)
   common/                              # cross-platform: zsh, git, ghostty, neovim, fonts, ssh, firefox
   nixos/                               # NixOS-only: hyprland, ashell, gtk, fuzzel, sops, services
 overlays/default.nix                   # additions (custom pkgs) + modifications
