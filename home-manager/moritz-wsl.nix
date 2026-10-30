@@ -10,6 +10,7 @@
     ./common/git.nix
     ./common/herdr.nix
     ./common/neovim.nix
+    ./common/ssh.nix
     ./common/uv.nix
     ./common/zsh.nix
   ];
