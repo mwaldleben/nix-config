@@ -17,7 +17,15 @@
 
   programs = {
     home-manager.enable = true;
-    zsh.shellAliases.hs = lib.mkForce "home-manager switch --flake .#moritz@wsl";
+    zsh = {
+      shellAliases.hs = lib.mkForce "home-manager switch --flake .#moritz@wsl";
+      # start herdr in interactive shells, unless already inside it
+      initContent = lib.mkOrder 1500 ''
+        if [[ -o interactive && -z $HERDR_ENV ]]; then
+          exec herdr
+        fi
+      '';
+    };
 
     # different git account, identity kept out of the repo in an unmanaged file
     git = {
