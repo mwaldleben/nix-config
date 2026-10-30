@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  zellij = "${config.programs.zellij.package}/bin/zellij";
+  herdr = "${config.programs.herdr.package}/bin/herdr";
 in
 {
   programs.ghostty = {
@@ -8,7 +8,7 @@ in
     enable = true;
     enableZshIntegration = true;
     settings = {
-      command = zellij;
+      command = herdr;
       confirm-close-surface = false;
       font-family = "monospace";
       font-size = if pkgs.stdenv.isDarwin then 15 else 13;
