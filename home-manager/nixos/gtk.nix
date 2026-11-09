@@ -7,11 +7,10 @@ let
 in
 {
   home.pointerCursor = {
-    package = pkgs.catppuccin-cursors.frappeBlue;
-    name = "catppuccin-frappe-blue-cursors";
-    size = 32;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
     gtk.enable = true;
-    hyprcursor.enable = true;
   };
   gtk = {
     enable = true;
