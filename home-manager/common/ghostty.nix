@@ -4,14 +4,14 @@ let
 in
 {
   programs.ghostty = {
-    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     enable = true;
     enableZshIntegration = true;
     settings = {
       command = herdr;
       confirm-close-surface = false;
       font-family = "monospace";
-      font-size = if pkgs.stdenv.isDarwin then 15 else 13;
+      font-size = if pkgs.stdenv.hostPlatform.isDarwin then 15 else 13;
       keybind = [
         "clear"
         "ctrl+shift+c=copy_to_clipboard"
@@ -24,7 +24,7 @@ in
       resize-overlay = "never";
       window-padding-x = 10;
       window-padding-y = 10;
-      background-opacity = if pkgs.stdenv.isDarwin then 1 else 0.97;
+      background-opacity = if pkgs.stdenv.hostPlatform.isDarwin then 1 else 0.97;
     };
   };
 }

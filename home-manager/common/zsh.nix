@@ -18,7 +18,7 @@
       }
     ];
     shellAliases =
-      if pkgs.stdenv.isDarwin then
+      if pkgs.stdenv.hostPlatform.isDarwin then
         {
           nrs = "sudo -H nix run nix-darwin -- switch --flake .";
         }
