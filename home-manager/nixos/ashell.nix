@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  # catppuccin nix does not support ashell, so read the palette directly
+  # cattpuccin nix does not support ashell
   palette =
     (lib.importJSON "${config.catppuccin.sources.palette}/palette.json")
     .${config.catppuccin.flavor}.colors;
@@ -28,7 +28,6 @@ in
       };
       appearance = {
         scale_factor = 1;
-        # floating bar matching hyprland: 8px gaps (xs) and 8px rounding (md)
         bar = {
           surface = "solid";
           radius = "md";
