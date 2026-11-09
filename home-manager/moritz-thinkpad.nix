@@ -59,7 +59,8 @@
     nodejs # javascript runtime
     cargo # rust package manager
     openjdk # java development kit
-    pi-coding-agent # terminal coding agent
+    pi-coding-agent # minimal terminal agent harnesscoding agent
+    claude-code # anthropics agent harness
 
     # personal scripts (pkgs directory)
     backup # system backup script
