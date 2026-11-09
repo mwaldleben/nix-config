@@ -32,8 +32,6 @@ let
   };
 
   toLua = lib.generators.toLua { multiline = false; };
-  # dsp "window.move" { workspace = 1; } -> hl.dsp.window.move({ ["workspace"] = 1 })
-  # pass null for dispatchers without arguments
   dsp =
     name: args:
     lib.generators.mkLuaInline "hl.dsp.${name}(${lib.optionalString (args != null) (toLua args)})";
@@ -67,9 +65,16 @@ in
         lock = "${pidof} hyprlock || ${hyprlock}";
         terminal = "${config.programs.ghostty.package}/bin/ghostty";
         makoctl = "${config.services.mako.package}/bin/makoctl";
+        kanshictl = "${config.services.kanshi.package}/bin/kanshictl";
+        displayToggle = pkgs.writeShellScript "display-toggle" ''
+          if ${kanshictl} status | ${pkgs.gnugrep}/bin/grep -q 'Current profile: both'; then
+            ${kanshictl} switch docked
+          else
+            ${kanshictl} switch both
+          fi
+        '';
       in
       [
-        # move/resize windows with the mouse
         (mouseBind "SUPER + mouse:272" (dsp "window.drag" null))
         (mouseBind "SUPER + mouse:273" (dsp "window.resize" null))
 
@@ -107,6 +112,9 @@ in
         # screenshots
         (exec "Print" "${hyprshot} -m output")
         (exec "SHIFT + Print" "${hyprshot} -m region")
+
+        (exec "SUPER + p" "${displayToggle}")
+        (exec "switch:on:Lid Switch" "${kanshictl} switch docked")
       ]
       ++
         # change workspace

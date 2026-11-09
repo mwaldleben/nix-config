@@ -19,13 +19,28 @@
         profile.name = "docked";
         profile.outputs = [
           {
-            criteria = "HDMI-A-1";
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "*";
+            status = "enable";
+          }
+        ];
+      }
+      {
+        profile.name = "both";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
             scale = 1.5;
+            position = "0,0";
             status = "enable";
           }
           {
-            criteria = "eDP-1";
-            status = "disable";
+            criteria = "*";
+            position = "1920,0";
+            status = "enable";
           }
         ];
       }

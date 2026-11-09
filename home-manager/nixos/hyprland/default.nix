@@ -1,6 +1,5 @@
 { lib, ... }:
 let
-  # catppuccin palette, loaded as a lua local by the catppuccin module
   color = name: lib.generators.mkLuaInline "colors.${name}";
 in
 {
@@ -70,7 +69,7 @@ in
           scale = 1.5;
         }
         {
-          output = "HDMI-A-1";
+          output = "desc:LG Electronics LG HDR 4K";
           mode = "3840x2160@60";
           position = "auto";
           scale = 1.5;
@@ -80,7 +79,7 @@ in
           output = "";
           mode = "preferred";
           position = "auto";
-          scale = 1;
+          scale = "auto";
         }
       ];
     };
