@@ -1,4 +1,11 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  # catppuccin nix does not support ashell, so read the palette directly
+  palette =
+    (lib.importJSON "${config.catppuccin.sources.palette}/palette.json")
+    .${config.catppuccin.flavor}.colors;
+  color = name: palette.${name}.hex;
+in
 {
   programs.ashell = {
     enable = true;
@@ -20,28 +27,34 @@
         max_workspaces = 5;
       };
       appearance = {
-        style = "Islands";
         scale_factor = 1;
-        # cattpuccin nix does not support ashell
+        # floating bar matching hyprland: 8px gaps (xs) and 8px rounding (md)
+        bar = {
+          surface = "solid";
+          radius = "md";
+          margin = [
+            "xs"
+            "xs"
+            "none"
+            "xs"
+          ];
+        };
         background_color = {
-          base = "#303446";
+          base = color "base";
+          weak = color "surface0";
+          strong = color "surface1";
         };
         primary_color = {
-          base = "#8caaee";
+          base = color config.catppuccin.accent;
+          text = color "base";
         };
-        secondary_color = {
-          base = "#626880";
-        };
-        success_color = {
-          base = "#a6d189";
-        };
-        danger_color = {
-          base = "#e78284";
-        };
-        text_color = "#c6d0f5";
+        success_color = color "green";
+        warning_color = color "yellow";
+        danger_color = color "red";
+        text_color = color "text";
       };
       media_player = {
-        max_title_length = 40;
+        max_text_length = 40;
       };
     };
   };
