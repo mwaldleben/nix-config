@@ -57,4 +57,9 @@ in
       };
     };
   };
+
+  systemd.user.services.ashell.Unit = {
+    PartOf = [ "graphical-session.target" ];
+    ConditionEnvironment = "WAYLAND_DISPLAY";
+  };
 }
