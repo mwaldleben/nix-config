@@ -64,6 +64,7 @@
       };
       settings = {
         "browser.startup.homepage" = "https://duckduckgo.com";
+        "browser.startup.page" = 3;
         "browser.search.region" = "CH";
         "browser.search.isUS" = false;
         "distribution.searchplugins.defaultLocale" = "de-CH";

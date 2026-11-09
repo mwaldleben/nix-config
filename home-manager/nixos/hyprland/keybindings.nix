@@ -79,7 +79,7 @@ in
         (mouseBind "SUPER + mouse:273" (dsp "window.resize" null))
 
         (bind "SUPER + q" (dsp "window.close" null))
-        (bind "SUPER + SHIFT + q" (dsp "exit" null))
+        (exec "SUPER + SHIFT + q" "${pkgs.hyprshutdown}/bin/hyprshutdown")
         (bind "SUPER + m" (dsp "window.fullscreen" { mode = "fullscreen"; }))
 
         # terminal
