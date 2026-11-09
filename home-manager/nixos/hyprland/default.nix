@@ -1,6 +1,7 @@
-{ config, lib, ... }:
+{ lib, ... }:
 let
-  toLua = lib.generators.toLua { };
+  # catppuccin palette, loaded as a lua local by the catppuccin module
+  color = name: lib.generators.mkLuaInline "colors.${name}";
 in
 {
   imports = [
@@ -15,29 +16,27 @@ in
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
-      on = {
-        _args = [
-          "hyprland.start"
-          (lib.generators.mkLuaInline ''
-            function()
-              hl.exec_cmd(${toLua "${config.wayland.windowManager.hyprland.package}/bin/hyprctl setcursor catppuccin-frappe-blue-cursors 32"})
-            end'')
-        ];
-      };
       config = {
         xwayland = {
           force_zero_scaling = true;
         };
         general = {
-          gaps_in = 5;
-          gaps_out = 10;
-          border_size = 0;
-          layout = "dwindle";
+          gaps_in = 4;
+          gaps_out = 8;
+          border_size = 2;
+          col = {
+            active_border = color "blue";
+            inactive_border = color "surface0";
+          };
+        };
+        dwindle = {
+          preserve_split = true;
         };
         misc = {
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
           disable_autoreload = true;
+          background_color = color "base";
         };
         input = {
           kb_layout = "us,ch";
@@ -50,7 +49,7 @@ in
           inactive_timeout = 5;
         };
         decoration = {
-          rounding = 15;
+          rounding = 8;
           blur = {
             enabled = false;
           };

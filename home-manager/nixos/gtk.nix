@@ -11,6 +11,7 @@ in
     name = "catppuccin-frappe-blue-cursors";
     size = 32;
     gtk.enable = true;
+    hyprcursor.enable = true;
   };
   gtk = {
     enable = true;
