@@ -5,7 +5,7 @@
   ...
 }:
 let
-  workspaces = map toString (lib.range 1 9);
+  workspaces = lib.range 1 9;
   directions = {
     h = "l";
     l = "r";
@@ -13,19 +13,47 @@ let
     j = "d";
   };
   resizes = {
-    h = "-30 0";
-    l = "30 0";
-    k = "0 -30";
-    j = "0 30";
+    h = {
+      x = -30;
+      y = 0;
+    };
+    l = {
+      x = 30;
+      y = 0;
+    };
+    k = {
+      x = 0;
+      y = -30;
+    };
+    j = {
+      x = 0;
+      y = 30;
+    };
   };
+
+  toLua = lib.generators.toLua { multiline = false; };
+  # dsp "window.move" { workspace = 1; } -> hl.dsp.window.move({ ["workspace"] = 1 })
+  # pass null for dispatchers without arguments
+  dsp =
+    name: args:
+    lib.generators.mkLuaInline "hl.dsp.${name}(${lib.optionalString (args != null) (toLua args)})";
+  bind = keys: dispatcher: {
+    _args = [
+      keys
+      dispatcher
+    ];
+  };
+  mouseBind = keys: dispatcher: {
+    _args = [
+      keys
+      dispatcher
+      { mouse = true; }
+    ];
+  };
+  exec = keys: cmd: bind keys (dsp "exec_cmd" cmd);
 in
 {
   wayland.windowManager.hyprland.settings = {
-    bindm = [
-      "SUPER,mouse:272,movewindow"
-      "SUPER,mouse:273,resizewindow"
-    ];
-
     bind =
       let
         amixer = "${pkgs.alsa-utils}/bin/amixer";
@@ -37,64 +65,81 @@ in
         hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
         pidof = "${pkgs.procps}/bin/pidof";
         lock = "${pidof} hyprlock || ${hyprlock}";
-        systemctl = "${pkgs.systemd}/bin/systemctl";
         terminal = "${config.programs.ghostty.package}/bin/ghostty";
         makoctl = "${config.services.mako.package}/bin/makoctl";
       in
       [
-        "SUPER,q,killactive"
-        "SUPERSHIFT,q,exit"
-        "SUPER,m,fullscreen"
+        # move/resize windows with the mouse
+        (mouseBind "SUPER + mouse:272" (dsp "window.drag" null))
+        (mouseBind "SUPER + mouse:273" (dsp "window.resize" null))
+
+        (bind "SUPER + q" (dsp "window.close" null))
+        (bind "SUPER + SHIFT + q" (dsp "exit" null))
+        (bind "SUPER + m" (dsp "window.fullscreen" { mode = "fullscreen"; }))
 
         # terminal
-        "SUPERSHIFT,return,exec,${terminal}"
+        (exec "SUPER + SHIFT + return" terminal)
 
         # browser
-        "SUPER,w,exec,${firefox}"
+        (exec "SUPER + w" firefox)
 
         # launcher
-        "SUPER,o,exec,${fuzzel} --no-icons"
+        (exec "SUPER + o" "${fuzzel} --no-icons")
 
         # screen lock
-        "SUPER,backspace,exec,${lock}"
+        (exec "SUPER + backspace" lock)
 
         # notification manager
-        "SUPER,d,exec,${makoctl} dismiss"
+        (exec "SUPER + d" "${makoctl} dismiss")
 
         # volume control
-        "SUPER,Up,exec,${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
-        "SUPER,DOWN,exec,${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
-        ",XF86AudioRaiseVolume,exec,${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
-        ",XF86AudioLowerVolume,exec,${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
-        ",XF86AudioMute,exec,${pactl} set-sink-mute @DEFAULT_SINK@ toggle"
-        ",XF86AudioMicMute,exec,${amixer} -c Generic_1 sset Capture toggle"
+        (exec "SUPER + Up" "${pactl} set-sink-volume @DEFAULT_SINK@ +5%")
+        (exec "SUPER + Down" "${pactl} set-sink-volume @DEFAULT_SINK@ -5%")
+        (exec "XF86AudioRaiseVolume" "${pactl} set-sink-volume @DEFAULT_SINK@ +5%")
+        (exec "XF86AudioLowerVolume" "${pactl} set-sink-volume @DEFAULT_SINK@ -5%")
+        (exec "XF86AudioMute" "${pactl} set-sink-mute @DEFAULT_SINK@ toggle")
+        (exec "XF86AudioMicMute" "${amixer} -c Generic_1 sset Capture toggle")
 
         # brightness control
-        ",XF86MonBrightnessUp,exec,${brightnessctl} s 5%+"
-        ",XF86MonBrightnessDown,exec,${brightnessctl} s 5%-"
+        (exec "XF86MonBrightnessUp" "${brightnessctl} s 5%+")
+        (exec "XF86MonBrightnessDown" "${brightnessctl} s 5%-")
 
         # screenshots
-        ",Print,exec,${hyprshot} -m output"
-        "SHIFT,Print,exec,${hyprshot} -m region"
+        (exec "Print" "${hyprshot} -m output")
+        (exec "SHIFT + Print" "${hyprshot} -m region")
       ]
       ++
         # change workspace
-        (map (n: "SUPER,${n},workspace,${n}") workspaces)
+        (map (n: bind "SUPER + ${toString n}" (dsp "focus" { workspace = n; })) workspaces)
       ++
 
         # move window to workspace
-        (map (n: "SUPERSHIFT,${n},movetoworkspacesilent,${n}") workspaces)
+        (map (
+          n:
+          bind "SUPER + SHIFT + ${toString n}" (
+            dsp "window.move" {
+              workspace = n;
+              follow = false;
+            }
+          )
+        ) workspaces)
       ++
 
         # move focus
-        (lib.mapAttrsToList (key: direction: "SUPER,${key},movefocus,${direction}") directions)
+        (lib.mapAttrsToList (
+          key: direction: bind "SUPER + ${key}" (dsp "focus" { inherit direction; })
+        ) directions)
       ++
 
         # resize window
-        (lib.mapAttrsToList (key: resize: "SUPERALT,${key},resizeactive,${resize}") resizes)
+        (lib.mapAttrsToList (
+          key: resize: bind "SUPER + ALT + ${key}" (dsp "window.resize" (resize // { relative = true; }))
+        ) resizes)
       ++
 
         # swap windows
-        (lib.mapAttrsToList (key: direction: "SUPERSHIFT,${key},swapwindow,${direction}") directions);
+        (lib.mapAttrsToList (
+          key: direction: bind "SUPER + SHIFT + ${key}" (dsp "window.swap" { inherit direction; })
+        ) directions);
   };
 }
