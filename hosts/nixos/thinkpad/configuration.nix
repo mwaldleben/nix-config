@@ -125,11 +125,13 @@
   services.logind = {
     settings = {
       Login = {
-        HandleLidSwitch = "suspend";
-        HandleLidSwitchExternalPower = "suspend";
+        HandleLidSwitch = "suspend-then-hibernate";
+        HandleLidSwitchExternalPower = "suspend-then-hibernate";
       };
     };
   };
+
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "2h";
 
   system.stateVersion = "26.05";
 }

@@ -29,6 +29,7 @@
       requires = [ "systemd-cryptsetup@enc.service" ];
       after = [
         "systemd-cryptsetup@enc.service"
+        "systemd-hibernate-resume.service"
         "local-fs-pre.target"
       ];
 
