@@ -19,6 +19,8 @@ in
       background = {
         monitor = "";
         path = "${config.xdg.dataHome}/wallpaper.jpg";
+        blur_passes = 3;
+        brightness = 0.6;
       };
       input-field = {
         monitor = "";
@@ -38,9 +40,9 @@ in
         fail_color = "$red";
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
         capslock_color = "$yellow";
-        position = "0, -300";
+        position = "0, 180";
         halign = "center";
-        valign = "center";
+        valign = "bottom";
       };
       label = [
         {
@@ -48,7 +50,7 @@ in
           text = "$TIME";
           color = "$accent";
           font_size = "120";
-          position = "0, 300";
+          position = "0, 220";
           halign = "center";
           valign = "center";
         }
@@ -57,7 +59,7 @@ in
           text = "cmd[update:43200000] LC_TIME=C ${date} '+%A, %d %B %Y'";
           color = "$accent";
           font_size = 25;
-          position = "0, 200";
+          position = "0, 120";
           halign = "center";
           valign = "center";
         }
