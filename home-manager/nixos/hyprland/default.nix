@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 let
   color = name: lib.generators.mkLuaInline "colors.${name}";
 in
@@ -24,7 +24,7 @@ in
           gaps_out = 8;
           border_size = 2;
           col = {
-            active_border = color "blue";
+            active_border = color config.catppuccin.accent;
             inactive_border = color "surface0";
           };
         };

@@ -1,7 +1,7 @@
 # My NixOS configuration
 
 This repository contains my personal NixOS + nix-darwin configuration. The setup leverages
-[Nix flakes](https://nixos.wiki/wiki/Flakes) and integrates [Home
+[Nix flakes](https://wiki.nixos.org/wiki/Flakes) and integrates [Home
 Manager](https://github.com/nix-community/home-manager) for the user
 configuration. On NixOS, I rely on the
 [Hyprland](https://github.com/hyprwm/Hyprland) window manager for Wayland.
@@ -11,13 +11,17 @@ configuration. On NixOS, I rely on the
 
 ## Features
 
-- Multi-host setup: ThinkPad (NixOS) and MacBook (nix-darwin)
-- Cross-platform common config shared between both machines
+- Multi-host setup: ThinkPad (NixOS), MacBook (nix-darwin) and WSL (standalone
+  Home Manager)
+- Cross-platform common config shared between all machines
 - Encrypted BTRFS partition
 - Ephemeral root setup with opt-in persistence through
   [impermanence](https://github.com/nix-community/impermanence)
 - Consistent theming with [catppuccin](https://github.com/catppuccin/nix) (frappe, blue accent)
 - Declarative secrets with [sops-nix](https://github.com/Mic92/sops-nix)
+- Sandboxed AI coding agent with [jail.nix](https://git.sr.ht/~alexdavid/jail.nix)
+- Private wallpaper override: drop a `custom.jpg` (gitignored) next to
+  `home-manager/wallpapers/default.jpg`
 
 ## Programs
 
@@ -27,7 +31,7 @@ configuration. On NixOS, I rely on the
 | Status bar           | ashell                                                                    |
 | Shell                | zsh                                                                       |
 | Terminal emulator    | Ghostty                                                                   |
-| Terminal multiplexer | tmux                                                                      |
+| Terminal multiplexer | herdr                                                                     |
 | Editor               | neovim (managed in a separate [repo](https://github.com/mwaldleben/nvim)) |
 | Browser              | Firefox                                                                   |
 | Application launcher | fuzzel                                                                    |
@@ -37,7 +41,7 @@ configuration. On NixOS, I rely on the
 | Image viewer         | imv                                                                       |
 | Music player         | Lollypop                                                                  |
 | Screenshots          | hyprshot                                                                  |
-| AI coding assistant  | pi (NixOS)                                                                |
+| AI coding assistant  | pi (sandboxed), Claude Code                                               |
 | Colorscheme          | catppuccin frappe                                                         |
 
 ## Installation
@@ -46,7 +50,7 @@ The installation script `install.sh` helps to generate a BTRFS filesystem with
 the default NixOS config. Below the steps one would roughly need to follow to
 set up the system:
 
-1. Create a [BTRFS](https://nixos.wiki/wiki/Btrfs) filesystem with subvolumes
+1. Create a [BTRFS](https://wiki.nixos.org/wiki/Btrfs) filesystem with subvolumes
    `/nix`, `/persist`, swap file and root subvolume.
 2. Generate and build default NixOS configuration for your system.
 3. Clone this repository.

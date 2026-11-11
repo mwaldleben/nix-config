@@ -1,12 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
+  inherit (config.catppuccin) flavor accent;
   catppuccin-gtk = pkgs.catppuccin-gtk.override {
-    accents = [ "blue" ];
-    variant = "frappe";
+    accents = [ accent ];
+    variant = flavor;
   };
+  theme = "catppuccin-${flavor}-${accent}-standard";
 in
 {
   home.pointerCursor = {
+    enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 24;
@@ -20,16 +23,15 @@ in
     };
     colorScheme = "dark";
     theme = {
-      name = "catppuccin-frappe-blue-standard";
+      name = theme;
       package = catppuccin-gtk;
     };
   };
 
   # GTK4 / libadwaita theming (Lollypop, etc.)
-  xdg.configFile."gtk-4.0/gtk.css".source =
-    "${catppuccin-gtk}/share/themes/catppuccin-frappe-blue-standard/gtk-4.0/gtk.css";
+  xdg.configFile."gtk-4.0/gtk.css".source = "${catppuccin-gtk}/share/themes/${theme}/gtk-4.0/gtk.css";
   xdg.configFile."gtk-4.0/gtk-dark.css".source =
-    "${catppuccin-gtk}/share/themes/catppuccin-frappe-blue-standard/gtk-4.0/gtk-dark.css";
+    "${catppuccin-gtk}/share/themes/${theme}/gtk-4.0/gtk-dark.css";
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {

@@ -17,9 +17,7 @@
     entr
     git
     gnupg
-    neovim
     ripgrep
-    srm
     trash-cli
     unzip
     wget
@@ -27,6 +25,7 @@
   ];
 
   nixpkgs = {
+    overlays = builtins.attrValues inputs.self.overlays;
     config = {
       allowUnfree = true;
     };

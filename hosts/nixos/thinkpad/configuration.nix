@@ -30,9 +30,7 @@
       "networkmanager"
       "video"
       "audio"
-      "davfs2"
     ];
-    packages = [ pkgs.home-manager ];
     hashedPasswordFile = config.sops.secrets.moritz-password.path;
   };
 
@@ -66,11 +64,9 @@
   environment.systemPackages = with pkgs; [
     git
     gcc
-    neovim
     python3
     ripgrep
     sops
-    srm
     ssh-to-age
     trash-cli
     unzip

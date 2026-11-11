@@ -27,7 +27,6 @@
     ./nixos/kanshi.nix
     ./nixos/mako.nix
     ./nixos/pi.nix
-
     ./nixos/syncthing.nix
     ./nixos/udiskie.nix
   ];
@@ -65,7 +64,6 @@
 
     # personal scripts (pkgs directory)
     backup # system backup script
-
   ];
 
   home = {
@@ -81,19 +79,16 @@
           "notes"
           "pictures"
           "other"
-          ".calendars"
-          ".contacts"
-          ".mail"
           ".local"
           ".password-store"
           ".gnupg"
           ".ssh"
           ".config/mozilla/firefox"
           ".pi"
+          ".pi-lens"
+          ".claude"
           ".config/MusicBrainz"
           ".config/nvim"
-          ".config/tmux"
-          ".config/todo"
           ".config/syncthing"
           ".config/Signal"
         ];
@@ -103,9 +98,9 @@
 
   # session variables
   home.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = 1;
     LIBSEAT_BACKEND = "logind";
     QT_QPA_PLATFORM = "wayland;xcb";
+    CLAUDE_CONFIG_DIR = "${config.home.homeDirectory}/.claude";
   };
 
   systemd.user.startServices = "sd-switch";

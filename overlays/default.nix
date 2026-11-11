@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ ... }:
 {
   additions = final: _prev: import ../pkgs final;
 
-  modifications = final: prev: { };
+  modifications = _final: _prev: { };
 }

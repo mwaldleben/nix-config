@@ -1,28 +1,27 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
+let
+  openWith = app: types: lib.genAttrs (lib.splitString " " types) (_: app);
+in
 {
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = {
-      "text/plain" = "nvim.desktop";
-      "application/pdf" = "zathura.desktop";
-      "image/*" = "imv.desktop";
-      "audio/*" = "mpv.desktop";
-      "video/*" = "mpv.desktop";
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-    };
-    associations = {
-      added = {
-        "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
-        "image/*" = "imv.desktop";
-        "audio/*" = "mpv.desktop";
-        "video/*" = "mpv.desktop";
+    defaultApplications =
+      openWith "imv.desktop" "image/png image/jpeg image/gif image/webp"
+      // openWith "mpv.desktop" "audio/mpeg audio/flac audio/ogg video/mp4 video/webm video/x-matroska"
+      // {
+        "text/plain" = "nvim.desktop";
+        "application/pdf" = "zathura.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
       };
+    associations.added = {
+      "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
     };
   };
 
@@ -39,7 +38,6 @@
       videos = "${config.home.homeDirectory}/downloads";
       extraConfig = {
         SCREENSHOTS = "${config.home.homeDirectory}/downloads";
-        XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
       };
     };
   };

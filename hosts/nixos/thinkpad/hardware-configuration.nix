@@ -1,7 +1,6 @@
 {
   lib,
   modulesPath,
-  utils,
   ...
 }:
 
@@ -54,7 +53,6 @@
   boot.kernelParams = [
     "initcall_blacklist=acpi_cpufreq_init"
     "acpi_backlight=native"
-    "apm=power_off"
   ];
   boot.extraModulePackages = [ ];
 

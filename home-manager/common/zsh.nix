@@ -39,7 +39,6 @@
       alias ls="ls --color=auto"
       alias ll="ls -l --color=auto"
       alias vim="nvim"
-      alias t="todo.sh"
 
       # vim bindings
       bindkey -v
