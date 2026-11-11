@@ -25,6 +25,9 @@ in
       "urgency=high" = {
         border-color = color "peach";
       };
+      "urgency=critical" = {
+        border-color = color "red";
+      };
     };
   };
 }

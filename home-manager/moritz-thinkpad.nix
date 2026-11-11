@@ -14,6 +14,7 @@
     ./common/zsh.nix
     ./nixos/hyprland
     ./nixos/ashell.nix
+    ./nixos/batsignal.nix
     ./nixos/fuzzel.nix
     ./nixos/gtk.nix
     ./nixos/imv.nix

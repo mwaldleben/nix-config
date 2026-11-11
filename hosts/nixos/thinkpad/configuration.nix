@@ -106,7 +106,12 @@
 
   programs.nix-ld.enable = true;
 
-  services.upower.enable = true;
+  services.upower = {
+    enable = true;
+    criticalPowerAction = "Hibernate";
+    percentageAction = 4;
+    percentageCritical = 10;
+  };
   services.power-profiles-daemon.enable = true;
 
   systemd.services.power-profile-power-saver = {
