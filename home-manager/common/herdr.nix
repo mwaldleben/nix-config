@@ -1,4 +1,4 @@
-{  ... }:
+{ ... }:
 {
   programs.herdr = {
     enable = true;
