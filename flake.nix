@@ -26,6 +26,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    jail-nix.url = "sourcehut:~alexdavid/jail.nix";
   };
 
   outputs =

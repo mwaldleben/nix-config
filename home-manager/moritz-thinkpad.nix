@@ -26,6 +26,7 @@
     ./nixos/gpg.nix
     ./nixos/kanshi.nix
     ./nixos/mako.nix
+    ./nixos/pi.nix
 
     ./nixos/syncthing.nix
     ./nixos/udiskie.nix
@@ -60,7 +61,6 @@
     nodejs # javascript runtime
     cargo # rust package manager
     openjdk # java development kit
-    pi-coding-agent # minimal terminal agent harnesscoding agent
     claude-code # anthropics agent harness
 
     # personal scripts (pkgs directory)
