@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   date = "${pkgs.coreutils}/bin/date";
@@ -18,7 +18,7 @@ in
       };
       background = {
         monitor = "";
-        path = "${../../wallpapers/default.jpg}";
+        path = "${config.xdg.dataHome}/wallpaper.jpg";
       };
       input-field = {
         monitor = "";
